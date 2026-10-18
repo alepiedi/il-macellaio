@@ -36,12 +36,12 @@ In `config.js` (`orari`), giorno per giorno con le fasce. Il sito li mostra nell
 
 ## 🔳 QR code del menu (`stampa/qr-menu/`)
 
-- `qr-menu.svg` e `qr-menu.png`: il QR da solo (correzione d'errore Q), punta a `https://alessandropiedimonte.dev/clienti/il-macellaio/menu/`.
+- `qr-menu.svg` e `qr-menu.png`: il QR da solo (correzione d'errore Q), punta a `https://ilmacellaiobn.it/menu/`.
 - `cartoncino-A6.pdf`: il cartoncino da tavolo (10,5 × 14,8 cm).
 - `cartoncino-A6-tipografia-abbondanza-3mm.pdf`: lo stesso con 3 mm di abbondanza per lato, da dare alla tipografia.
 - `cartoncini-A4-4-per-foglio.pdf`: quattro cartoncini su un A4, da stampare in casa e tagliare sulle linee.
 
-Se il menu cambia indirizzo (dominio definitivo), il QR va rigenerato e ristampato.
+Se il menu cambia indirizzo, il QR va rigenerato e ristampato: `/menu/` non va mai spostato.
 
 ## 📋 Pagina del menu (`/menu/`)
 
@@ -64,12 +64,17 @@ Le foto vanno in `public/assets/img/foto/` e poi elencate in `config.foto`.
 
 `public/assets/img/logo.svg` (contorno nero, per fondi chiari) e `logo-scuro.svg` (per il sito) sono il logo del locale ridisegnato in vettoriale dall'immagine del profilo Facebook. L'icona (`favicon.svg`) è la "M" del logo. Se il titolare ha il file originale, meglio sostituirli con quello.
 
-## Pubblicazione
+## Pubblicazione: ilmacellaiobn.it
 
-Su Cloudflare Workers (solo file statici, vedi `wrangler.jsonc`):
+Il dominio è comprato su **Aruba**; il sito gira su **Cloudflare Workers** (gratis), come alessandropiedimonte.it.
 
-```
-npx wrangler deploy
-```
+1. **Cloudflare → Add a domain** → `ilmacellaiobn.it` → piano Free. Cloudflare dà due *name server*.
+2. **Aruba → Area clienti → Gestione domini → ilmacellaiobn.it → Name server / DNS → Modifica**: si mettono i due name server di Cloudflare al posto di quelli di Aruba. Il cambio può richiedere da qualche ora a 24-48 ore; Cloudflare manda un'email quando il dominio è attivo.
+3. **Cloudflare → Workers & Pages → Create → Import a repository** → `alepiedi/il-macellaio`, branch di produzione `main`, build command vuoto, deploy command `npx wrangler deploy`.
+4. A ogni pubblicazione `wrangler.jsonc` collega da solo `ilmacellaiobn.it` e `www.ilmacellaiobn.it` (HTTPS automatico). `www` rimanda al dominio senza `www`. L'indirizzo `*.workers.dev` resta attivo per le prove.
+
+`canonical`, `og:url`, `og:image`, `sitemap.xml` e i dati strutturati puntano già a `https://ilmacellaiobn.it`.
 
 Per provarlo in locale basta un server statico: `npx http-server public`.
+
+**Il QR code dei tavoli punta a `https://ilmacellaiobn.it/menu/`: non stampare i cartoncini finché quell'indirizzo non si apre davvero.** L'anteprima su alessandropiedimonte.dev/clienti/il-macellaio/ resta come copia di lavoro.

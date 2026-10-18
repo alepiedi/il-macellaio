@@ -63,8 +63,8 @@ window.SITO = {
   ],
 
   // Mostra il nastro "Anteprima" in basso: mettere false quando il sito va online.
-  anteprima: true,
+  anteprima: false,
 
   piva: '',
-  url: '',
+  url: 'https://ilmacellaiobn.it',
 };

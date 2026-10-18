@@ -32,6 +32,10 @@ Da verificare con il locale: telefono e WhatsApp (presi da Tripadvisor), nome de
 
 Le foto vanno in `public/assets/img/foto/` e poi elencate in `config.foto`.
 
+## Logo
+
+`public/assets/img/logo.svg` (contorno nero, per fondi chiari) e `logo-scuro.svg` (per il sito) sono il logo del locale ridisegnato in vettoriale dall'immagine del profilo Facebook. L'icona (`favicon.svg`) è la "M" del logo. Se il titolare ha il file originale, meglio sostituirli con quello.
+
 ## Pubblicazione
 
 Su Cloudflare Workers (solo file statici, vedi `wrangler.jsonc`):

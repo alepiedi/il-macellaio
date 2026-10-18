@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Il Macellaio · Macelleria e Braceria a Benevento</title>
+  <meta name="description" content="Il Macellaio, Benevento: nato come macelleria, oggi braceria. Scegli il taglio al banco e lo vedi cuocere davanti a te: pietra lavica, brace e affumicatura dal vivo, con il burro affumicato. Via Napoli 118.">
+  <meta name="theme-color" content="#0c0a09">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Il Macellaio · Benevento">
+  <meta property="og:description" content="La carne, davanti a te. Tre cotture e il burro affumicato. Via Napoli 118, Benevento.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Restaurant", "ButcherShop"],
+    "name": "Il Macellaio",
+    "description": "Macelleria e braceria: carne frollata cotta davanti al cliente su pietra lavica, brace e affumicatura dal vivo.",
+    "servesCuisine": ["Carne alla brace", "Steakhouse"],
+    "telephone": "+39 340 829 0489",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Napoli, 118",
+      "postalCode": "82100",
+      "addressLocality": "Benevento",
+      "addressRegion": "BN",
+      "addressCountry": "IT"
+    },
+    "acceptsReservations": true
+  }
+  </script>
+</head>
+<body>
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+  <!-- Grana da pellicola su tutto il sito -->
+  <svg class="grana" aria-hidden="true"><filter id="f-grana"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/></filter><rect width="100%" height="100%" filter="url(#f-grana)"/></svg>
+
+  <!-- Filtri condivisi -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="f-calore" x="-10%" y="-20%" width="120%" height="140%">
+        <feTurbulence id="calore-rumore" type="fractalNoise" baseFrequency=".006 .022" numOctaves="2" seed="4" result="r"/>
+        <feDisplacementMap in="SourceGraphic" in2="r" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="f-lava" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="4" seed="9"/>
+        <feColorMatrix values="0 0 0 0 .09  0 0 0 0 .08  0 0 0 0 .075  0 0 0 -2.2 1.35"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <header class="testata" id="testata">
+    <a class="marchio" href="#inizio" aria-label="Il Macellaio, torna all'inizio">
+      <svg class="marchio-segno" viewBox="0 0 48 48" aria-hidden="true"><use href="#segno"/></svg>
+      <span class="marchio-testo"><b>Il Macellaio</b><small>Benevento</small></span>
+    </a>
+    <nav class="menu-nav" id="menu-nav" aria-label="Sezioni">
+      <a href="#storia">Storia</a>
+      <a href="#rito">Il rito</a>
+      <a href="#cotture">Cotture</a>
+      <a href="#burro">Il burro</a>
+      <a href="#tagli">Tagli</a>
+      <a href="#menu">Menu</a>
+      <a href="#dove">Dove</a>
+    </nav>
+    <a class="btn btn-brace testata-cta" href="#prenota">Prenota</a>
+    <button class="hamburger" id="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu-nav"><span></span><span></span></button>
+  </header>
+
+  <!-- Il segno: una fiamma che diventa una lama -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="segno" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/>
+      <path d="M24 7c2.6 6.2 9.6 9.8 9.6 18.6A9.6 9.6 0 0 1 24 35.2a9.6 9.6 0 0 1-9.6-9.6c0-4.2 2.2-7 4.2-9.2.3 3.2 1.7 5.2 3.6 6-1.4-5.6.6-10.6 1.8-15.4Z" fill="currentColor"/>
+      <path d="M15 39.5h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <main id="contenuto">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inizio" aria-labelledby="hero-titolo">
+      <canvas class="hero-fuoco" id="hero-fuoco" aria-hidden="true"></canvas>
+      <canvas class="hero-scintille" id="hero-scintille" aria-hidden="true"></canvas>
+      <div class="hero-velo" aria-hidden="true"></div>
+
+      <div class="hero-contenuto">
+        <p class="sopratitolo rivela"><span class="punto-vivo"></span> Macelleria &amp; Braceria · Benevento</p>
+        <h1 class="hero-titolo" id="hero-titolo">
+          <span class="riga"><span class="parola">La</span> <span class="parola">carne,</span></span>
+          <span class="riga riga-calda"><em class="parola">davanti</em> <em class="parola">a&nbsp;te.</em></span>
+        </h1>
+        <p class="hero-testo rivela">Scegli il taglio al banco. Lo vedi tagliare, cuocere e riposare a un passo dal tavolo: sulla pietra lavica, sulla brace o sotto il fumo, e poi il burro affumicato.</p>
+        <div class="hero-azioni rivela">
+          <a class="btn btn-brace btn-grande" href="#prenota">Prenota un tavolo <span aria-hidden="true">→</span></a>
+          <a class="btn btn-vetro btn-grande" href="#rito">Scopri il rito</a>
+        </div>
+      </div>
+
+      <div class="timbro" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs><path id="cerchio" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+          <text><textPath href="#cerchio" startOffset="0" textLength="486" lengthAdjust="spacing">IL MACELLAIO · TRE COTTURE · BURRO AFFUMICATO ·</textPath></text>
+          <use href="#segno" x="70" y="70" width="60" height="60"/>
+        </svg>
+      </div>
+
+      <div class="hero-piede">
+        <span>Via Napoli 118</span>
+        <span class="hero-voto" data-voto hidden>★ <b data-voto-numero></b> su Google</span>
+        <a class="scorri" href="#storia" aria-label="Scorri"><span></span></a>
+      </div>
+    </section>
+
+    <!-- Nastro -->
+    <div class="nastro" aria-hidden="true">
+      <div class="nastro-traccia">
+        <span>Frollatura</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
+        <span>Frollatura</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ 01 STORIA ============ -->
+    <section class="sezione storia" id="storia" aria-labelledby="storia-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">01 — La storia</p>
+        <h2 class="titolo-grande rivela" id="storia-titolo">Prima di tutto,<br><em>macellai.</em></h2>
+
+        <p class="manifesto" data-accendi>Il Macellaio nasce come macelleria. Prima della brace c'è stato il banco: conoscere l'animale, sapere dove tagliare, aspettare il tempo giusto della frollatura. Oggi quella stessa mano porta la carne fino al tavolo, e la cuoce davanti a te con una cura che sfiora l'ossessione.</p>
+
+        <div class="storia-passi">
+          <article class="passo-storia rivela">
+            <span class="passo-storia-n">I</span>
+            <h3>Il banco</h3>
+            <p>Tutto comincia da qui. Si sceglie la carne, si guarda il taglio, si decide lo spessore insieme. Nessun piatto arriva da una cucina che non vedi.</p>
+          </article>
+          <article class="passo-storia rivela">
+            <span class="passo-storia-n">II</span>
+            <h3>La brace</h3>
+            <p>Dalla macelleria alla braceria il passo è stato naturale: chi conosce la carne sa anche come trattarla sul fuoco. Tre cotture, ognuna per un motivo.</p>
+          </article>
+          <article class="passo-storia rivela">
+            <span class="passo-storia-n">III</span>
+            <h3>Il mondo</h3>
+            <p>Tecniche raccolte in giro per il mondo e riportate a Benevento. Come il burro della cugina giapponese, che qui si fonde e poi si affumica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 IL RITO ============ -->
+    <section class="sezione rito" id="rito" aria-labelledby="rito-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">02 — Il rito</p>
+        <h2 class="titolo-grande rivela" id="rito-titolo">Cinque passi.<br><em>Tutti sotto i tuoi occhi.</em></h2>
+      </div>
+
+      <div class="rito-scena contenitore">
+        <div class="rito-visivo" aria-hidden="true">
+          <div class="rito-schermo">
+            <span class="rito-numero" id="rito-numero">01</span>
+            <svg class="rito-icona" viewBox="0 0 200 200" id="rito-icona">
+              <!-- 1 banco: taglio con marezzatura -->
+              <g data-icona="0" class="attiva">
+                <path d="M40 120c0-30 25-55 62-55 34 0 58 18 58 44 0 30-30 46-64 46-32 0-56-12-56-35Z" fill="#8f1d24"/>
+                <path d="M40 120c0-30 25-55 62-55 34 0 58 18 58 44 0 30-30 46-64 46-32 0-56-12-56-35Z" fill="none" stroke="#f1e4d0" stroke-width="7" opacity=".9"/>
+                <path d="M70 100c12 4 18 14 34 12m-26 22c14-4 30 6 46-2m-6-34c-6 8-2 18 8 22" stroke="#f1e4d0" stroke-width="2.5" fill="none" opacity=".6" stroke-linecap="round"/>
+              </g>
+              <!-- 2 taglio: coltello -->
+              <g data-icona="1">
+                <path d="M30 128 150 62c8-4 18 2 16 11l-1 4L48 142Z" fill="#cfc5b8"/>
+                <path d="M30 128 150 62" stroke="#fff" stroke-width="2" opacity=".6"/>
+                <rect x="10" y="126" width="46" height="18" rx="6" transform="rotate(-28 33 135)" fill="#3a2a22"/>
+              </g>
+              <!-- 3 fuoco -->
+              <g data-icona="2">
+                <path d="M100 30c10 24 38 38 38 72a38 38 0 0 1-76 0c0-16 8-27 16-36 1 12 7 20 14 23-5-22 3-41 8-59Z" fill="#ff6a2b"/>
+                <path d="M100 82c5 12 18 18 18 34a18 18 0 0 1-36 0c0-10 6-15 9-20 1 6 4 9 7 10-2-9 0-16 2-24Z" fill="#ffd27a"/>
+              </g>
+              <!-- 4 burro -->
+              <g data-icona="3">
+                <path d="M48 104 120 76l40 22-72 30Z" fill="#f4d27a"/>
+                <path d="M48 104v26l40 22v-24Z" fill="#d9a945"/>
+                <path d="M88 128v24l72-30V98Z" fill="#e8bc5a"/>
+                <path d="M96 64c-6-10 4-16-2-26m20 26c-6-10 4-16-2-26m20 28c-6-10 4-16-2-26" stroke="#cfc5b8" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+              </g>
+              <!-- 5 al tavolo: piatto -->
+              <g data-icona="4">
+                <ellipse cx="100" cy="118" rx="80" ry="34" fill="#1c1715" stroke="#f1e4d0" stroke-width="2" opacity=".95"/>
+                <ellipse cx="100" cy="114" rx="56" ry="20" fill="#5b1418"/>
+                <path d="M60 112h80M66 104h68M66 121h68" stroke="#2a0d0f" stroke-width="5" opacity=".6"/>
+                <circle cx="132" cy="102" r="3" fill="#f1e4d0"/><circle cx="76" cy="122" r="2.4" fill="#f1e4d0"/><circle cx="110" cy="96" r="2" fill="#f1e4d0"/>
+              </g>
+            </svg>
+            <span class="rito-etichetta" id="rito-etichetta">Il banco</span>
+          </div>
+        </div>
+
+        <ol class="rito-passi">
+          <li class="rito-passo" data-passo="0" data-nome="Il banco">
+            <h3><span>01</span> Scegli al banco</h3>
+            <p>Ti avvicini alla vetrina e guardi la carne com'è: colore, grasso, marezzatura. Ti spieghiamo da dove viene ogni taglio e come si comporta sul fuoco.</p>
+          </li>
+          <li class="rito-passo" data-passo="1" data-nome="Il coltello">
+            <h3><span>02</span> Il taglio</h3>
+            <p>Lo spessore si decide con te, il peso lo vedi sulla bilancia. Il coltello è quello di una macelleria vera, perché è quello che siamo.</p>
+          </li>
+          <li class="rito-passo" data-passo="2" data-nome="Il fuoco">
+            <h3><span>03</span> La cottura</h3>
+            <p>Pietra lavica, brace o affumicatura dal vivo. Ogni taglio ha la sua, e la scelta te la consigliamo noi. Tutto succede davanti a te, nessuna porta chiusa.</p>
+          </li>
+          <li class="rito-passo" data-passo="3" data-nome="Il burro">
+            <h3><span>04</span> Il burro affumicato</h3>
+            <p>Il gesto che arriva dal Giappone: la carne si bagna di burro fuso. Qui il burro, una volta fuso, si affumica. Profumo di legna, sapore rotondo.</p>
+          </li>
+          <li class="rito-passo" data-passo="4" data-nome="Al tavolo">
+            <h3><span>05</span> Riposo e servizio</h3>
+            <p>Qualche minuto di riposo perché i succhi tornino al centro, poi il taglio a fette, il sale in fiocchi e il piatto davanti a te. Ancora caldo di brace.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 03 LE TRE COTTURE ============ -->
+    <section class="sezione cotture" id="cotture" aria-labelledby="cotture-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">03 — Le cotture</p>
+        <h2 class="titolo-grande rivela" id="cotture-titolo">Tre fuochi.<br><em>Un solo obiettivo.</em></h2>
+        <p class="intro rivela">Ogni cottura tira fuori una cosa diversa dalla carne. Il segreto è sapere quale scegliere per ogni taglio: è il lavoro di chi la carne la conosce dal banco.</p>
+
+        <div class="cotture-griglia">
+          <article class="cottura cottura-pietra rivela" tabindex="0">
+            <div class="cottura-visivo" aria-hidden="true">
+              <svg class="pietra" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <radialGradient id="g-pietra-calore" cx="50%" cy="100%" r="70%"><stop offset="0" stop-color="#ff5a1f" stop-opacity=".55"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/></radialGradient>
+                  <linearGradient id="g-pietra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2522"/><stop offset="1" stop-color="#1a1513"/></linearGradient>
+                  <radialGradient id="g-scottata" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#6b3320"/><stop offset=".7" stop-color="#3d1d12"/><stop offset="1" stop-color="#231009"/></radialGradient>
+                  <linearGradient id="g-fetta" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a3a2c"/><stop offset=".25" stop-color="#c84150"/><stop offset=".75" stop-color="#c84150"/><stop offset="1" stop-color="#7a3a2c"/></linearGradient>
+                  <clipPath id="clip-lastra"><path d="M44 160H356L388 258H12Z"/></clipPath>
+                </defs>
+                <rect width="400" height="300" fill="#0f0c0b"/>
+                <rect width="400" height="300" fill="url(#g-pietra-calore)" class="pietra-calore"/>
+                <path d="M44 160H356L388 258H12Z" fill="url(#g-pietra)"/>
+                <g clip-path="url(#clip-lastra)"><rect width="400" height="300" filter="url(#f-lava)" opacity=".9"/></g>
+                <path d="M44 160H356" stroke="rgba(241,228,208,.18)" stroke-width="1.5"/>
+                <path d="M12 258H388V270H12Z" fill="#110d0b"/>
+                <path d="M12 270H388" stroke="#ff6a2b" stroke-width="2" class="pietra-bordo"/>
+                <ellipse cx="200" cy="214" rx="118" ry="24" fill="#000" opacity=".5"/>
+                <g transform="translate(110 176) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <g transform="translate(141 179) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <g transform="translate(172 176) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <g transform="translate(203 179) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <g transform="translate(234 176) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <g transform="translate(265 179) skewX(-14)"><rect width="30" height="40" rx="7" fill="#2a120a"/><rect x="3" y="5" width="24" height="30" rx="5" fill="url(#g-fetta)"/></g>
+                <path d="M108 178c40-8 140-10 196-2" stroke="#ffb36b" stroke-width="1.5" fill="none" opacity=".3" stroke-linecap="round"/>
+                <g class="sfrigola" fill="#ffd9a0">
+                  <circle cx="100" cy="222" r="2"/><circle cx="112" cy="232" r="1.5"/><circle cx="306" cy="220" r="2"/><circle cx="290" cy="232" r="1.6"/><circle cx="200" cy="236" r="1.4"/><circle cx="150" cy="234" r="1.8"/>
+                </g>
+                <g class="vapori" fill="none" stroke="rgba(241,228,208,.5)" stroke-width="3" stroke-linecap="round">
+                  <path d="M160 160c-10-16 10-26 0-44s10-28 2-44"/>
+                  <path d="M206 154c-10-16 10-26 0-44s10-28 2-44"/>
+                  <path d="M250 160c-10-16 10-26 0-44s10-28 2-44"/>
+                </g>
+              </svg>
+            </div>
+            <div class="cottura-corpo">
+              <span class="cottura-n">I</span>
+              <h3>Pietra lavica</h3>
+              <p class="cottura-sottotitolo">La crosta perfetta</p>
+              <p>La pietra vulcanica trattiene un calore enorme e lo restituisce uniforme. La superficie sigilla subito, i succhi restano dentro e la carne frollata fa la sua crosta, senza fiamma diretta.</p>
+              <dl class="cottura-dati">
+                <div><dt>Per</dt><dd>tagli frollati, costate, controfiletto</dd></div>
+                <div><dt>Carattere</dt><dd>crosta, succosità, sapore pulito</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="cottura cottura-brace rivela" tabindex="0">
+            <div class="cottura-visivo" aria-hidden="true">
+              <canvas class="braci" data-braci></canvas>
+            </div>
+            <div class="cottura-corpo">
+              <span class="cottura-n">II</span>
+              <h3>Brace</h3>
+              <p class="cottura-sottotitolo">Il fuoco di sempre</p>
+              <p>Il carbone arriva al punto giusto, quando la fiamma si spegne e resta solo il rosso. È il calore più antico: dà la tostatura, le righe della griglia e quel profumo che ti porti a casa.</p>
+              <dl class="cottura-dati">
+                <div><dt>Per</dt><dd>tagli con osso, picanha, salsiccia</dd></div>
+                <div><dt>Carattere</dt><dd>tostatura, aroma, carattere</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="cottura cottura-fumo rivela" tabindex="0">
+            <div class="cottura-visivo" aria-hidden="true">
+              <canvas class="fumo-tela" data-fumo="grigio"></canvas>
+              <svg class="campana" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax meet">
+                <path d="M110 250c0-70 40-120 90-120s90 50 90 120Z" fill="rgba(241,228,208,.08)" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
+                <path d="M150 170c14-20 30-28 46-30" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="200" cy="122" r="9" fill="none" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
+                <path d="M80 252h240" stroke="rgba(241,228,208,.55)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="cottura-corpo">
+              <span class="cottura-n">III</span>
+              <h3>Affumicatura dal vivo</h3>
+              <p class="cottura-sottotitolo">Lo spettacolo al tavolo</p>
+              <p>La carne arriva sotto la campana, il fumo di legna la avvolge e si alza davanti a te. Quando la campana si apre, il profumo riempie la sala. Un'esperienza prima ancora del primo morso.</p>
+              <dl class="cottura-dati">
+                <div><dt>Per</dt><dd>tagli frollati, tartare, petto</dd></div>
+                <div><dt>Carattere</dt><dd>profondità, legno, teatro</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 IL BURRO ============ -->
+    <section class="sezione burro" id="burro" aria-labelledby="burro-titolo">
+      <canvas class="burro-fumo" data-fumo="oro" aria-hidden="true"></canvas>
+      <span class="burro-kanji" aria-hidden="true">燻</span>
+      <div class="contenitore burro-griglia">
+        <div>
+          <p class="numero-sezione rivela">04 — Il burro</p>
+          <h2 class="titolo-grande rivela" id="burro-titolo">Una lezione<br>dal Giappone.<br><em>Poi, un passo in più.</em></h2>
+        </div>
+        <div class="burro-testo">
+          <p class="citazione rivela">«In Giappone la carne si bagna nel burro fuso, cucchiaio dopo cucchiaio.»</p>
+          <p class="rivela">È il gesto che ha insegnato la cugina giapponese: il burro, fuso nella padella, viene versato di continuo sulla carne mentre cuoce. Nutre la crosta, la rende lucida e porta con sé il sapore.</p>
+          <p class="rivela"><strong>Qui il burro, una volta fuso, si affumica.</strong> Il risultato è una nota di legna dolce e rotonda che non copre la carne: la accompagna. Una cosa che a Benevento non trovi da nessun'altra parte.</p>
+
+          <ol class="burro-fasi">
+            <li class="rivela"><span>01</span><b>Fondere</b><small>a fuoco dolce, senza bruciare</small></li>
+            <li class="rivela"><span>02</span><b>Affumicare</b><small>il burro fuso prende il fumo di legna</small></li>
+            <li class="rivela"><span>03</span><b>Nappare</b><small>sulla carne, cucchiaio dopo cucchiaio</small></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 05 GRADO DI COTTURA ============ -->
+    <section class="sezione punto" id="punto" aria-labelledby="punto-titolo">
+      <div class="contenitore punto-griglia">
+        <div class="punto-testo">
+          <p class="numero-sezione rivela">05 — Il punto giusto</p>
+          <h2 class="titolo-grande rivela" id="punto-titolo">Come la<br><em>preferisci?</em></h2>
+          <p class="intro rivela">Muovi il cursore e guarda la carne cambiare. Il nostro consiglio, per i tagli frollati, è quasi sempre lo stesso: media al sangue. Ma la carne è tua.</p>
+
+          <div class="punto-controllo rivela">
+            <label for="punto-cursore" class="punto-nome" id="punto-nome">Media al sangue</label>
+            <input type="range" id="punto-cursore" min="0" max="4" step="1" value="1" aria-describedby="punto-descrizione">
+            <div class="punto-scala" aria-hidden="true"><span>Al sangue</span><span>Ben cotta</span></div>
+            <p class="punto-temperatura"><b id="punto-gradi">54</b><span>°C al cuore</span></p>
+            <p class="punto-descrizione" id="punto-descrizione">Il centro rosa e caldo, il grasso sciolto. Il punto in cui la carne frollata dà il meglio.</p>
+          </div>
+        </div>
+
+        <div class="punto-bistecca" aria-hidden="true">
+          <svg viewBox="0 0 420 320" id="bistecca">
+            <defs>
+              <radialGradient id="g-cuore" cx="50%" cy="50%" r="50%">
+                <stop offset="0" id="g-c0" stop-color="#c2333d"/>
+                <stop offset=".62" id="g-c1" stop-color="#b52c38"/>
+                <stop offset=".86" id="g-c2" stop-color="#8a4a42"/>
+                <stop offset="1" id="g-c3" stop-color="#5a3428"/>
+              </radialGradient>
+              <linearGradient id="g-crosta" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#4a2a1c"/><stop offset="1" stop-color="#22140d"/>
+              </linearGradient>
+              <filter id="f-lucido"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <ellipse cx="210" cy="290" rx="170" ry="18" fill="#000" opacity=".5" filter="url(#f-lucido)"/>
+            <path d="M44 178C34 106 104 44 204 42c78-2 140 22 172 68 28 40 22 96-8 132-38 44-104 62-172 60C112 300 52 252 44 178Z" fill="url(#g-crosta)"/>
+            <path d="M316 82c32 16 52 48 52 88 0 24-8 46-22 62 6-52 0-108-30-150Z" fill="#ead9bd"/>
+            <path d="M326 96c20 16 30 40 30 66" stroke="#fff" stroke-width="3" fill="none" opacity=".35" stroke-linecap="round"/>
+            <path d="M64 178C56 118 116 64 204 62c58-1 104 14 132 46 26 30 28 76 6 108-30 44-88 64-144 62C118 276 72 236 64 178Z" fill="url(#g-cuore)" id="cuore"/>
+            <g stroke="#f1e4d0" stroke-width="2" fill="none" opacity=".22" stroke-linecap="round" id="marezzatura">
+              <path d="M110 140c30 10 40 30 80 26M150 210c30-14 60 8 100-6M220 110c-10 20 4 40 30 46M280 190c10-20 30-24 50-20M100 190c14 6 30 0 40 10"/>
+            </g>
+            <ellipse cx="170" cy="110" rx="60" ry="14" fill="#fff" opacity=".07" filter="url(#f-lucido)"/>
+          </svg>
+          <div class="punto-vapore" id="punto-vapore"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 I TAGLI ============ -->
+    <section class="sezione tagli" id="tagli" aria-labelledby="tagli-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">06 — I tagli</p>
+        <h2 class="titolo-grande rivela" id="tagli-titolo">Dal banco,<br><em>pezzo per pezzo.</em></h2>
+        <p class="intro rivela">Tocca una parte dell'animale per scoprire il taglio, com'è fatto e qual è la cottura che gli rende giustizia. Al banco trovi la disponibilità del giorno: le frollature hanno i loro tempi.</p>
+
+        <div class="tagli-scena">
+          <div class="tagli-mappa rivela">
+            <svg viewBox="0 0 800 420" id="mappa-bovino" role="group" aria-label="Mappa dei tagli del bovino">
+              <defs>
+                <clipPath id="sagoma-clip"><use href="#sagoma"/></clipPath>
+                <path id="sagoma" d="M262 104C340 96 480 97 600 100 652 100 700 104 720 126 735 142 741 170 739 200 737 238 729 268 716 290L716 390 712 398 690 398 686 390 682 312C668 302 650 302 640 306 600 318 420 324 300 313L298 390 294 398 270 398 266 390 260 306C240 300 220 290 205 272 192 262 180 240 172 222 160 222 146 226 128 236 112 246 90 254 74 246 60 236 66 220 78 206 96 180 120 150 140 124 128 124 118 118 108 112 124 104 140 104 152 108 154 98 152 90 150 78 158 84 164 92 168 104 190 100 230 100 262 104Z"/>
+              </defs>
+              <!-- gambe posteriori, in ombra -->
+              <path d="M662 300 658 398h24l6-92ZM278 300l-4 98h22l4-92Z" fill="#1a1513" stroke="#3a302b" stroke-width="1.5"/>
+              <use href="#sagoma" fill="#1d1816"/>
+              <g clip-path="url(#sagoma-clip)" class="tagli-zone">
+                <path class="zona zona-off" d="M0 0H232V420H0Z"/>
+                <path class="zona" data-taglio="spalla" d="M232 0H345V226L232 238Z"/>
+                <path class="zona" data-taglio="petto" d="M150 238 232 238 345 226V420H150Z"/>
+                <path class="zona" data-taglio="costata" d="M345 0H458V212H345Z"/>
+                <path class="zona" data-taglio="costine" d="M345 212H458V420H345Z"/>
+                <path class="zona" data-taglio="controfiletto" d="M458 0H572V188H458Z"/>
+                <path class="zona" data-taglio="filetto" d="M458 188H600L612 240H458Z"/>
+                <path class="zona" data-taglio="bavetta" d="M458 240H612L640 420H458Z"/>
+                <path class="zona" data-taglio="picanha" d="M572 0H800V150L690 168 600 188H572Z"/>
+                <path class="zona" data-taglio="coscia" d="M600 188 690 168 800 150V420H640L612 240Z"/>
+              </g>
+              <use href="#sagoma" fill="none" stroke="#f1e4d0" stroke-width="2" opacity=".75"/>
+              <path d="M734 132c22 30 20 90 12 150" stroke="#f1e4d0" stroke-width="2" fill="none" opacity=".75" stroke-linecap="round"/>
+              <path d="M746 280c-6 10-2 22 4 26" stroke="#f1e4d0" stroke-width="5" fill="none" opacity=".75" stroke-linecap="round"/>
+              <circle cx="124" cy="156" r="3.5" fill="#f1e4d0" opacity=".8"/><path d="M76 232c4 2 8 2 11 0" stroke="#f1e4d0" stroke-width="2" opacity=".6" stroke-linecap="round" fill="none"/>
+              <g class="tagli-etichette" aria-hidden="true">
+                <text x="288" y="160">Spalla</text>
+                <text x="262" y="282">Petto</text>
+                <text x="401" y="160">Costata</text>
+                <text x="401" y="270">Costine</text>
+                <text x="515" y="150">Controfiletto</text>
+                <text x="532" y="219">Filetto</text>
+                <text x="535" y="285">Bavetta</text>
+                <text x="650" y="138">Picanha</text>
+                <text x="690" y="235">Coscia</text>
+              </g>
+            </svg>
+            <div class="tagli-pulsanti" role="tablist" aria-label="Scegli un taglio" id="tagli-pulsanti"></div>
+          </div>
+
+          <aside class="taglio-scheda rivela" id="taglio-scheda" aria-live="polite">
+            <p class="taglio-zona" id="taglio-zona">Lombata</p>
+            <h3 class="taglio-nome" id="taglio-nome">Costata</h3>
+            <p class="taglio-descrizione" id="taglio-descrizione"></p>
+            <dl class="taglio-dati">
+              <div><dt>Cottura</dt><dd id="taglio-cottura"></dd></div>
+              <div><dt>Punto</dt><dd id="taglio-punto"></dd></div>
+              <div><dt>Carattere</dt><dd id="taglio-carattere"></dd></div>
+            </dl>
+            <div class="taglio-misure" aria-hidden="true">
+              <span>Tenerezza</span><i><b id="taglio-tenerezza"></b></i>
+              <span>Sapore</span><i><b id="taglio-sapore"></b></i>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 MENU ============ -->
+    <section class="sezione menu" id="menu" aria-labelledby="menu-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">07 — Il menu</p>
+        <h2 class="titolo-grande rivela" id="menu-titolo">Sul fuoco<br><em>stasera.</em></h2>
+
+        <div class="menu-filtri" id="menu-filtri" hidden></div>
+        <div class="menu-elenco" id="menu-elenco"></div>
+
+        <div class="menu-attesa rivela" id="menu-attesa">
+          <div class="menu-attesa-lavagna">
+            <p class="menu-attesa-sopra">La lavagna di oggi</p>
+            <p class="menu-attesa-titolo">Il menu arriva<br>a giorni.</p>
+            <p>Nel frattempo, al banco decide la carne: chiamaci o scrivici e ti diciamo cosa c'è sul fuoco stasera.</p>
+            <a class="btn btn-brace" href="#prenota">Prenota e chiedi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERIA (compare solo con le foto in config.js) ============ -->
+    <section class="sezione galleria" id="galleria" aria-label="Foto" hidden>
+      <div class="galleria-traccia" id="galleria-traccia"></div>
+    </section>
+
+    <!-- ============ NUMERI ============ -->
+    <section class="sezione numeri" aria-label="Il Macellaio in numeri">
+      <div class="contenitore numeri-griglia">
+        <div class="numero rivela"><b data-conta="3">0</b><span>cotture, una per ogni taglio</span></div>
+        <div class="numero rivela"><b data-conta="1">0</b><span>banco, sempre a vista</span></div>
+        <div class="numero rivela" data-voto hidden><b data-conta-voto>0</b><span>stelle su Google, <em data-recensioni></em></span></div>
+        <div class="numero rivela"><b data-conta="0">0</b><span>scorciatoie</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 08 MACELLERIA ============ -->
+    <section class="sezione bottega" id="bottega" aria-labelledby="bottega-titolo">
+      <div class="contenitore bottega-griglia">
+        <div>
+          <p class="numero-sezione rivela">08 — La macelleria</p>
+          <h2 class="titolo-grande rivela" id="bottega-titolo">E se vuoi,<br><em>la porti a casa.</em></h2>
+        </div>
+        <div class="bottega-testo">
+          <p class="rivela">Il banco è ancora quello di una macelleria vera. Gli stessi tagli che cuociamo in sala li puoi comprare e cuocere a casa tua, con il consiglio di chi li ha scelti.</p>
+          <ul class="bottega-elenco">
+            <li class="rivela"><b>Tagli frollati</b><span>pronti per la tua griglia</span></li>
+            <li class="rivela"><b>Su misura</b><span>spessore e porzioni come li vuoi</span></li>
+            <li class="rivela"><b>Il consiglio</b><span>come cuocerla, quanto farla riposare</span></li>
+            <li class="rivela"><b>Su ordinazione</b><span>per grigliate, feste e occasioni</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 09 PRENOTA ============ -->
+    <section class="sezione prenota" id="prenota" aria-labelledby="prenota-titolo">
+      <div class="prenota-bagliore" aria-hidden="true"></div>
+      <div class="contenitore prenota-griglia">
+        <div>
+          <p class="numero-sezione rivela">09 — Prenota</p>
+          <h2 class="titolo-grande rivela" id="prenota-titolo">Il fuoco<br><em>ti aspetta.</em></h2>
+          <p class="intro rivela">Compila e invia: si apre WhatsApp con la richiesta già scritta. Ti rispondiamo per confermare il tavolo. Preferisci la voce? Chiamaci.</p>
+          <div class="prenota-diretti rivela">
+            <a class="contatto-grande" data-telefono hidden><span>Chiama</span><b data-telefono-testo></b></a>
+          </div>
+        </div>
+
+        <form class="modulo rivela" id="modulo" novalidate>
+          <div class="campo">
+            <label for="f-nome">Nome</label>
+            <input id="f-nome" name="nome" autocomplete="name" required placeholder="Come ti chiami">
+          </div>
+          <div class="campo-coppia">
+            <div class="campo">
+              <label for="f-data">Giorno</label>
+              <input id="f-data" name="data" type="date" required>
+            </div>
+            <div class="campo">
+              <label for="f-ora">Ora</label>
+              <select id="f-ora" name="ora" required>
+                <option value="">Scegli</option>
+                <option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="campo">
+            <legend>Persone</legend>
+            <div class="persone" id="persone">
+              <button type="button" class="persone-meno" aria-label="Una persona in meno">−</button>
+              <output id="f-persone" aria-live="polite">2</output>
+              <button type="button" class="persone-piu" aria-label="Una persona in più">+</button>
+            </div>
+          </fieldset>
+          <div class="campo">
+            <label for="f-note">Note <small>(facoltative)</small></label>
+            <textarea id="f-note" name="note" rows="3" placeholder="Un compleanno, un taglio da tenere da parte, un'intolleranza…"></textarea>
+          </div>
+          <p class="modulo-errore" id="modulo-errore" role="alert"></p>
+          <button class="btn btn-brace btn-grande modulo-invia" type="submit">Invia su WhatsApp <span aria-hidden="true">→</span></button>
+          <p class="modulo-nota">Nessun dato passa da questo sito: il messaggio parte dal tuo telefono.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ 10 DOVE ============ -->
+    <section class="sezione dove" id="dove" aria-labelledby="dove-titolo">
+      <div class="contenitore dove-griglia">
+        <div class="dove-mappa rivela" aria-hidden="true">
+          <svg viewBox="0 0 500 400">
+            <defs>
+              <radialGradient id="g-pin" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff6a2b" stop-opacity=".55"/><stop offset="1" stop-color="#ff6a2b" stop-opacity="0"/></radialGradient>
+            </defs>
+            <g stroke="#2b2420" fill="none" stroke-width="1">
+              <path d="M0 60h500M0 140h500M0 220h500M0 300h500M80 0v400M200 0v400M320 0v400M440 0v400" opacity=".6"/>
+            </g>
+            <path d="M-10 330C80 300 140 250 230 210s170-60 290-110" stroke="#3a302b" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <path d="M-10 330C80 300 140 250 230 210s170-60 290-110" stroke="#ff6a2b" stroke-width="2" fill="none" stroke-dasharray="6 10" class="dove-strada"/>
+            <path d="M120 0c20 80 60 140 40 400M380 0c-30 120 0 260-40 400" stroke="#2b2420" stroke-width="8" fill="none"/>
+            <text x="300" y="148" class="dove-via">VIA NAPOLI</text>
+            <circle cx="236" cy="207" r="70" fill="url(#g-pin)" class="dove-alone"/>
+            <circle cx="236" cy="207" r="9" fill="#ff6a2b"/>
+            <circle cx="236" cy="207" r="18" fill="none" stroke="#ff6a2b" stroke-width="1.5" class="dove-onda"/>
+          </svg>
+        </div>
+        <div class="dove-testo">
+          <p class="numero-sezione rivela">10 — Dove siamo</p>
+          <h2 class="titolo-grande rivela" id="dove-titolo">Via Napoli,<br><em>118.</em></h2>
+          <p class="dove-indirizzo rivela" data-indirizzo>Via Napoli, 118 · 82100 Benevento</p>
+          <div class="orari rivela" id="orari" hidden>
+            <h3>Orari</h3>
+            <dl id="orari-elenco"></dl>
+          </div>
+          <p class="orari-vuoti rivela" id="orari-vuoti">Per orari e disponibilità del giorno, chiamaci o scrivici.</p>
+          <div class="dove-azioni rivela">
+            <a class="btn btn-brace" data-maps target="_blank" rel="noopener">Indicazioni <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-vetro" data-telefono hidden>Chiama</a>
+            <a class="btn btn-vetro" data-whatsapp hidden target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="piede">
+    <div class="contenitore">
+      <p class="piede-grande" aria-hidden="true">Il Macellaio</p>
+      <div class="piede-griglia">
+        <div>
+          <p><b>Il Macellaio</b> · Macelleria &amp; Braceria</p>
+          <p data-indirizzo>Via Napoli, 118 · 82100 Benevento</p>
+          <p data-piva hidden></p>
+        </div>
+        <div class="piede-social" id="piede-social"></div>
+        <div class="piede-crediti">
+          <p>© <span id="anno"></span> Il Macellaio</p>
+          <p>Sito di <a href="https://alessandropiedimonte.dev" rel="noopener">Alessandro Piedimonte</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="prenota-flottante" href="#prenota" id="prenota-flottante" aria-label="Prenota un tavolo">Prenota</a>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/fuoco.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

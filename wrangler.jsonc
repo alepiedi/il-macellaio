@@ -1,0 +1,10 @@
+// Configurazione per Cloudflare Workers: il sito è fatto solo di file statici.
+{
+  "name": "il-macellaio-benevento",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}

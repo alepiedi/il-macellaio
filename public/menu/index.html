@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Menu · Il Macellaio Benevento</title>
+  <meta name="description" content="Il menu del Macellaio, macelleria e braceria a Benevento: antipasti, panini, piatti di carne, arrosti frollati da 30 a 120 giorni e dolci.">
+  <meta name="theme-color" content="#0c0a09">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Il menu · Il Macellaio Benevento">
+  <meta property="og:description" content="Antipasti, panini, piatti di carne e arrosti frollati fino a 120 giorni.">
+  <meta property="og:image" content="../assets/img/og-image.jpg">
+  <link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/menu.css">
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (localStorage.getItem('macellaio-testo') === 'grande') document.documentElement.classList.add('testo-grande'); } catch (e) {}
+  </script>
+</head>
+<body class="carta">
+  <a class="salta" href="#carta-contenuto">Vai al menu</a>
+
+  <header class="carta-testata">
+    <a class="carta-indietro" href="../" aria-label="Torna al sito">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="carta-logo" href="../"><img src="../assets/img/logo-scuro.svg" alt="Il Macellaio · Miladcarni" width="140" height="42"></a>
+    <button class="carta-testo" id="carta-testo" type="button" aria-pressed="false" aria-label="Ingrandisci il testo">
+      <span aria-hidden="true">A<small>A</small></span>
+    </button>
+  </header>
+
+  <section class="carta-apertura" aria-labelledby="carta-titolo">
+    <div class="carta-braci" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p class="carta-sopra">Macelleria &amp; Braceria · Benevento</p>
+    <h1 id="carta-titolo">Il <em>menu</em></h1>
+    <ul class="carta-pillole">
+      <li><b>Carni italiane</b> certificate</li>
+      <li>Cotte <b>davanti a te</b></li>
+      <li data-coperto></li>
+    </ul>
+  </section>
+
+  <nav class="carta-schede" id="carta-schede" aria-label="Sezioni del menu"></nav>
+
+  <main class="carta-contenuto" id="carta-contenuto"></main>
+
+  <footer class="carta-piede">
+    <p class="carta-avviso" data-allergeni></p>
+    <div class="carta-azioni">
+      <a class="btn btn-brace" href="../#prenota">Prenota un tavolo</a>
+      <a class="btn btn-vetro" data-telefono hidden>Chiama</a>
+      <a class="btn btn-vetro" data-whatsapp hidden target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-vetro" data-instagram hidden target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <img class="carta-piede-logo" src="../assets/img/logo-scuro.svg" alt="" width="3000" height="906" loading="lazy">
+    <p class="carta-indirizzo" data-indirizzo>Via Napoli, 118 · 82100 Benevento</p>
+    <p class="carta-sito"><a href="../">Scopri il nostro rito: tre cotture e il burro affumicato →</a></p>
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/menu.js"></script>
+  <script src="../assets/js/carta.js"></script>
+</body>
+</html>

@@ -494,6 +494,10 @@ input[type=range]::-moz-range-thumb {
 .menu-attesa-titolo { font-family: var(--serif); font-style: italic; font-size: clamp(44px, 6vw, 92px); line-height: .95; margin: 0 0 24px; letter-spacing: -.03em; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1; }
 .menu-attesa-lavagna > p:not([class]) { max-width: 540px; color: var(--osso-2); margin: 0 0 30px; font-size: 18px; }
 
+.menu-completo { margin-top: clamp(40px, 5vw, 70px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.menu-completo p { margin: 0; color: var(--osso-3); }
+.menu-elenco { grid-auto-flow: dense; }
+
 /* Galleria */
 .galleria { padding: 0 0 clamp(80px, 10vw, 140px); overflow: hidden; }
 .galleria-traccia { display: flex; gap: 18px; width: max-content; animation: scorre 60s linear infinite; }

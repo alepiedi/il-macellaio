@@ -15,18 +15,24 @@ Niente framework e niente build: HTML, CSS e JavaScript scritti a mano, in `publ
 | 04 | **Il burro** | La tecnica della cucina giapponese e il burro fuso poi affumicato, con fumo dorato |
 | 05 | **Il punto giusto** | Un cursore cambia la cottura della bistecca, dal sangue a ben cotta, con i gradi al cuore |
 | 06 | **Tagli** | Mappa del bovino: tocchi una zona e scopri il taglio, la cottura consigliata e il carattere |
-| 07 | **Menu** | Generato da `menu.js`, con filtri per cottura. Finché è vuoto mostra "il menu arriva a giorni" |
+| 07 | **Menu** | Generato da `menu.js`, con il pulsante per la pagina completa |
 | – | **Galleria** | Compare solo quando in `config.js` ci sono foto |
 | 08 | **Macelleria** | La carne da portare a casa |
 | 09 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
 | 10 | **Dove** | Indirizzo, orari, indicazioni, chiamata |
+
+## 📋 Pagina del menu (`/menu/`)
+
+La pagina da aprire con il QR code sui tavoli: leggera (niente WebGL), pensata per il telefono. Schede delle sezioni che restano in alto, contorni a scelta, la frollatura da 30 a 120 giorni con le barre che si riempiono, avviso per gli allergeni, pulsanti per chiamare, WhatsApp e prenotare. Il pulsante "Aa" ingrandisce il testo (se lo ricorda il telefono). Si stampa anche pulita, su fondo bianco.
+
+I piatti stanno in `public/assets/js/menu.js` (`MENU` e `MENU_INFO`): basta cambiare lì, e si aggiornano sia la pagina del menu sia la sezione della home.
 
 ## ✏️ Da completare
 
 Si modificano solo due file:
 
 - **`public/assets/js/config.js`**: social (Instagram, Facebook), orari, voto Google e link alla scheda, foto, P. IVA, indirizzo del sito. Un campo vuoto nasconde da solo la parte che lo usa.
-- **`public/assets/js/menu.js`**: il menu (nel file c'è l'esempio del formato).
+- **`public/assets/js/menu.js`**: il menu (prezzi, coperto, contorni, avviso allergeni).
 
 Da verificare con il locale: telefono e WhatsApp (presi da Tripadvisor), nome del titolare, le tre cotture e i tagli indicati nella mappa.
 

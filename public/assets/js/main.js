@@ -115,7 +115,10 @@
       vociNav.forEach(function (a) { a.classList.toggle('attivo', a.getAttribute('href') === '#' + v.target.id); });
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  vociNav.forEach(function (a) { var s = $(a.getAttribute('href')); if (s) osservaSezioni.observe(s); });
+  vociNav.forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (h.charAt(0) === '#' && $(h)) osservaSezioni.observe($(h));
+  });
 
   /* ---------- Apertura ---------- */
   requestAnimationFrame(function () { document.body.classList.add('carico'); });
@@ -261,45 +264,21 @@
   });
   scegliTaglio('costata');
 
-  /* ---------- Il menu ---------- */
+  /* ---------- Il menu (gli stessi dati della pagina /menu/) ---------- */
   var MENU = window.MENU || [];
-  var NOMI_TAG = { pietra: 'Pietra lavica', brace: 'Brace', fumo: 'Affumicato', burro: 'Burro affumicato', frollata: 'Frollata', novita: 'Novità' };
-  if (MENU.length) {
+  if (MENU.length && window.prezzoMenu) {
     $('#menu-attesa').hidden = true;
-    var elenco = $('#menu-elenco');
-    elenco.innerHTML = MENU.map(function (sez) {
-      return '<div class="menu-sezione rivela vista"><h3>' + testo(sez.titolo) + '</h3>' +
-        (sez.nota ? '<p>' + testo(sez.nota) + '</p>' : '') +
+    $('#menu-completo').hidden = false;
+    $('#menu-elenco').innerHTML = MENU.map(function (sez) {
+      return '<div class="menu-sezione"><h3>' + testo(sez.titolo) + '</h3>' +
+        (sez.sottotitolo ? '<p>' + testo(sez.sottotitolo) + '</p>' : '') +
         (sez.piatti || []).map(function (p) {
-          var tag = p.tag || [];
-          return '<article class="piatto" data-tag="' + testo(tag.join(' ')) + '"><h4>' + testo(p.nome) + '</h4>' +
-            '<span class="piatto-prezzo">' + testo(p.prezzo || '') + '</span>' +
+          return '<article class="piatto"><h4>' + testo(p.nome) + '</h4>' +
+            '<span class="piatto-prezzo">' + window.prezzoMenu(p) + '</span>' +
             (p.descrizione ? '<p>' + testo(p.descrizione) + '</p>' : '') +
-            (tag.length ? '<div class="piatto-tag">' + tag.map(function (t) { return '<span>' + testo(NOMI_TAG[t] || t) + '</span>'; }).join('') + '</div>' : '') +
             '</article>';
         }).join('') + '</div>';
     }).join('');
-
-    var usati = {};
-    MENU.forEach(function (s) { (s.piatti || []).forEach(function (p) { (p.tag || []).forEach(function (t) { usati[t] = 1; }); }); });
-    var tags = Object.keys(usati);
-    if (tags.length > 1) {
-      var filtri = $('#menu-filtri');
-      filtri.hidden = false;
-      filtri.innerHTML = '<button type="button" aria-pressed="true" data-filtro="">Tutto</button>' + tags.map(function (t) {
-        return '<button type="button" aria-pressed="false" data-filtro="' + testo(t) + '">' + testo(NOMI_TAG[t] || t) + '</button>';
-      }).join('');
-      filtri.addEventListener('click', function (e) {
-        var b = e.target.closest('button');
-        if (!b) return;
-        var f = b.getAttribute('data-filtro');
-        $$('button', filtri).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
-        $$('.piatto', elenco).forEach(function (p) {
-          p.hidden = !!f && (' ' + p.getAttribute('data-tag') + ' ').indexOf(' ' + f + ' ') < 0;
-        });
-        $$('.menu-sezione', elenco).forEach(function (s) { s.hidden = !$$('.piatto:not([hidden])', s).length; });
-      });
-    }
   }
 
   /* ---------- Galleria ---------- */

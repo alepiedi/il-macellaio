@@ -68,6 +68,9 @@
   100% { transform: translate(24px, -320px); opacity: 0; }
 }
 
+.carta-apertura-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .38; filter: saturate(1.1); }
+.carta-apertura::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(12, 10, 9, .55), rgba(12, 10, 9, .35) 40%, var(--carbone)); }
+
 /* Schede delle sezioni */
 .carta-schede {
   position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 20;
@@ -110,6 +113,17 @@ html { scroll-padding-top: 130px; }
 .voce-puntini { flex: 1; min-width: 20px; border-bottom: 2px dotted rgba(241, 228, 208, .22); transform: translateY(-5px); }
 .voce-prezzo { font-family: var(--serif); font-size: 1.32em; color: var(--burro); white-space: nowrap; font-variant-numeric: tabular-nums; line-height: 1; }
 .voce p { margin: 5px 0 0; color: var(--osso-2); font-size: .95em; }
+
+.portata-foto { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px; margin: 18px 0 6px; display: block; }
+
+/* Le carni del momento */
+.carta-razze { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.carta-razze li { display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 14px; padding: 8px; border-radius: 18px; background: var(--cenere); border: 1px solid var(--linea); }
+.carta-razze img { width: 76px; height: 76px; object-fit: cover; border-radius: 12px; }
+.carta-razze span { display: grid; color: var(--osso-3); font-size: .9em; }
+.carta-razze b { font-family: var(--serif); font-weight: 400; font-size: 1.4em; color: var(--osso); line-height: 1.1; }
+.carta-razze-link { margin: 16px 0 0; }
+.carta-razze-link a { color: var(--brace-2); font-weight: 700; text-decoration: none; }
 
 /* Frollatura */
 .portata-frollati {
@@ -157,7 +171,7 @@ html { scroll-padding-top: 130px; }
 /* Stampa: il menu su carta, chiaro e senza decorazioni */
 @media print {
   .carta { background: #fff; color: #111; }
-  .carta-testata, .carta-schede, .carta-braci, .carta-azioni, .carta-sito, .grana, .salta { display: none !important; }
+  .carta-testata, .carta-schede, .carta-braci, .carta-azioni, .carta-sito, .grana, .salta, .carta-apertura-foto, .carta-apertura::after, .portata-foto, .carta-carni { display: none !important; }
   .carta-apertura { background: none; padding: 0 0 10px; }
   .carta-apertura h1 em { color: #b3121b; -webkit-text-fill-color: #b3121b; background: none; }
   .carta-pillole li { border-color: #ccc; color: #333; background: none; }

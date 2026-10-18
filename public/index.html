@@ -68,6 +68,7 @@
       <a href="#cotture">Cotture</a>
       <a href="#burro">Il burro</a>
       <a href="#tagli">Tagli</a>
+      <a href="#carni">Carni</a>
       <a href="menu/">Menu</a>
       <a href="#dove">Dove</a>
     </nav>
@@ -91,6 +92,10 @@
       <canvas class="hero-fuoco" id="hero-fuoco" aria-hidden="true"></canvas>
       <canvas class="hero-scintille" id="hero-scintille" aria-hidden="true"></canvas>
       <div class="hero-velo" aria-hidden="true"></div>
+      <figure class="hero-video" aria-hidden="true">
+        <video data-video src="assets/video/brace.mp4" poster="assets/video/brace.jpg" muted loop playsinline preload="auto"></video>
+        <figcaption>La brace del Macellaio</figcaption>
+      </figure>
 
       <div class="hero-contenuto">
         <p class="sopratitolo rivela"><span class="punto-vivo"></span> Macelleria &amp; Braceria · Benevento</p>
@@ -152,6 +157,21 @@
             <h3>Il mondo</h3>
             <p>Tecniche raccolte in giro per il mondo e riportate a Benevento. Come il burro della cucina giapponese, che qui si fonde e poi si affumica.</p>
           </article>
+        </div>
+
+        <div class="fascia-foto">
+          <figure class="rivela" data-parallax="-0.06">
+            <img src="assets/img/foto/costata-appesa-sala-griglia.jpg" alt="Una costata appesa in sala, sopra la griglia" width="825" height="1100" loading="lazy">
+            <figcaption>In sala, sopra la griglia</figcaption>
+          </figure>
+          <figure class="rivela" data-parallax="0.06">
+            <img src="assets/img/foto/fette-costata-marezzata.jpg" alt="Fette di costata marezzata allineate sul tagliere" width="831" height="1100" loading="lazy">
+            <figcaption>Il taglio, fetta per fetta</figcaption>
+          </figure>
+          <figure class="rivela" data-parallax="-0.03">
+            <img src="assets/img/foto/costata-dry-aged-primo-piano.jpg" alt="Primo piano di una costata frollata e della sua marezzatura" width="825" height="1100" loading="lazy">
+            <figcaption>Frollatura e marezzatura</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -333,6 +353,10 @@
         <div>
           <p class="numero-sezione rivela">04 — Il burro</p>
           <h2 class="titolo-grande rivela" id="burro-titolo">Una lezione<br>dal Giappone.<br><em>Poi, un passo in più.</em></h2>
+          <figure class="video-verticale burro-video rivela">
+            <video data-video src="assets/video/burro.mp4" poster="assets/video/burro.jpg" muted loop playsinline preload="none" aria-label="Video: l'arrosto appeso alla fiamma, bagnato di burro fuso e poi tagliato"></video>
+            <figcaption><span class="punto-vivo"></span> Dal vivo: fuoco, burro fuso e il taglio al tavolo</figcaption>
+          </figure>
         </div>
         <div class="burro-testo">
           <p class="citazione rivela">«In Giappone la carne si bagna nel burro fuso, cucchiaio dopo cucchiaio.»</p>
@@ -460,10 +484,37 @@
       </div>
     </section>
 
-    <!-- ============ 07 MENU ============ -->
+    <!-- ============ 07 LE CARNI ============ -->
+    <section class="sezione carni" id="carni" aria-labelledby="carni-titolo">
+      <div class="contenitore">
+        <p class="numero-sezione rivela">07 — Le carni</p>
+        <h2 class="titolo-grande rivela" id="carni-titolo">Dal mondo,<br><em>al banco.</em></h2>
+        <p class="intro rivela" data-fornitore></p>
+        <ul class="premi">
+          <li class="rivela"><b>World's 101 Best</b><span>il fornitore delle migliori steakhouse del mondo</span></li>
+          <li class="rivela"><b>World Steak Challenge</b><span>medaglie d'oro dal 2021 al 2023</span></li>
+          <li class="rivela"><b>20+ paesi</b><span>di provenienza, dall'Irpinia al Giappone</span></li>
+        </ul>
+
+        <div class="carni-mappa rivela">
+          <svg id="mappa" role="img" aria-label="Mappa: da dove arrivano le carni, fino a Benevento"></svg>
+          <div class="mappa-vista" role="group" aria-label="Vista della mappa">
+            <button type="button" data-vista="mondo" aria-pressed="true">Mondo</button>
+            <button type="button" data-vista="europa" aria-pressed="false">Europa</button>
+          </div>
+          <p class="mappa-legenda"><span class="legenda-casa"></span> Benevento <span class="legenda-paese"></span> Provenienze</p>
+        </div>
+
+        <div class="carni-filtri" id="carni-filtri" aria-label="Scegli le carni da vedere"></div>
+        <div class="carni-schede" id="carni-schede" aria-live="polite"></div>
+        <p class="carni-nota rivela">Le carni cambiano con le stagioni e la disponibilità: <b>chiedi al banco cosa c'è oggi.</b></p>
+      </div>
+    </section>
+
+    <!-- ============ 08 MENU ============ -->
     <section class="sezione menu" id="menu" aria-labelledby="menu-titolo">
       <div class="contenitore">
-        <p class="numero-sezione rivela">07 — Il menu</p>
+        <p class="numero-sezione rivela">08 — Il menu</p>
         <h2 class="titolo-grande rivela" id="menu-titolo">Sul fuoco<br><em>stasera.</em></h2>
 
         <div class="menu-elenco" id="menu-elenco"></div>
@@ -484,7 +535,11 @@
     </section>
 
     <!-- ============ GALLERIA (compare solo con le foto in config.js) ============ -->
-    <section class="sezione galleria" id="galleria" aria-label="Foto" hidden>
+    <section class="sezione galleria" id="galleria" aria-labelledby="galleria-titolo" hidden>
+      <div class="contenitore galleria-testa">
+        <h2 class="galleria-titolo" id="galleria-titolo">Dal banco <em>al piatto</em></h2>
+        <a class="btn btn-vetro" data-instagram hidden target="_blank" rel="noopener">Seguici su Instagram <span aria-hidden="true">↗</span></a>
+      </div>
       <div class="galleria-traccia" id="galleria-traccia"></div>
     </section>
 
@@ -502,8 +557,12 @@
     <section class="sezione bottega" id="bottega" aria-labelledby="bottega-titolo">
       <div class="contenitore bottega-griglia">
         <div>
-          <p class="numero-sezione rivela">08 — La macelleria</p>
+          <p class="numero-sezione rivela">09 — La macelleria</p>
           <h2 class="titolo-grande rivela" id="bottega-titolo">E se vuoi,<br><em>la porti a casa.</em></h2>
+          <figure class="bottega-foto rivela">
+            <img src="assets/img/foto/staff-banco-macelleria.jpg" alt="Lo staff del Macellaio dietro il banco della macelleria" width="825" height="1100" loading="lazy">
+            <figcaption>Dietro il banco, ogni giorno</figcaption>
+          </figure>
         </div>
         <div class="bottega-testo">
           <p class="rivela">Il banco è ancora quello di una macelleria vera. Gli stessi tagli che cuociamo in sala li puoi comprare e cuocere a casa tua, con il consiglio di chi li ha scelti.</p>
@@ -523,7 +582,7 @@
       <div class="prenota-bagliore" aria-hidden="true"></div>
       <div class="contenitore prenota-griglia">
         <div>
-          <p class="numero-sezione rivela">09 — Prenota</p>
+          <p class="numero-sezione rivela">10 — Prenota</p>
           <h2 class="titolo-grande rivela" id="prenota-titolo">Il fuoco<br><em>ti aspetta.</em></h2>
           <p class="intro rivela">Compila e invia: si apre WhatsApp con la richiesta già scritta. Ti rispondiamo per confermare il tavolo. Preferisci la voce? Chiamaci.</p>
           <div class="prenota-diretti rivela">
@@ -589,7 +648,7 @@
           </svg>
         </div>
         <div class="dove-testo">
-          <p class="numero-sezione rivela">10 — Dove siamo</p>
+          <p class="numero-sezione rivela">11 — Dove siamo</p>
           <h2 class="titolo-grande rivela" id="dove-titolo">Via Napoli,<br><em>118.</em></h2>
           <p class="dove-indirizzo rivela" data-indirizzo>Via Napoli, 118 · 82100 Benevento</p>
           <div class="orari rivela" id="orari" hidden>
@@ -635,6 +694,8 @@
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/menu.js"></script>
+  <script src="assets/js/carni.js"></script>
+  <script src="assets/js/mappa.js"></script>
   <script src="assets/js/fuoco.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

@@ -123,7 +123,8 @@
   /* ---------- Apertura ---------- */
   requestAnimationFrame(function () { document.body.classList.add('carico'); });
   if (F) {
-    F.hero($('#hero-fuoco'));
+    // Sul telefono il video della brace fa da sfondo: niente WebGL, meno batteria.
+    if (!F.telefono) F.hero($('#hero-fuoco'));
     F.scintille($('#hero-scintille'), F.telefono ? 40 : 90);
     $$('[data-braci]').forEach(F.braci);
     $$('[data-fumo]').forEach(function (c) { F.fumo(c, c.getAttribute('data-fumo')); });
@@ -284,10 +285,159 @@
   /* ---------- Galleria ---------- */
   var foto = S.foto || [];
   if (foto.length) {
-    var traccia = $('#galleria-traccia');
-    var html = foto.map(function (f) { return '<img src="' + testo(f.src) + '" alt="' + testo(f.alt || '') + '" loading="lazy">'; }).join('');
-    traccia.innerHTML = html + html.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+    var voce = function (f, copia) {
+      var alt = copia ? 'alt="" aria-hidden="true"' : 'alt="' + testo(f.alt || '') + '"';
+      if (f.video) {
+        return '<figure class="galleria-video"' + (copia ? ' aria-hidden="true"' : '') + '><video data-video src="' + testo(f.video) + '" poster="' + testo(f.poster || '') + '" muted loop playsinline preload="none"' +
+          (copia ? '' : ' aria-label="' + testo(f.alt || '') + '"') + '></video></figure>';
+      }
+      return '<img src="' + testo(f.src) + '" ' + alt + ' loading="lazy">';
+    };
+    $('#galleria-traccia').innerHTML = foto.map(function (f) { return voce(f); }).join('') + foto.map(function (f) { return voce(f, true); }).join('');
     $('#galleria').hidden = false;
+  }
+
+  /* ---------- Video: partono quando si vedono, si fermano quando escono ---------- */
+  var osservaVideo = new IntersectionObserver(function (voci) {
+    voci.forEach(function (v) {
+      var video = v.target;
+      if (v.isIntersecting) {
+        if (video.preload === 'none') video.preload = 'auto';
+        if (!(F && F.fermo)) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+      } else video.pause();
+    });
+  }, { rootMargin: '120px 0px' });
+  $$('video[data-video]').forEach(function (v) { osservaVideo.observe(v); });
+
+  /* ---------- Foto che scorrono a velocità diverse ---------- */
+  var parallasse = $$('[data-parallax]');
+  if (parallasse.length && !(F && F.fermo)) {
+    var muovi = function () {
+      var h = window.innerHeight;
+      parallasse.forEach(function (el) {
+        var b = el.getBoundingClientRect();
+        if (b.bottom < -200 || b.top > h + 200) return;
+        var k = +el.getAttribute('data-parallax');
+        el.style.setProperty('--sposta', ((b.top + b.height / 2 - h / 2) * k).toFixed(1) + 'px');
+      });
+    };
+    window.addEventListener('scroll', muovi, { passive: true });
+    muovi();
+  }
+
+  /* ---------- Le carni dal mondo ---------- */
+  var CARNI = window.CARNI, MAPPA = window.MAPPA;
+  if (CARNI && MAPPA) {
+    $('[data-fornitore]').textContent = CARNI.fornitore.testo;
+    var paesi = {};
+    CARNI.paesi.forEach(function (p) { paesi[p.id] = p; });
+    var EUROPA = ['italia', 'spagna', 'portogallo', 'francia', 'irlanda', 'olanda', 'germania', 'danimarca', 'svezia', 'polonia', 'est'];
+    // Sul telefono la mappa è più alta (4:3): stesse viste, inquadrate per quella forma.
+    var alta = window.matchMedia('(max-width: 720px)').matches;
+    var VISTE = alta
+      ? { mondo: [0, -140, MAPPA.w, 750], europa: [436, 26, 150, 112.5] }
+      : { mondo: [0, 0, MAPPA.w, MAPPA.h], europa: [408, 38, 200, 94] };
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = $('#mappa');
+    svg.setAttribute('viewBox', VISTE.mondo.join(' '));
+    var casa = MAPPA.punti.italia;
+    var arco = function (p) {
+      var a = MAPPA.punti[p];
+      var mx = (a[0] + casa[0]) / 2, my = (a[1] + casa[1]) / 2;
+      var dist = Math.hypot(a[0] - casa[0], a[1] - casa[1]);
+      return 'M' + a[0] + ' ' + a[1] + 'Q' + mx + ' ' + (my - dist * .35) + ' ' + casa[0] + ' ' + casa[1];
+    };
+    var segni = '<path class="mappa-terra" d="' + MAPPA.d + '"/>' + (MAPPA.de ? '<path class="mappa-terra-fine" d="' + MAPPA.de + '"/>' : '');
+    CARNI.paesi.forEach(function (p) {
+      if (p.id !== 'italia') segni += '<path class="mappa-arco" data-paese="' + p.id + '" d="' + arco(p.id) + '" pathLength="1"/>';
+    });
+    CARNI.paesi.forEach(function (p) {
+      var c = MAPPA.punti[p.id];
+      segni += '<g class="mappa-pin' + (p.id === 'italia' ? ' mappa-casa' : '') + '" data-paese="' + p.id + '" tabindex="0" role="button" aria-label="' + testo(p.nome) + '">' +
+        '<circle class="pin-onda" cx="' + c[0] + '" cy="' + c[1] + '" r="6"/>' +
+        '<circle class="pin-tocco" cx="' + c[0] + '" cy="' + c[1] + '" r="14"/>' +
+        '<circle class="pin-punto" cx="' + c[0] + '" cy="' + c[1] + '" r="4"/>' +
+        '<text x="' + c[0] + '" y="' + (c[1] - 10) + '">' + testo(p.id === 'italia' ? 'Benevento' : p.nome) + '</text></g>';
+    });
+    svg.innerHTML = segni;
+
+    // Zoom animato tra mondo ed Europa: puntini, pin e scritte restano della stessa misura a schermo.
+    var vista = VISTE.mondo.slice(), animazione = 0;
+    var disegnaVista = function () {
+      svg.setAttribute('viewBox', vista.map(function (n) { return n.toFixed(2); }).join(' '));
+      var k = MAPPA.w / vista[2], box = svg.getBoundingClientRect();
+      // u = pixel a schermo per unità della mappa: pin, scritte e rotte restano della stessa misura su ogni schermo.
+      var u = Math.min(box.width / vista[2], box.height / vista[3]) || 1;
+      svg.style.setProperty('--u', u.toFixed(4));
+      $$('.pin-punto', svg).forEach(function (c) { c.setAttribute('r', (4.5 / u).toFixed(2)); });
+      $$('.pin-onda', svg).forEach(function (c) { c.setAttribute('r', (6.5 / u).toFixed(2)); });
+      $$('.pin-tocco', svg).forEach(function (c) { c.setAttribute('r', (16 / u).toFixed(2)); });
+      $$('.mappa-pin text', svg).forEach(function (t) {
+        t.setAttribute('font-size', (13 / u).toFixed(2));
+        t.setAttribute('y', (+t.previousSibling.getAttribute('cy') - 11 / u).toFixed(2));
+      });
+      var t = Math.max(0, Math.min(1, (k - 1.6) / 2.4)), fine = $('.mappa-terra-fine', svg);
+      $('.mappa-terra', svg).style.strokeWidth = (3.4 / Math.pow(k, .55)).toFixed(2);
+      $('.mappa-terra', svg).style.opacity = (1 - t).toFixed(3);
+      if (fine) { fine.style.opacity = t.toFixed(3); fine.style.strokeWidth = (1.05).toFixed(2); }
+    };
+    var vaiA = function (nome) {
+      var da = vista.slice(), a = VISTE[nome], t0 = performance.now(), durata = F && F.fermo ? 1 : 900;
+      $$('[data-vista]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-vista') === nome)); });
+      cancelAnimationFrame(animazione);
+      (function passo(ora) {
+        var x = Math.min(1, (ora - t0) / durata), e = x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+        vista = da.map(function (v, i) { return v + (a[i] - v) * e; });
+        disegnaVista();
+        if (x < 1) animazione = requestAnimationFrame(passo);
+      })(t0);
+    };
+    disegnaVista();
+    window.addEventListener('resize', disegnaVista);
+    $$('[data-vista]').forEach(function (b) { b.addEventListener('click', function () { vaiA(b.getAttribute('data-vista')); }); });
+
+    // Filtri e schede
+    var filtri = $('#carni-filtri'), schede = $('#carni-schede'), toccata = false;
+    $('.carni').addEventListener('pointerdown', function () { toccata = true; });
+    var conRazze = CARNI.paesi.filter(function (p) { return CARNI.razze.some(function (r) { return r.paese === p.id; }); });
+    filtri.innerHTML = '<button type="button" data-filtro="banco" aria-pressed="true"><span class="punto-vivo"></span> Viste al banco</button>' +
+      conRazze.map(function (p) { return '<button type="button" data-filtro="' + p.id + '" aria-pressed="false">' + testo(p.nome) + '</button>'; }).join('');
+    var scheda = function (r) {
+      return '<article class="razza' + (r.foto ? ' razza-foto' : '') + '">' +
+        (r.foto ? '<img src="' + testo(r.foto) + '" alt="' + testo(r.nome) + ' al banco del Macellaio" loading="lazy">' : '') +
+        '<div class="razza-corpo"><p class="razza-paese">' + testo(paesi[r.paese].nome) + (r.banco ? ' · <span>vista al banco</span>' : '') + '</p>' +
+        '<h3>' + testo(r.nome) + '</h3><p>' + testo(r.testo) + '</p>' +
+        '<ul class="razza-segni">' + r.segni.map(function (x) { return '<li>' + testo(x) + '</li>'; }).join('') + '</ul></div></article>';
+    };
+    var scegli = function (id, daMappa) {
+      var lista = CARNI.razze.filter(function (r) { return id === 'banco' ? r.banco : r.paese === id; });
+      schede.innerHTML = lista.map(scheda).join('');
+      schede.classList.remove('entra'); void schede.offsetWidth; schede.classList.add('entra');
+      $$('button', filtri).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-filtro') === id)); });
+      var attivi = id === 'banco' ? lista.map(function (r) { return r.paese; }) : [id];
+      $$('[data-paese]', svg).forEach(function (el) { el.classList.toggle('attivo', attivi.indexOf(el.getAttribute('data-paese')) >= 0); });
+      var inEuropa = attivi.every(function (p) { return EUROPA.indexOf(p) >= 0; });
+      if (daMappa !== false) vaiA(inEuropa ? 'europa' : 'mondo');
+    };
+    filtri.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (b) scegli(b.getAttribute('data-filtro'));
+    });
+    $$('.mappa-pin', svg).forEach(function (g) {
+      var vai = function () { scegli(g.getAttribute('data-paese')); };
+      g.addEventListener('click', vai);
+      g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); vai(); } });
+    });
+    scegli('banco', false);
+
+    // Le rotte si disegnano quando la mappa entra sullo schermo.
+    new IntersectionObserver(function (voci, o) {
+      if (!voci[0].isIntersecting) return;
+      svg.classList.add('accesa');
+      o.disconnect();
+      // Prima le rotte su tutto il mondo, poi lo zoom sulle carni viste al banco (se nessuno ha già toccato la mappa).
+      setTimeout(function () { if (!toccata) vaiA('europa'); }, F && F.fermo ? 0 : 2600);
+    }, { threshold: .3 }).observe(svg);
   }
 
   /* ---------- Numeri che contano ---------- */

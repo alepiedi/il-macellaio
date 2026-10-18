@@ -15,11 +15,20 @@ Niente framework e niente build: HTML, CSS e JavaScript scritti a mano, in `publ
 | 04 | **Il burro** | La tecnica della cucina giapponese e il burro fuso poi affumicato, con fumo dorato |
 | 05 | **Il punto giusto** | Un cursore cambia la cottura della bistecca, dal sangue a ben cotta, con i gradi al cuore |
 | 06 | **Tagli** | Mappa del bovino: tocchi una zona e scopri il taglio, la cottura consigliata e il carattere |
-| 07 | **Menu** | Generato da `menu.js`, con il pulsante per la pagina completa |
+| 07 | **Le carni** | "Dal mondo, al banco": mappa a puntini con le rotte dai paesi d'origine fino a Benevento (zoom Mondo/Europa), schede delle razze con le foto di quelle viste al banco. Dati in `carni.js`, mappa in `mappa.js` |
+| 08 | **Menu** | Generato da `menu.js`, con il pulsante per la pagina completa |
 | – | **Galleria** | Compare solo quando in `config.js` ci sono foto |
-| 08 | **Macelleria** | La carne da portare a casa |
-| 09 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
-| 10 | **Dove** | Indirizzo, orari, indicazioni, chiamata |
+| 09 | **Macelleria** | La carne da portare a casa |
+| 10 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
+| 11 | **Dove** | Indirizzo, orari, indicazioni, chiamata |
+
+## 📸 Foto e video
+
+Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagram/elenco.md`). Gli originali stanno in `media/instagram/` e non vanno online; le versioni per il web sono in `public/assets/img/foto/` (lato lungo 1100 px) e `public/assets/video/` (H.264 senza audio, con l'immagine d'anteprima `.jpg`). Il video della brace fa da sfondo all'apertura (sul telefono a tutto schermo, al posto del WebGL), quello del burro sta nella sezione del burro, gli altri nella galleria "Dal banco al piatto" (`config.foto`). I video partono solo quando sono sullo schermo.
+
+## 🌍 Le carni dal mondo
+
+`public/assets/js/carni.js`: fornitore, paesi (con le coordinate) e razze, con testi riscritti dal catalogo MFC Carni 2025. `banco: true` segna le razze viste al banco, che compaiono per prime con la loro foto. Se si aggiunge un paese, si rigenera la mappa: `cd tools/mappa && npm install && node genera.mjs`.
 
 ## 📋 Pagina del menu (`/menu/`)
 

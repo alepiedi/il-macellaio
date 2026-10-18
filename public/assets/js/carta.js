@@ -43,11 +43,29 @@
       '<h2 id="t-' + testo(s.id) + '">' + testo(s.titolo) + '</h2>' +
       (s.sottotitolo ? '<p class="portata-sotto">' + testo(s.sottotitolo) + '</p>' : '') +
       '</header>' +
+      (s.foto ? '<img class="portata-foto" src="../' + testo(s.foto) + '" alt="" loading="lazy">' : '') +
       (s.nota ? '<p class="portata-nota">' + testo(s.nota) + '</p>' : '') +
       (s.contorni && contorni ? '<div class="contorni"><p>Contorni a scelta</p><ul>' + contorni + '</ul></div>' : '') +
       corpo +
       '</section>';
   }).join('');
+
+  /* ---------- Le carni del momento (da carni.js) ---------- */
+  var CARNI = window.CARNI;
+  if (CARNI) {
+    var nomiPaesi = {};
+    CARNI.paesi.forEach(function (p) { nomiPaesi[p.id] = p.nome; });
+    var banco = CARNI.razze.filter(function (r) { return r.banco; });
+    $('#carta-contenuto').insertAdjacentHTML('beforeend',
+      '<section class="portata carta-carni" id="carni" aria-labelledby="t-carni">' +
+      '<header class="portata-testa"><span class="portata-n">✦</span><h2 id="t-carni">Dal mondo, al banco</h2></header>' +
+      '<p class="portata-nota">Le razze cambiano con la disponibilità. Di recente al banco:</p>' +
+      '<ul class="carta-razze">' + banco.map(function (r) {
+        return '<li><img src="../' + testo(r.foto) + '" alt="" loading="lazy"><span><b>' + testo(r.nome) + '</b>' + testo(nomiPaesi[r.paese]) + '</span></li>';
+      }).join('') + '</ul>' +
+      '<p class="carta-razze-link"><a href="../#carni">Scopri da dove arrivano le nostre carni →</a></p>' +
+      '</section>');
+  }
 
   /* ---------- Schede delle sezioni ---------- */
   var schede = $('#carta-schede');
@@ -55,6 +73,7 @@
     return '<a href="#' + testo(s.id) + '">' + testo(s.titolo.replace('Arrosti frollati', 'Frollati')) + '</a>';
   }).join('') + '</div>';
   var link = $$('a', schede);
+  // (la sezione delle carni non ha una scheda: si raggiunge scorrendo)
   var traccia = $('.carta-schede-traccia', schede);
   function attiva(id) {
     link.forEach(function (a) {

@@ -1,7 +1,7 @@
 /*
  * Il menu: lo usano la pagina /menu/ (quella del QR code) e la sezione "Il menu" della home.
  *
- * Ogni sezione: id (per i link), titolo, sottotitolo e nota facoltativi, piatti.
+ * Ogni sezione: id (per i link), titolo, sottotitolo, nota e foto facoltativi, piatti.
  * Ogni piatto: nome, descrizione facoltativa, prezzo (numero, in euro), unita facoltativa ('kg').
  * Le sezioni con frollatura: true mostrano i piatti come le tappe della frollatura (giorni: 30…).
  */
@@ -16,6 +16,7 @@ window.MENU = [
   {
     id: 'antipasti',
     titolo: 'Antipasti',
+    foto: 'assets/img/foto/tagliere-salumi-formaggi.jpg',
     piatti: [
       { nome: 'Antipasto di salumi "Il Macellaio"', prezzo: 20 },
       { nome: 'Patatine fritte', descrizione: 'Fatte al momento', prezzo: 4 },
@@ -41,6 +42,7 @@ window.MENU = [
   {
     id: 'piatti',
     titolo: 'Piatti',
+    foto: 'assets/img/foto/grigliata-mista-piatto.jpg',
     piatti: [
       { nome: 'Spiedini di carne', descrizione: '3 pezzi', prezzo: 6 },
       { nome: 'Tartare di scottona', prezzo: 15 },
@@ -59,6 +61,7 @@ window.MENU = [
   {
     id: 'frollati',
     titolo: 'Arrosti frollati',
+    foto: 'assets/img/foto/costata-dry-aged-primo-piano.jpg',
     sottotitolo: 'Prezzo al chilo',
     nota: 'Più giorni di frollatura, più tenerezza e un sapore più profondo. Scegli il taglio al banco e lo pesiamo davanti a te.',
     frollatura: true,

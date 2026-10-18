@@ -1,0 +1,7 @@
+{
+  "name": "mappa-carni",
+  "private": true,
+  "type": "module",
+  "description": "Rigenera public/assets/js/mappa.js: npm install && node genera.mjs",
+  "dependencies": { "d3-geo": "^3.1.1", "topojson-client": "^3.1.0", "world-atlas": "^2.0.2" }
+}

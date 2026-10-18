@@ -38,9 +38,20 @@ window.SITO = {
   // Esempio: [{ giorni: 'Martedì – Domenica', ore: '19:30 – 23:30' }, { giorni: 'Lunedì', ore: 'Chiuso' }]
   orari: [],
 
-  // Foto per la galleria (assets/img/foto/...). Finché è vuota la galleria non compare.
-  // Esempio: [{ src: 'assets/img/foto/costata.jpg', alt: 'Costata sulla pietra lavica' }]
-  foto: [],
+  // Galleria "Dal banco al piatto": foto (src) o video (video + poster), in assets/img/foto e assets/video.
+  // Finché è vuota la galleria non compare.
+  foto: [
+    { src: 'assets/img/foto/bistecche-fiamme-brace.jpg', alt: 'Due bistecche alte tra le fiamme della brace' },
+    { src: 'assets/img/foto/tartare-rucola-piatto.jpg', alt: 'Torrette di tartare su rucola, servite sul tagliere' },
+    { video: 'assets/video/costate.mp4', poster: 'assets/video/costate.jpg', alt: 'Costate che sfrigolano sulla griglia' },
+    { src: 'assets/img/foto/grigliata-mista-piatto.jpg', alt: 'Grigliata mista di tagli servita nel piatto' },
+    { src: 'assets/img/foto/fiorentine-rubia-gallega.jpg', alt: 'Fiorentine di Rubia Gallega con il cartellino' },
+    { src: 'assets/img/foto/tagliere-salumi-formaggi.jpg', alt: 'Tagliere di salumi, formaggi e pomodorini' },
+    { video: 'assets/video/flambe.mp4', poster: 'assets/video/flambe.jpg', alt: "L'arrosto flambé, poi tagliato e servito" },
+    { src: 'assets/img/foto/involtini-pistacchio-piatto.jpg', alt: 'Involtini con granella di pistacchio su ardesia' },
+    { src: 'assets/img/foto/bistecche-tagliere-legno.jpg', alt: 'Due bistecche crude su un tagliere di legno' },
+    { src: 'assets/img/foto/mugliatelli-brace-patate.jpg', alt: 'Mugliatelli alla brace con patate croccanti' },
+  ],
 
   // Mostra il nastro "Anteprima" in basso: mettere false quando il sito va online.
   anteprima: true,

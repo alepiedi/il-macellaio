@@ -8,11 +8,11 @@ window.SITO = {
   titolare: 'Milad',
 
   indirizzo: {
-    via: 'Via Napoli, 118',
+    via: 'Via Napoli, 149',
     cap: '82100',
     citta: 'Benevento',
     // Link "Indicazioni": va bene anche quello copiato dalla scheda Google del locale.
-    maps: 'https://www.google.com/maps/search/?api=1&query=Il+Macellaio+Via+Napoli+118+Benevento',
+    maps: 'https://www.google.com/maps/search/?api=1&query=Il+Macellaio+Via+Napoli+149+Benevento',
   },
 
   contatti: {

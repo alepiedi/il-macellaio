@@ -12,7 +12,7 @@ Niente framework e niente build: HTML, CSS e JavaScript scritti a mano, in `publ
 | 01 | **Storia** | Dalla macelleria alla brace: il testo si accende parola per parola mentre scorri |
 | 02 | **Il rito** | I cinque passi (banco, taglio, cottura, burro, servizio) con il disegno che cambia mentre scorri |
 | 03 | **Cotture** | Le tre cotture con animazioni: tagliata che sfrigola sulla pietra, carboni accesi, fumo sotto la campana |
-| 04 | **Il burro** | La tecnica giapponese della cugina e il burro fuso poi affumicato, con fumo dorato |
+| 04 | **Il burro** | La tecnica della cucina giapponese e il burro fuso poi affumicato, con fumo dorato |
 | 05 | **Il punto giusto** | Un cursore cambia la cottura della bistecca, dal sangue a ben cotta, con i gradi al cuore |
 | 06 | **Tagli** | Mappa del bovino: tocchi una zona e scopri il taglio, la cottura consigliata e il carattere |
 | 07 | **Menu** | Generato da `menu.js`, con filtri per cottura. Finché è vuoto mostra "il menu arriva a giorni" |

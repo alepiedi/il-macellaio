@@ -573,6 +573,20 @@ input[type=range]::-moz-range-thumb {
 .dove-azioni { display: flex; flex-wrap: wrap; gap: 12px; }
 @media (max-width: 860px) { .dove-griglia { grid-template-columns: 1fr; } }
 
+/* Stato "aperto ora" */
+.stato-ora { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 12px; letter-spacing: .08em; text-transform: none; font-weight: 500; color: var(--osso-2); }
+.stato-ora i { width: 8px; height: 8px; border-radius: 50%; background: #8a7f76; flex: none; }
+.stato-ora b { font-weight: 800; color: var(--osso); text-transform: uppercase; letter-spacing: .14em; }
+.stato-ora.aperto i { background: #4ade80; box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); animation: pulsa-verde 2s infinite; }
+.stato-ora.aperto b { color: #86efac; }
+@keyframes pulsa-verde { 70% { box-shadow: 0 0 0 9px rgba(74, 222, 128, 0); } 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); } }
+.hero-piede .stato-ora { letter-spacing: .1em; }
+.orari h3 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.orari dl div.oggi { background: rgba(255, 106, 43, .08); margin: 0 -12px; padding: 12px; border-radius: 12px; border-bottom-color: transparent; }
+.orari dl div.oggi dt { color: var(--brace-2); }
+.orari dt small { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--brace); margin-left: 6px; }
+@media (max-width: 720px) { .hero-piede .hero-voto { display: none; } }
+
 /* Piede */
 .piede { padding: 60px 0 calc(40px + env(safe-area-inset-bottom)); border-top: 1px solid var(--linea); overflow: hidden; }
 .piede-logo { width: min(100%, 980px); height: auto; margin: 0 0 50px; }

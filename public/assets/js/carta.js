@@ -122,5 +122,11 @@
   if (tel) $$('[data-telefono]').forEach(function (a) { a.href = 'tel:' + tel; a.hidden = false; });
   if (C.whatsapp) $$('[data-whatsapp]').forEach(function (a) { a.href = 'https://wa.me/' + C.whatsapp; a.hidden = false; });
   if (S.social && S.social.instagram) $$('[data-instagram]').forEach(function (a) { a.href = S.social.instagram; a.hidden = false; });
+  var statoOra = window.Orari && window.Orari.stato();
+  if (statoOra) $$('[data-stato]').forEach(function (el) {
+    el.hidden = false;
+    el.classList.toggle('aperto', statoOra.aperto);
+    el.innerHTML = '<i aria-hidden="true"></i><b>' + testo(statoOra.testo) + '</b>' + (statoOra.dettaglio ? ' · ' + testo(statoOra.dettaglio) : '');
+  });
   if (S.indirizzo) $$('[data-indirizzo]').forEach(function (el) { el.textContent = S.indirizzo.via + ' · ' + S.indirizzo.cap + ' ' + S.indirizzo.citta; });
 })();

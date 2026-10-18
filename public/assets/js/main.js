@@ -49,13 +49,19 @@
     }
   }
 
-  var orari = S.orari || [];
-  if (orari.length) {
+  /* ---------- Orari e "Aperto ora" ---------- */
+  var O = window.Orari, statoOra = O && O.stato();
+  if (statoOra) {
     $('#orari').hidden = false;
     $('#orari-vuoti').hidden = true;
-    $('#orari-elenco').innerHTML = orari.map(function (o) {
-      return '<div><dt>' + testo(o.giorni) + '</dt><dd>' + testo(o.ore) + '</dd></div>';
+    $('#orari-elenco').innerHTML = O.settimana().map(function (g) {
+      return '<div' + (g.oggi ? ' class="oggi"' : '') + '><dt>' + testo(g.giorno) + (g.oggi ? ' <small>oggi</small>' : '') + '</dt><dd>' + testo(g.ore) + '</dd></div>';
     }).join('');
+    $$('[data-stato]').forEach(function (el) {
+      el.hidden = false;
+      el.classList.toggle('aperto', statoOra.aperto);
+      el.innerHTML = '<i aria-hidden="true"></i><b>' + testo(statoOra.testo) + '</b>' + (statoOra.dettaglio ? ' · ' + testo(statoOra.dettaglio) : '');
+    });
   }
 
   var ICONE = {
@@ -481,6 +487,14 @@
     if (mancano.length) {
       errore.textContent = 'Manca ancora: ' + mancano.map(function (c) { return $('label[for=' + c.id + ']').textContent.toLowerCase(); }).join(', ') + '.';
       mancano[0].focus();
+      return;
+    }
+    var scelto = new Date(data.value + 'T12:00:00').getDay();
+    var turni = (S.orari || []).filter(function (o) { return o.giorno === scelto; })[0];
+    if (turni && !turni.fasce.length) {
+      data.setAttribute('aria-invalid', 'true');
+      errore.textContent = 'Il ' + new Date(data.value + 'T12:00:00').toLocaleDateString('it-IT', { weekday: 'long' }) + ' siamo chiusi: scegli un altro giorno.';
+      data.focus();
       return;
     }
     errore.textContent = '';

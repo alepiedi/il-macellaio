@@ -164,6 +164,7 @@ html { scroll-padding-top: 130px; }
 .carta-avviso { margin: 0 auto 28px; max-width: 520px; padding: 16px 18px; border-radius: 18px; border: 1px dashed var(--linea); color: var(--osso-2); font-size: .92em; }
 .carta-azioni { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 50px; }
 .carta-piede-logo { width: min(100%, 420px); height: auto; margin: 0 auto 14px; }
+.carta-stato { margin: 0 0 8px; }
 .carta-indirizzo { margin: 0 0 18px; color: var(--osso-3); font-size: 14px; }
 .carta-sito a { color: var(--brace-2); font-weight: 700; text-decoration: none; }
 .carta-sito a:hover { text-decoration: underline; }

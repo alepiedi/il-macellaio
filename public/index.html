@@ -34,7 +34,15 @@
       "addressRegion": "BN",
       "addressCountry": "IT"
     },
-    "acceptsReservations": true
+    "acceptsReservations": true,
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday", "Friday"], "opens": "08:30", "closes": "13:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday"], "opens": "16:00", "closes": "23:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "13:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "16:00", "closes": "23:59" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "18:30", "closes": "23:30" }
+    ]
   }
   </script>
 </head>
@@ -120,6 +128,7 @@
 
       <div class="hero-piede">
         <span>Via Napoli 118</span>
+        <span class="stato-ora" data-stato hidden></span>
         <span class="hero-voto" data-voto hidden>★ <b data-voto-numero></b> su Google</span>
         <a class="scorri" href="#storia" aria-label="Scorri"><span></span></a>
       </div>
@@ -652,7 +661,7 @@
           <h2 class="titolo-grande rivela" id="dove-titolo">Via Napoli,<br><em>118.</em></h2>
           <p class="dove-indirizzo rivela" data-indirizzo>Via Napoli, 118 · 82100 Benevento</p>
           <div class="orari rivela" id="orari" hidden>
-            <h3>Orari</h3>
+            <h3>Orari <span class="stato-ora" data-stato hidden></span></h3>
             <dl id="orari-elenco"></dl>
           </div>
           <p class="orari-vuoti rivela" id="orari-vuoti">Per orari e disponibilità del giorno, chiamaci o scrivici.</p>
@@ -694,6 +703,7 @@
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/menu.js"></script>
+  <script src="assets/js/orari.js"></script>
   <script src="assets/js/carni.js"></script>
   <script src="assets/js/mappa.js"></script>
   <script src="assets/js/fuoco.js"></script>

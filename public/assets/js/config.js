@@ -35,8 +35,17 @@ window.SITO = {
     link: '',
   },
 
-  // Esempio: [{ giorni: 'Martedì – Domenica', ore: '19:30 – 23:30' }, { giorni: 'Lunedì', ore: 'Chiuso' }]
-  orari: [],
+  // Orari settimanali (giorno: 0 = domenica … 6 = sabato). Un giorno senza fasce è chiuso.
+  // La mezzanotte di fine giornata si scrive '24:00'. Da qui il sito calcola "Aperto ora".
+  orari: [
+    { giorno: 1, fasce: [['08:30', '13:00'], ['16:00', '23:30']] },
+    { giorno: 2, fasce: [] },
+    { giorno: 3, fasce: [['08:30', '13:00'], ['16:00', '23:30']] },
+    { giorno: 4, fasce: [['08:00', '13:00'], ['16:00', '23:30']] },
+    { giorno: 5, fasce: [['08:30', '13:00'], ['16:00', '23:30']] },
+    { giorno: 6, fasce: [['08:00', '13:30'], ['16:00', '24:00']] },
+    { giorno: 0, fasce: [['18:30', '23:30']] },
+  ],
 
   // Galleria "Dal banco al piatto": foto (src) o video (video + poster), in assets/img/foto e assets/video.
   // Finché è vuota la galleria non compare.

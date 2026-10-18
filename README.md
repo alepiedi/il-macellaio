@@ -30,6 +30,10 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 
 `public/assets/js/carni.js`: fornitore, paesi (con le coordinate) e razze, con testi riscritti dal catalogo MFC Carni 2025. `banco: true` segna le razze viste al banco, che compaiono per prime con la loro foto. Se si aggiunge un paese, si rigenera la mappa: `cd tools/mappa && npm install && node genera.mjs`.
 
+## 🕒 Orari
+
+In `config.js` (`orari`), giorno per giorno con le fasce. Il sito li mostra nella sezione "Dove siamo" (con il giorno di oggi in evidenza), calcola "Aperto ora / Chiuso ora · riapre…" con l'ora italiana (apertura, "Dove siamo" e fondo del menu) e blocca le prenotazioni nei giorni di chiusura. Gli stessi orari sono anche nei dati strutturati per Google (`openingHoursSpecification` in `index.html`): se cambiano, vanno aggiornati in tutti e due i posti. Il mercoledì su Google risultava "aperto 24 ore": è stato messo come lunedì e venerdì.
+
 ## 📋 Pagina del menu (`/menu/`)
 
 La pagina da aprire con il QR code sui tavoli: leggera (niente WebGL), pensata per il telefono. Schede delle sezioni che restano in alto, contorni a scelta, la frollatura da 30 a 120 giorni con le barre che si riempiono, avviso per gli allergeni, pulsanti per chiamare, WhatsApp e prenotare. Il pulsante "Aa" ingrandisce il testo (se lo ricorda il telefono). Si stampa anche pulita, su fondo bianco.
@@ -40,7 +44,7 @@ I piatti stanno in `public/assets/js/menu.js` (`MENU` e `MENU_INFO`): basta camb
 
 Si modificano solo due file:
 
-- **`public/assets/js/config.js`**: social (Instagram, Facebook), orari, voto Google e link alla scheda, foto, P. IVA, indirizzo del sito. Un campo vuoto nasconde da solo la parte che lo usa.
+- **`public/assets/js/config.js`**: social, orari, voto Google e link alla scheda, foto, P. IVA, indirizzo del sito. Un campo vuoto nasconde da solo la parte che lo usa.
 - **`public/assets/js/menu.js`**: il menu (prezzi, coperto, contorni, avviso allergeni).
 
 Da verificare con il locale: telefono e WhatsApp (presi da Tripadvisor), nome del titolare, le tre cotture e i tagli indicati nella mappa.

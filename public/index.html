@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Il Macellaio · Macelleria e Braceria a Benevento</title>
-  <meta name="description" content="Il Macellaio, Benevento: nato come macelleria, oggi braceria. Scegli il taglio al banco e lo vedi cuocere davanti a te: pietra lavica, brace e affumicatura dal vivo, con il burro affumicato. Via Napoli 118.">
+  <meta name="description" content="Il Macellaio, Benevento: nato come macelleria, oggi braceria. Scegli il taglio al banco e lo vedi cuocere davanti a te: brace, affumicatura dal vivo e pietra lavica, con il burro affumicato. Via Napoli 118.">
   <meta name="theme-color" content="#0c0a09">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -23,7 +23,7 @@
     "@context": "https://schema.org",
     "@type": ["Restaurant", "ButcherShop"],
     "name": "Il Macellaio",
-    "description": "Macelleria e braceria: carne frollata cotta davanti al cliente su pietra lavica, brace e affumicatura dal vivo.",
+    "description": "Macelleria e braceria: carne frollata cotta davanti al cliente sulla brace, con l'affumicatura dal vivo e sulla pietra lavica.",
     "servesCuisine": ["Carne alla brace", "Steakhouse"],
     "telephone": "+39 340 829 0489",
     "address": {
@@ -99,7 +99,7 @@
           <span class="riga"><span class="parola">La</span> <span class="parola">carne,</span></span>
           <span class="riga riga-calda"><em class="parola">davanti</em> <em class="parola">a&nbsp;te.</em></span>
         </h1>
-        <p class="hero-testo rivela">Scegli il taglio al banco. Lo vedi tagliare, cuocere e riposare a un passo dal tavolo: sulla pietra lavica, sulla brace o sotto il fumo, e poi il burro affumicato.</p>
+        <p class="hero-testo rivela">Scegli il taglio al banco. Lo vedi tagliare, cuocere e riposare a un passo dal tavolo: sulla brace, sotto il fumo o sulla pietra lavica, e poi il burro affumicato.</p>
         <div class="hero-azioni rivela">
           <a class="btn btn-brace btn-grande" href="#prenota">Prenota un tavolo <span aria-hidden="true">→</span></a>
           <a class="btn btn-vetro btn-grande" href="#rito">Scopri il rito</a>
@@ -124,8 +124,8 @@
     <!-- Nastro -->
     <div class="nastro" aria-hidden="true">
       <div class="nastro-traccia">
-        <span>Frollatura</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
-        <span>Frollatura</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
+        <span>Frollatura</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
+        <span>Frollatura</span><i>✦</i><span>Brace</span><i>✦</i><span>Affumicatura dal vivo</span><i>✦</i><span>Pietra lavica</span><i>✦</i><span>Burro affumicato</span><i>✦</i><span>Taglio al banco</span><i>✦</i>
       </div>
     </div>
 
@@ -216,7 +216,7 @@
           </li>
           <li class="rito-passo" data-passo="2" data-nome="Il fuoco">
             <h3><span>03</span> La cottura</h3>
-            <p>Pietra lavica, brace o affumicatura dal vivo. Ogni taglio ha la sua, e la scelta te la consigliamo noi. Tutto succede davanti a te, nessuna porta chiusa.</p>
+            <p>Brace, affumicatura dal vivo o pietra lavica. Ogni taglio ha la sua, e la scelta te la consigliamo noi. Tutto succede davanti a te, nessuna porta chiusa.</p>
           </li>
           <li class="rito-passo" data-passo="3" data-nome="Il burro">
             <h3><span>04</span> Il burro affumicato</h3>
@@ -238,6 +238,44 @@
         <p class="intro rivela">Ogni cottura tira fuori una cosa diversa dalla carne. Il segreto è sapere quale scegliere per ogni taglio: è il lavoro di chi la carne la conosce dal banco.</p>
 
         <div class="cotture-griglia">
+          <article class="cottura cottura-brace rivela" tabindex="0">
+            <div class="cottura-visivo" aria-hidden="true">
+              <canvas class="braci" data-braci></canvas>
+            </div>
+            <div class="cottura-corpo">
+              <span class="cottura-n">I</span>
+              <h3>Brace</h3>
+              <p class="cottura-sottotitolo">Il fuoco di sempre</p>
+              <p>Il carbone arriva al punto giusto, quando la fiamma si spegne e resta solo il rosso. È il calore più antico: dà la tostatura, le righe della griglia e quel profumo che ti porti a casa.</p>
+              <dl class="cottura-dati">
+                <div><dt>Per</dt><dd>tagli con osso, picanha, salsiccia</dd></div>
+                <div><dt>Carattere</dt><dd>tostatura, aroma, carattere</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="cottura cottura-fumo rivela" tabindex="0">
+            <div class="cottura-visivo" aria-hidden="true">
+              <canvas class="fumo-tela" data-fumo="grigio"></canvas>
+              <svg class="campana" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax meet">
+                <path d="M110 250c0-70 40-120 90-120s90 50 90 120Z" fill="rgba(241,228,208,.08)" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
+                <path d="M150 170c14-20 30-28 46-30" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <circle cx="200" cy="122" r="9" fill="none" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
+                <path d="M80 252h240" stroke="rgba(241,228,208,.55)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="cottura-corpo">
+              <span class="cottura-n">II</span>
+              <h3>Affumicatura dal vivo</h3>
+              <p class="cottura-sottotitolo">Lo spettacolo al tavolo</p>
+              <p>La carne arriva sotto la campana, il fumo di legna la avvolge e si alza davanti a te. Quando la campana si apre, il profumo riempie la sala. Un'esperienza prima ancora del primo morso.</p>
+              <dl class="cottura-dati">
+                <div><dt>Per</dt><dd>tagli frollati, tartare, petto</dd></div>
+                <div><dt>Carattere</dt><dd>profondità, legno, teatro</dd></div>
+              </dl>
+            </div>
+          </article>
+
           <article class="cottura cottura-pietra rivela" tabindex="0">
             <div class="cottura-visivo" aria-hidden="true">
               <svg class="pietra" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
@@ -274,51 +312,13 @@
               </svg>
             </div>
             <div class="cottura-corpo">
-              <span class="cottura-n">I</span>
+              <span class="cottura-n">III</span>
               <h3>Pietra lavica</h3>
               <p class="cottura-sottotitolo">La crosta perfetta</p>
               <p>La pietra vulcanica trattiene un calore enorme e lo restituisce uniforme. La superficie sigilla subito, i succhi restano dentro e la carne frollata fa la sua crosta, senza fiamma diretta.</p>
               <dl class="cottura-dati">
                 <div><dt>Per</dt><dd>tagli frollati, costate, controfiletto</dd></div>
                 <div><dt>Carattere</dt><dd>crosta, succosità, sapore pulito</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="cottura cottura-brace rivela" tabindex="0">
-            <div class="cottura-visivo" aria-hidden="true">
-              <canvas class="braci" data-braci></canvas>
-            </div>
-            <div class="cottura-corpo">
-              <span class="cottura-n">II</span>
-              <h3>Brace</h3>
-              <p class="cottura-sottotitolo">Il fuoco di sempre</p>
-              <p>Il carbone arriva al punto giusto, quando la fiamma si spegne e resta solo il rosso. È il calore più antico: dà la tostatura, le righe della griglia e quel profumo che ti porti a casa.</p>
-              <dl class="cottura-dati">
-                <div><dt>Per</dt><dd>tagli con osso, picanha, salsiccia</dd></div>
-                <div><dt>Carattere</dt><dd>tostatura, aroma, carattere</dd></div>
-              </dl>
-            </div>
-          </article>
-
-          <article class="cottura cottura-fumo rivela" tabindex="0">
-            <div class="cottura-visivo" aria-hidden="true">
-              <canvas class="fumo-tela" data-fumo="grigio"></canvas>
-              <svg class="campana" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax meet">
-                <path d="M110 250c0-70 40-120 90-120s90 50 90 120Z" fill="rgba(241,228,208,.08)" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
-                <path d="M150 170c14-20 30-28 46-30" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <circle cx="200" cy="122" r="9" fill="none" stroke="rgba(241,228,208,.55)" stroke-width="2"/>
-                <path d="M80 252h240" stroke="rgba(241,228,208,.55)" stroke-width="3" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="cottura-corpo">
-              <span class="cottura-n">III</span>
-              <h3>Affumicatura dal vivo</h3>
-              <p class="cottura-sottotitolo">Lo spettacolo al tavolo</p>
-              <p>La carne arriva sotto la campana, il fumo di legna la avvolge e si alza davanti a te. Quando la campana si apre, il profumo riempie la sala. Un'esperienza prima ancora del primo morso.</p>
-              <dl class="cottura-dati">
-                <div><dt>Per</dt><dd>tagli frollati, tartare, petto</dd></div>
-                <div><dt>Carattere</dt><dd>profondità, legno, teatro</dd></div>
               </dl>
             </div>
           </article>

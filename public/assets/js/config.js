@@ -23,9 +23,8 @@ window.SITO = {
   },
 
   social: {
-    // Da completare con i profili ufficiali (es. 'https://www.instagram.com/...').
-    instagram: '',
-    facebook: '',
+    instagram: 'https://www.instagram.com/ilmacellaiobenevento/',
+    facebook: 'https://www.facebook.com/profile.php?id=100069883992315',
     tiktok: '',
   },
 
@@ -42,6 +41,9 @@ window.SITO = {
   // Foto per la galleria (assets/img/foto/...). Finché è vuota la galleria non compare.
   // Esempio: [{ src: 'assets/img/foto/costata.jpg', alt: 'Costata sulla pietra lavica' }]
   foto: [],
+
+  // Mostra il nastro "Anteprima" in basso: mettere false quando il sito va online.
+  anteprima: true,
 
   piva: '',
   url: '',

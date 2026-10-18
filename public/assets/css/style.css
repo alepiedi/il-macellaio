@@ -599,6 +599,16 @@ input[type=range]::-moz-range-thumb {
 .prenota-flottante.visibile { transform: none; }
 @media (max-width: 720px) { .prenota-flottante { display: inline-flex; } }
 
+/* Nastro dell'anteprima */
+.nastro-anteprima {
+  position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 45;
+  display: flex; align-items: center; gap: 6px; padding: 6px 6px 6px 16px; border-radius: 999px;
+  background: rgba(241, 228, 208, .92); color: var(--carbone); font-size: 13px; font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+}
+.nastro-anteprima button { width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(12, 10, 9, .1); color: var(--carbone); cursor: pointer; font-size: 18px; line-height: 1; }
+@media (max-width: 720px) { .nastro-anteprima { bottom: calc(80px + env(safe-area-inset-bottom)); font-size: 12px; } }
+
 /* Movimento ridotto */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001s !important; animation-iteration-count: 1 !important; transition-duration: .001s !important; scroll-behavior: auto !important; }

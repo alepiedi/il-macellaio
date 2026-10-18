@@ -71,6 +71,21 @@
     return '<a href="' + testo(href) + '" target="_blank" rel="noopener" aria-label="' + nome + '">' + ICONE[k] + '</a>';
   });
   $('#piede-social').innerHTML = linkSocial.join('');
+  $$('[data-instagram]').forEach(function (a) {
+    if (!social.instagram) return;
+    a.href = social.instagram;
+    a.hidden = false;
+  });
+
+  var nastro = $('#anteprima'), chiuso = false;
+  try { chiuso = sessionStorage.getItem('macellaio-anteprima') === 'chiuso'; } catch (e) {}
+  if (S.anteprima && !chiuso) {
+    nastro.hidden = false;
+    $('button', nastro).addEventListener('click', function () {
+      nastro.hidden = true;
+      try { sessionStorage.setItem('macellaio-anteprima', 'chiuso'); } catch (e) {}
+    });
+  }
 
   /* ---------- Testata e navigazione ---------- */
   var testata = $('#testata'), flottante = $('#prenota-flottante');

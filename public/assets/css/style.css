@@ -98,10 +98,6 @@ em { font-style: italic; }
   font-size: 12px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600;
   color: var(--osso-2); margin: 0 0 28px;
 }
-.punto-vivo {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--brace);
-  box-shadow: 0 0 0 0 rgba(255, 106, 43, .7); animation: pulsa 2s infinite;
-}
 @keyframes pulsa { 70% { box-shadow: 0 0 0 10px rgba(255, 106, 43, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 106, 43, 0); } }
 
 /* ---------- Pulsanti ---------- */
@@ -270,7 +266,7 @@ em { font-style: italic; }
 @keyframes scorre { to { transform: translateX(-50%); } }
 
 /* ---------- Sezioni ---------- */
-.sezione { position: relative; padding: clamp(100px, 13vw, 200px) 0; }
+.sezione { position: relative; padding: clamp(70px, 8vw, 130px) 0; }
 
 /* Rivelazione allo scorrimento */
 .js .rivela { opacity: 0; transform: translateY(36px); transition: opacity 1s var(--curva), transform 1s var(--curva); }
@@ -283,53 +279,9 @@ em { font-style: italic; }
   max-width: 1100px; margin: 0 0 clamp(70px, 9vw, 130px);
   font-variation-settings: 'opsz' 72;
 }
-.manifesto .p { color: rgba(241, 228, 208, .16); transition: color .5s; }
-.manifesto .p.accesa { color: var(--osso); }
-.manifesto .p.calda { color: var(--brace); font-style: italic; }
-.storia-passi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--linea); border: 1px solid var(--linea); border-radius: 22px; overflow: hidden; }
-.passo-storia { background: var(--carbone); padding: clamp(28px, 3vw, 48px); position: relative; transition: background .5s; }
-.passo-storia:hover { background: var(--cenere); }
-.passo-storia-n { font-family: var(--serif); font-style: italic; font-size: 64px; line-height: 1; color: var(--brace); display: block; margin-bottom: 28px; font-variation-settings: 'opsz' 144, 'WONK' 1; }
-.passo-storia h3 { font-size: 30px; margin-bottom: 14px; letter-spacing: -.02em; }
-.passo-storia p { margin: 0; color: var(--osso-2); }
-@media (max-width: 860px) { .storia-passi { grid-template-columns: 1fr; } }
 
 /* 02 Rito */
 .rito { background: linear-gradient(180deg, var(--carbone), var(--cenere) 30%, var(--cenere) 70%, var(--carbone)); }
-.rito-scena { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 100px); align-items: start; }
-.rito-visivo { position: sticky; top: 14vh; height: 72vh; display: grid; place-items: center; }
-.rito-schermo {
-  position: relative; width: min(100%, 520px); aspect-ratio: 1; border-radius: 50%;
-  display: grid; place-items: center;
-  background: radial-gradient(circle at 50% 60%, rgba(255, 106, 43, .22), transparent 62%), var(--fuliggine);
-  border: 1px solid var(--linea);
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, .7), 0 40px 120px -40px rgba(255, 106, 43, .35);
-}
-.rito-schermo::before {
-  content: ''; position: absolute; inset: -14px; border-radius: 50%;
-  border: 1px dashed rgba(241, 228, 208, .18); animation: gira 60s linear infinite;
-}
-.rito-numero {
-  position: absolute; top: 14%; font-family: var(--serif); font-style: italic; font-size: clamp(40px, 5vw, 70px);
-  color: var(--brace); font-variation-settings: 'opsz' 144, 'WONK' 1; line-height: 1;
-}
-.rito-icona { width: 56%; }
-.rito-icona g { opacity: 0; transform: scale(.85) rotate(-6deg); transform-origin: 100px 100px; transition: opacity .6s, transform .8s var(--curva); }
-.rito-icona g.attiva { opacity: 1; transform: none; }
-.rito-etichetta { position: absolute; bottom: 15%; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--osso-2); font-weight: 700; }
-.rito-passi { list-style: none; margin: 0; padding: 18vh 0; }
-.rito-passo { min-height: 56vh; display: flex; flex-direction: column; justify-content: center; opacity: .25; transition: opacity .6s; }
-.rito-passo.attivo { opacity: 1; }
-.rito-passo h3 { font-size: clamp(34px, 4vw, 60px); letter-spacing: -.03em; margin-bottom: 20px; }
-.rito-passo h3 span { display: block; font-family: var(--sans); font-size: 13px; letter-spacing: .24em; color: var(--brace); margin-bottom: 14px; font-weight: 700; }
-.rito-passo p { font-size: clamp(17px, 1.3vw, 20px); color: var(--osso-2); max-width: 480px; margin: 0; }
-@media (max-width: 860px) {
-  .rito-scena { grid-template-columns: 1fr; }
-  .rito-visivo { top: 64px; height: auto; padding: 16px 0 28px; z-index: 2; background: linear-gradient(180deg, var(--cenere) 80%, transparent); margin: 0 calc(var(--gutter) * -1); }
-  .rito-schermo { width: min(62vw, 280px); }
-  .rito-passi { padding: 6vh 0 0; }
-  .rito-passo { min-height: 46vh; }
-}
 
 /* 03 Cotture */
 .cotture-griglia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -358,12 +310,7 @@ em { font-style: italic; }
 .cottura-corpo { padding: 8px clamp(24px, 2.4vw, 36px) clamp(28px, 2.6vw, 40px); position: relative; flex: 1; }
 .cottura-n { font-family: var(--serif); font-style: italic; color: var(--brace); font-size: 22px; }
 .cottura h3 { font-size: clamp(30px, 2.6vw, 40px); letter-spacing: -.025em; margin: 6px 0 6px; }
-.cottura-sottotitolo { margin: 0 0 18px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--burro); font-weight: 700; }
 .cottura p { color: var(--osso-2); }
-.cottura-dati { margin: 22px 0 0; display: grid; gap: 10px; border-top: 1px solid var(--linea); padding-top: 18px; font-size: 14px; }
-.cottura-dati div { display: grid; grid-template-columns: 90px 1fr; gap: 10px; }
-.cottura-dati dt { color: var(--osso-3); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; padding-top: 3px; font-weight: 700; }
-.cottura-dati dd { margin: 0; }
 @media (max-width: 980px) { .cotture-griglia { grid-template-columns: 1fr; max-width: 560px; } }
 
 /* 04 Burro */
@@ -384,119 +331,16 @@ em { font-style: italic; }
 }
 .burro .titolo-grande em { color: var(--burro); }
 .burro-griglia { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(30px, 6vw, 100px); align-items: start; }
-.burro-testo p { color: var(--osso-2); font-size: clamp(17px, 1.25vw, 19px); }
-.burro-testo strong { color: var(--osso); font-weight: 700; }
-.citazione {
-  font-family: var(--serif); font-style: italic; font-size: clamp(26px, 2.6vw, 38px) !important; line-height: 1.2;
-  color: var(--burro) !important; margin: 0 0 28px; letter-spacing: -.015em;
-  font-variation-settings: 'opsz' 72, 'SOFT' 100;
-}
 .burro-fasi { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 1px; background: rgba(232, 176, 74, .2); border-radius: 18px; overflow: hidden; }
 .burro-fasi li { display: grid; grid-template-columns: 50px 140px 1fr; align-items: baseline; gap: 10px; padding: 20px 24px; background: rgba(18, 14, 11, .88); backdrop-filter: blur(6px); }
 .burro-fasi span { font-size: 12px; color: var(--burro); font-weight: 700; letter-spacing: .1em; }
 .burro-fasi b { font-family: var(--serif); font-weight: 500; font-size: 24px; }
-.burro-fasi small { color: var(--osso-2); font-size: 15px; }
 @media (max-width: 900px) {
   .burro-griglia { grid-template-columns: 1fr; }
   .burro-fasi li { grid-template-columns: 40px 1fr; }
-  .burro-fasi small { grid-column: 2; }
 }
 
-/* 05 Punto di cottura */
-.punto-griglia { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
-.punto-controllo { background: var(--cenere); border: 1px solid var(--linea); border-radius: 24px; padding: clamp(24px, 3vw, 40px); }
-.punto-nome { display: block; font-family: var(--serif); font-size: clamp(30px, 3vw, 44px); letter-spacing: -.02em; margin-bottom: 22px; }
-input[type=range] {
-  -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 8px; cursor: pointer;
-  background: linear-gradient(90deg, #b8203a, #d0525a 25%, #c77c6e 50%, #a7836b 75%, #7a5d4c);
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none; width: 30px; height: 30px; border-radius: 50%;
-  background: var(--osso); border: 6px solid var(--carbone); box-shadow: 0 0 0 1.5px var(--osso), 0 6px 20px rgba(0, 0, 0, .5);
-}
-input[type=range]::-moz-range-thumb {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--osso); border: 6px solid var(--carbone); box-shadow: 0 0 0 1.5px var(--osso);
-}
-.punto-scala { display: flex; justify-content: space-between; font-size: 12px; color: var(--osso-3); margin-top: 12px; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; }
-.punto-temperatura { display: flex; align-items: baseline; gap: 10px; margin: 26px 0 8px; }
-.punto-temperatura b { font-family: var(--serif); font-size: 64px; line-height: 1; color: var(--brace); font-weight: 400; font-variant-numeric: tabular-nums; }
-.punto-temperatura span { color: var(--osso-2); }
-.punto-descrizione { margin: 0; color: var(--osso-2); min-height: 3.2em; }
-.punto-bistecca { position: relative; }
-.punto-bistecca svg { width: 100%; filter: drop-shadow(0 40px 60px rgba(0, 0, 0, .6)); }
-.punto-bistecca stop { transition: stop-color .7s; }
-.punto-vapore { position: absolute; left: 30%; right: 30%; top: 0; height: 40%; display: flex; justify-content: space-around; pointer-events: none; }
-.punto-vapore span {
-  width: 3px; height: 80%; border-radius: 3px; background: linear-gradient(transparent, rgba(241, 228, 208, .35), transparent);
-  filter: blur(4px); animation: vapore 3.6s ease-in-out infinite; opacity: 0;
-}
-.punto-vapore span:nth-child(2) { animation-delay: -1.2s; }
-.punto-vapore span:nth-child(3) { animation-delay: -2.4s; }
-@keyframes vapore { 0% { transform: translateY(40%) scaleX(1); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(-50%) scaleX(4) skewX(20deg); opacity: 0; } }
-@media (max-width: 860px) { .punto-griglia { grid-template-columns: 1fr; } .punto-bistecca { order: -1; max-width: 520px; } }
-
-/* 06 Tagli */
-.tagli { background: linear-gradient(180deg, var(--carbone), var(--cenere)); }
-.tagli-scena { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(20px, 4vw, 60px); align-items: center; }
-.tagli-mappa svg { width: 100%; overflow: visible; }
-.zona { fill: transparent; stroke: rgba(241, 228, 208, .2); stroke-width: 1.2; cursor: pointer; transition: fill .35s; }
-.zona-off { cursor: default; fill: rgba(0, 0, 0, .25); }
-.zona:not(.zona-off):hover { fill: rgba(255, 106, 43, .28); }
-.zona.scelta { fill: rgba(255, 106, 43, .62); }
-.tagli-etichette text { font-family: var(--sans); font-size: 13px; fill: var(--osso-2); text-anchor: middle; pointer-events: none; letter-spacing: .06em; font-weight: 600; }
-.tagli-pulsanti { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-.tagli-pulsanti button {
-  border: 1px solid var(--linea); background: transparent; border-radius: 999px; padding: 8px 16px; cursor: pointer;
-  font-size: 14px; font-weight: 600; color: var(--osso-2); transition: all .25s;
-}
-.tagli-pulsanti button:hover { border-color: var(--osso-3); color: var(--osso); }
-.tagli-pulsanti button[aria-selected=true] { background: var(--osso); color: var(--carbone); border-color: var(--osso); }
-.taglio-scheda { background: var(--carbone); border: 1px solid var(--linea); border-radius: 26px; padding: clamp(26px, 3vw, 40px); position: relative; overflow: hidden; }
-.taglio-scheda::before { content: ''; position: absolute; width: 260px; height: 260px; right: -100px; top: -100px; background: radial-gradient(circle, rgba(255, 106, 43, .35), transparent 70%); }
-.taglio-zona { margin: 0 0 8px; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--brace); font-weight: 700; }
-.taglio-nome { font-size: clamp(38px, 3.6vw, 56px); letter-spacing: -.03em; margin-bottom: 16px; }
-.taglio-descrizione { color: var(--osso-2); margin: 0 0 24px; min-height: 5em; }
-.taglio-dati { margin: 0 0 24px; display: grid; gap: 10px; font-size: 15px; }
-.taglio-dati div { display: grid; grid-template-columns: 100px 1fr; border-top: 1px solid var(--linea); padding-top: 10px; }
-.taglio-dati dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--osso-3); font-weight: 700; padding-top: 3px; }
-.taglio-dati dd { margin: 0; }
-.taglio-misure { display: grid; grid-template-columns: 100px 1fr; gap: 10px 0; align-items: center; font-size: 13px; color: var(--osso-3); }
-.taglio-misure i { height: 6px; background: var(--linea); border-radius: 6px; overflow: hidden; }
-.taglio-misure b { display: block; height: 100%; background: linear-gradient(90deg, var(--sangue), var(--brace)); border-radius: 6px; transition: width .8s var(--curva); }
-.taglio-scheda.cambia .taglio-nome, .taglio-scheda.cambia .taglio-descrizione { animation: entra .6s var(--curva); }
 @keyframes entra { from { opacity: 0; transform: translateY(12px); } }
-@media (max-width: 980px) { .tagli-scena { grid-template-columns: 1fr; } .tagli-etichette { display: none; } }
-
-/* 07 Menu */
-.menu-filtri { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
-.menu-filtri button { border: 1px solid var(--linea); background: transparent; border-radius: 999px; padding: 8px 16px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--osso-2); }
-.menu-filtri button[aria-pressed=true] { background: var(--brace); color: #1a0b05; border-color: var(--brace); }
-.menu-elenco { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(40px, 5vw, 80px); }
-.menu-sezione h3 { font-size: clamp(30px, 2.8vw, 42px); letter-spacing: -.02em; margin-bottom: 6px; }
-.menu-sezione > p { color: var(--osso-3); margin: 0 0 22px; font-style: italic; font-family: var(--serif); }
-.piatto { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 16px 0; border-bottom: 1px dashed var(--linea); }
-.piatto h4 { margin: 0; font-size: 18px; font-weight: 700; display: flex; align-items: baseline; gap: 10px; }
-.piatto h4::after { content: ''; flex: 1; border-bottom: 1px dotted var(--osso-3); transform: translateY(-4px); }
-.piatto-prezzo { font-family: var(--serif); font-size: 20px; color: var(--burro); white-space: nowrap; }
-.piatto p { margin: 0; color: var(--osso-2); font-size: 15px; grid-column: 1 / -1; }
-.piatto-tag { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; }
-.piatto-tag span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: rgba(255, 106, 43, .14); color: var(--brace-2); }
-@media (max-width: 860px) { .menu-elenco { grid-template-columns: 1fr; } }
-.menu-attesa-lavagna {
-  position: relative; border-radius: 28px; padding: clamp(36px, 6vw, 90px);
-  background: radial-gradient(100% 120% at 0% 0%, #2a2421, #161210 70%);
-  border: 10px solid #2b1f17; box-shadow: inset 0 0 80px rgba(0, 0, 0, .6), 0 40px 100px -50px rgba(0, 0, 0, .9);
-  overflow: hidden;
-}
-.menu-attesa-lavagna::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .018) 0 2px, transparent 2px 9px); pointer-events: none; }
-.menu-attesa-sopra { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--burro); font-weight: 700; margin: 0 0 18px; }
-.menu-attesa-titolo { font-family: var(--serif); font-style: italic; font-size: clamp(44px, 6vw, 92px); line-height: .95; margin: 0 0 24px; letter-spacing: -.03em; font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1; }
-.menu-attesa-lavagna > p:not([class]) { max-width: 540px; color: var(--osso-2); margin: 0 0 30px; font-size: 18px; }
-
-.menu-completo { margin-top: clamp(40px, 5vw, 70px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
-.menu-completo p { margin: 0; color: var(--osso-3); }
-.menu-elenco { grid-auto-flow: dense; }
 
 /* Galleria */
 .galleria { padding: clamp(80px, 10vw, 140px) 0; overflow: hidden; }
@@ -514,13 +358,13 @@ input[type=range]::-moz-range-thumb {
 @media (max-width: 760px) { .numeri-griglia { grid-template-columns: repeat(2, 1fr); } }
 
 /* 08 Bottega */
-.bottega-griglia { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 100px); }
+.bottega-griglia { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 6vw, 100px); align-items: center; }
 .bottega-testo > p { font-size: clamp(18px, 1.4vw, 22px); color: var(--osso-2); margin-top: 0; }
 .bottega-elenco { list-style: none; padding: 0; margin: 34px 0 0; }
 .bottega-elenco li { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; border-top: 1px solid var(--linea); align-items: baseline; flex-wrap: wrap; }
 .bottega-elenco b { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2vw, 30px); }
 .bottega-elenco span { color: var(--osso-3); }
-@media (max-width: 860px) { .bottega-griglia { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .bottega-griglia { grid-template-columns: 1fr; } .bottega-foto { justify-self: start; } }
 
 /* 09 Prenota */
 .prenota { overflow: hidden; isolation: isolate; }
@@ -647,11 +491,11 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* ---------- Fascia di foto nella storia ---------- */
-.fascia-foto { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 28px); margin-top: clamp(60px, 8vw, 120px); }
+.fascia-foto { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 28px); max-width: 1000px; }
 .fascia-foto figure { margin: 0; transform: translateY(var(--sposta, 0px)); }
 .js .fascia-foto figure.rivela.vista { transform: translateY(var(--sposta, 0px)); }
 .fascia-foto figure:nth-child(2) { margin-top: clamp(40px, 6vw, 90px); }
-.fascia-foto img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; display: block; }
+.fascia-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 22px; display: block; }
 .fascia-foto figcaption { margin-top: 12px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--osso-3); font-weight: 600; }
 @media (max-width: 720px) {
   .fascia-foto { grid-template-columns: repeat(3, 70vw); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; }
@@ -736,7 +580,7 @@ input[type=range]::-moz-range-thumb {
 .carni-nota b { color: var(--osso); }
 
 /* ---------- Foto della macelleria ---------- */
-.bottega-foto { margin: 10px 0 0; width: min(100%, 440px); }
+.bottega-foto { margin: 0; width: min(100%, 400px); justify-self: end; }
 .bottega-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; display: block; }
 .bottega-foto figcaption { margin-top: 12px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--osso-3); font-weight: 600; }
 
@@ -746,6 +590,38 @@ input[type=range]::-moz-range-thumb {
 .galleria-titolo em { color: var(--brace); font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1; }
 .galleria-video { margin: 0; flex: none; }
 .galleria-video video { height: clamp(260px, 34vw, 480px); aspect-ratio: 9 / 16; width: auto; object-fit: cover; border-radius: 22px; display: block; background: #000; }
+
+/* ---------- Testo breve e passi del rito ---------- */
+.frase { font-family: var(--serif); font-weight: 350; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.2; letter-spacing: -.015em; max-width: 820px; margin: 0 0 clamp(36px, 5vw, 60px); color: var(--osso); font-variation-settings: 'opsz' 72; }
+.burro .frase, .bottega .frase, .menu-invito .frase, .prenota .frase, .carni .frase { font-size: clamp(21px, 2vw, 28px); color: var(--osso-2); }
+.passi { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: passo; position: relative; }
+.passi li { position: relative; display: grid; justify-items: center; text-align: center; gap: 4px; padding: 28px 12px 24px; border-radius: 22px; background: var(--cenere); border: 1px solid var(--linea); counter-increment: passo; }
+.passi li::before { content: '0' counter(passo); position: absolute; top: 12px; left: 16px; font-family: var(--serif); font-style: italic; color: var(--brace); font-size: 15px; }
+.passi svg { width: 84px; height: 84px; margin-bottom: 8px; }
+.passi b { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 1.9vw, 28px); letter-spacing: -.01em; }
+.passi span { color: var(--osso-3); font-size: 14px; }
+@media (max-width: 900px) {
+  .passi { grid-template-columns: repeat(5, 62vw); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; }
+  .passi::-webkit-scrollbar { display: none; }
+  .passi li { scroll-snap-align: center; }
+}
+.menu-invito { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
+.menu-invito-foto { width: 100%; max-width: 440px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 26px; justify-self: end; transform: rotate(2deg); box-shadow: 0 40px 100px -40px rgba(255, 106, 43, .5); }
+@media (max-width: 860px) { .menu-invito { grid-template-columns: 1fr; } .menu-invito-foto { justify-self: start; max-width: 320px; } }
+.burro-griglia { align-items: center; }
+.burro-fasi li { grid-template-columns: 50px 1fr; }
+
+/* Telefono: meno altezza, più scorrimento orizzontale */
+@media (max-width: 720px) {
+  .cotture-griglia { grid-template-columns: repeat(3, 78vw); max-width: none; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; }
+  .cotture-griglia::-webkit-scrollbar { display: none; }
+  .cottura { scroll-snap-align: center; }
+  .cottura:hover { transform: none; }
+  .menu-invito-foto { max-width: 230px; }
+  .bottega-foto { width: min(100%, 260px); }
+  .video-verticale { width: min(100%, 240px); }
+  .numeri { padding: 50px 0; }
+}
 
 /* Movimento ridotto */
 @media (prefers-reduced-motion: reduce) {

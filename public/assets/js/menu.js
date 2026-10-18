@@ -63,7 +63,7 @@ window.MENU = [
     titolo: 'Arrosti frollati',
     foto: 'assets/img/foto/costata-dry-aged-primo-piano.jpg',
     sottotitolo: 'Prezzo al chilo',
-    nota: 'Più giorni di frollatura, più tenerezza e un sapore più profondo. Scegli il taglio al banco e lo pesiamo davanti a te.',
+    nota: 'Più giorni, più tenerezza e sapore. Il taglio lo scegli al banco.',
     frollatura: true,
     piatti: [
       { nome: '30 giorni di frollatura', giorni: 30, prezzo: 49.99, unita: 'kg' },

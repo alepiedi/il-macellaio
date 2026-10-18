@@ -6,21 +6,21 @@ Niente framework e niente build: HTML, CSS e JavaScript scritti a mano, in `publ
 
 ## Cosa c'è nella pagina
 
+Testi brevi apposta: chi visita non legge, guarda. Una frase per sezione, il resto lo fanno foto, video e animazioni.
+
 | # | Sezione | Cosa fa |
 |---|---------|---------|
-| – | **Apertura** | Brace e fumo in WebGL che seguono il mouse, scintille che salgono, il titolo che "trema" come l'aria sopra il fuoco, timbro rotante |
-| 01 | **Storia** | Dalla macelleria alla brace: il testo si accende parola per parola mentre scorri |
-| 02 | **Il rito** | I cinque passi (banco, taglio, cottura, burro, servizio) con il disegno che cambia mentre scorri |
-| 03 | **Cotture** | Le tre cotture con animazioni: tagliata che sfrigola sulla pietra, carboni accesi, fumo sotto la campana |
-| 04 | **Il burro** | La tecnica della cucina giapponese e il burro fuso poi affumicato, con fumo dorato |
-| 05 | **Il punto giusto** | Un cursore cambia la cottura della bistecca, dal sangue a ben cotta, con i gradi al cuore |
-| 06 | **Tagli** | Mappa del bovino: tocchi una zona e scopri il taglio, la cottura consigliata e il carattere |
-| 07 | **Le carni** | "Dal mondo, al banco": mappa a puntini con le rotte dai paesi d'origine fino a Benevento (zoom Mondo/Europa), schede delle razze con le foto di quelle viste al banco. Dati in `carni.js`, mappa in `mappa.js` |
-| 08 | **Menu** | Generato da `menu.js`, con il pulsante per la pagina completa |
-| – | **Galleria** | Compare solo quando in `config.js` ci sono foto |
-| 09 | **Macelleria** | La carne da portare a casa |
-| 10 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
-| 11 | **Dove** | Indirizzo, orari, indicazioni, chiamata |
+| – | **Apertura** | Brace e fumo in WebGL che seguono il mouse, il video della brace, scintille, "Aperto ora" in tempo reale |
+| 01 | **Storia** | Una frase e tre foto che scorrono a velocità diverse |
+| 02 | **Il rito** | Cinque passi con le icone: scegli, tagliamo, cuociamo, il burro, servito |
+| 03 | **Cotture** | Brace, affumicatura dal vivo, pietra lavica, ognuna con la sua animazione |
+| 04 | **Il burro** | Una frase, le tre fasi e il video del burro fuso sull'arrosto |
+| 05 | **Le carni** | "Dal mondo, al banco": mappa a puntini con le rotte fino a Benevento (zoom Mondo/Europa) e schede brevi delle razze. Dati in `carni.js`, mappa in `mappa.js` |
+| 06 | **Menu** | Invito alla pagina del menu |
+| – | **Galleria** | "Dal banco al piatto": foto e video da Instagram |
+| 07 | **Macelleria** | La carne da portare a casa, con la foto dello staff |
+| 08 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
+| 09 | **Dove** | Indirizzo, orari della settimana, indicazioni, chiamata |
 
 ## 📸 Foto e video
 
@@ -33,6 +33,15 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 ## 🕒 Orari
 
 In `config.js` (`orari`), giorno per giorno con le fasce. Il sito li mostra nella sezione "Dove siamo" (con il giorno di oggi in evidenza), calcola "Aperto ora / Chiuso ora · riapre…" con l'ora italiana (apertura, "Dove siamo" e fondo del menu) e blocca le prenotazioni nei giorni di chiusura. Gli stessi orari sono anche nei dati strutturati per Google (`openingHoursSpecification` in `index.html`): se cambiano, vanno aggiornati in tutti e due i posti. Il mercoledì su Google risultava "aperto 24 ore": è stato messo come lunedì e venerdì.
+
+## 🔳 QR code del menu (`stampa/qr-menu/`)
+
+- `qr-menu.svg` e `qr-menu.png`: il QR da solo (correzione d'errore Q), punta a `https://alessandropiedimonte.dev/clienti/il-macellaio/menu/`.
+- `cartoncino-A6.pdf`: il cartoncino da tavolo (10,5 × 14,8 cm).
+- `cartoncino-A6-tipografia-abbondanza-3mm.pdf`: lo stesso con 3 mm di abbondanza per lato, da dare alla tipografia.
+- `cartoncini-A4-4-per-foglio.pdf`: quattro cartoncini su un A4, da stampare in casa e tagliare sulle linee.
+
+Se il menu cambia indirizzo (dominio definitivo), il QR va rigenerato e ristampato.
 
 ## 📋 Pagina del menu (`/menu/`)
 

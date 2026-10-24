@@ -118,6 +118,7 @@
   if (INFO.coperto) $('[data-coperto]').innerHTML = 'Coperto <b>' + prezzo({ prezzo: INFO.coperto }) + '</b>';
   else $('[data-coperto]').hidden = true;
   $('[data-allergeni]').textContent = INFO.allergeni || '';
+  $('[data-motto]').textContent = INFO.motto || '';
   var tel = (C.telefono || '').replace(/[^\d+]/g, '');
   if (tel) $$('[data-telefono]').forEach(function (a) { a.href = 'tel:' + tel; a.hidden = false; });
   if (C.whatsapp) $$('[data-whatsapp]').forEach(function (a) { a.href = 'https://wa.me/' + C.whatsapp; a.hidden = false; });

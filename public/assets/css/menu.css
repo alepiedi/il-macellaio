@@ -161,6 +161,8 @@ html { scroll-padding-top: 130px; }
 
 /* Piede */
 .carta-piede { max-width: 820px; margin: 0 auto; padding: 60px var(--gutter) calc(50px + env(safe-area-inset-bottom)); text-align: center; }
+.carta-motto { margin: 0 0 22px; font-family: var(--serif); font-style: italic; font-size: clamp(22px, 5vw, 30px); color: var(--burro); font-variation-settings: 'opsz' 72, 'SOFT' 100; }
+.carta-motto:empty { display: none; }
 .carta-avviso { margin: 0 auto 28px; max-width: 520px; padding: 16px 18px; border-radius: 18px; border: 1px dashed var(--linea); color: var(--osso-2); font-size: .92em; }
 .carta-azioni { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 50px; }
 .carta-piede-logo { width: min(100%, 420px); height: auto; margin: 0 auto 14px; }

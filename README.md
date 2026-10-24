@@ -30,6 +30,32 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 
 `public/assets/js/carni.js`: fornitore, paesi (con le coordinate) e razze, con testi riscritti dal catalogo MFC Carni 2025. `banco: true` segna le razze viste al banco, che compaiono per prime con la loro foto. Se si aggiunge un paese, si rigenera la mappa: `cd tools/mappa && npm install && node genera.mjs`.
 
+### Foto delle razze
+
+Le razze viste al banco (Rubia Gallega, Simmental, Charolaise) e "Scottona e Marchigiana" usano foto del locale. Le altre sono **foto indicative della razza** con licenza libera (Wikimedia Commons e Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
+
+| Razza | Autore | Licenza | Fonte |
+|---|---|---|---|
+| Danese Rossa | Malene Thyssen | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:R%C3%B8d_dansk_malkerace_RDM.jpg) |
+| Frisona Baltica | Mikinisk | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/wiki/File:White_Holstein_Friesian_in_Bron%C3%B3w.jpg) |
+| Yūgena | USDAgov | CC0 | [fonte](https://commons.wikimedia.org/wiki/File:Livestock.jpg) |
+| Manzetta Slava | Kim Hansen | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Cow_(Fleckvieh_breed)_Oeschinensee_Slaunger_2009-07-07.jpg) |
+| Angus Iberico | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9306425400) |
+| Wadï Wagyu | SPERR1E5 | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/wiki/File:ItoRanch-Cows-2023.png) |
+| Cachena | el Buho nº30 from O Burgo, A Coruña, G… | CC BY-SA 2.0 | [fonte](https://commons.wikimedia.org/wiki/File:Vaca_cachena_(cropped).jpg) |
+| Umami Olive Fed Wagyu | Fernando Hartwig | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Full_Blood_Wagyu_Bull_in_Chile.jpg) |
+| Mooi Mooi | idleman | CC BY 2.0 | [fonte](https://www.flickr.com/photos/15169676@N00/3600803259) |
+| Celtic Legend | eye of einstein | CC BY 2.0 | [fonte](https://www.flickr.com/photos/35188692@N00/111735955) |
+| Swami Wagyu | whologwhy | CC BY 2.0 | [fonte](https://www.flickr.com/photos/60417477@N00/4778058143) |
+| Black Angus USA | Anne Worner | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/28652129@N06/16259506815) |
+| Wakan Wagyu | usdanrcstx | Pubblico dominio | [fonte](https://www.flickr.com/photos/140853039@N04/54515128364) |
+| Angus Australiano | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9306453732) |
+| Black Tasman | In Memoriam: PhillipC | CC BY 2.0 | [fonte](https://www.flickr.com/photos/42033648@N00/2494725635) |
+| UMI | sludgegulper | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/28179929@N08/4598614147) |
+| Wagyu giapponese | unkown | Pubblico dominio | [fonte](https://commons.wikimedia.org/wiki/File:%E6%94%B9%E8%89%AF%E5%92%8C%E7%A8%AE%E7%AC%AC%E4%B8%80%E5%8F%B7_(The_first_improved_Japanese_breed).jpg) |
+| Black Buffalo | Dr. Raju Kasambe | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/w/index.php?curid=49583649) |
+| Suino Nero Casertano | David de la Luz H. | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/42453902@N00/258778283) |
+
 ## 🕒 Orari
 
 In `config.js` (`orari`), giorno per giorno con le fasce. Il sito li mostra nella sezione "Dove siamo" (con il giorno di oggi in evidenza), calcola "Aperto ora / Chiuso ora · riapre…" con l'ora italiana (apertura, "Dove siamo" e fondo del menu) e blocca le prenotazioni nei giorni di chiusura. Gli stessi orari sono anche nei dati strutturati per Google (`openingHoursSpecification` in `index.html`): se cambiano, vanno aggiornati in tutti e due i posti. Il mercoledì su Google risultava "aperto 24 ore": è stato messo come lunedì e venerdì.

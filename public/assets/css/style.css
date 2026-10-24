@@ -364,7 +364,7 @@ em { font-style: italic; }
 .bottega-elenco li { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; border-top: 1px solid var(--linea); align-items: baseline; flex-wrap: wrap; }
 .bottega-elenco b { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 2vw, 30px); }
 .bottega-elenco span { color: var(--osso-3); }
-@media (max-width: 860px) { .bottega-griglia { grid-template-columns: 1fr; } .bottega-foto { justify-self: start; } }
+@media (max-width: 860px) { .bottega-griglia { grid-template-columns: 1fr; } }
 
 /* 09 Prenota */
 .prenota { overflow: hidden; isolation: isolate; }
@@ -580,8 +580,10 @@ em { font-style: italic; }
 .carni-nota b { color: var(--osso); }
 
 /* ---------- Foto della macelleria ---------- */
-.bottega-foto { margin: 0; width: min(100%, 400px); justify-self: end; }
-.bottega-foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; display: block; }
+.bottega-foto { margin: 0; width: 100%; max-width: 520px; justify-self: end; }
+/* La foto dello staff si vede sempre intera: niente ritagli, su ogni schermo. */
+.bottega-foto img { width: 100%; height: auto; border-radius: 24px; display: block; box-shadow: 0 40px 100px -40px rgba(255, 106, 43, .45); }
+@media (max-width: 860px) { .bottega-foto { justify-self: stretch; max-width: none; } }
 .bottega-foto figcaption { margin-top: 12px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--osso-3); font-weight: 600; }
 
 /* ---------- Galleria ---------- */
@@ -618,7 +620,6 @@ em { font-style: italic; }
   .cottura { scroll-snap-align: center; }
   .cottura:hover { transform: none; }
   .menu-invito-foto { max-width: 230px; }
-  .bottega-foto { width: min(100%, 260px); }
   .video-verticale { width: min(100%, 240px); }
   .numeri { padding: 50px 0; }
 }

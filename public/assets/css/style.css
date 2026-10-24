@@ -568,7 +568,11 @@ em { font-style: italic; }
 .carni-schede.entra .razza:nth-child(3) { animation-delay: .14s; }
 .carni-schede.entra .razza:nth-child(4) { animation-delay: .21s; }
 .razza { border-radius: 22px; border: 1px solid var(--linea); background: var(--cenere); overflow: hidden; display: flex; flex-direction: column; }
+.razza-immagine { margin: 0; position: relative; }
 .razza img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.razza-credito { position: absolute; right: 8px; bottom: 8px; max-width: calc(100% - 16px); font-size: 10px; line-height: 1.3; padding: 3px 8px; border-radius: 999px; background: rgba(12, 10, 9, .66); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.razza-credito a { color: rgba(241, 228, 208, .8); text-decoration: none; }
+.razza-credito a:hover { color: var(--osso); text-decoration: underline; }
 .razza-corpo { padding: 22px 24px 24px; }
 .razza-paese { margin: 0 0 8px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--osso-3); font-weight: 700; }
 .razza-paese span { color: var(--brace); }

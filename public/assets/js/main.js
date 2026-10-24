@@ -286,8 +286,12 @@
     filtri.innerHTML = '<button type="button" data-filtro="banco" aria-pressed="true"><span class="punto-vivo"></span> Viste al banco</button>' +
       conRazze.map(function (p) { return '<button type="button" data-filtro="' + p.id + '" aria-pressed="false">' + testo(p.nome) + '</button>'; }).join('');
     var scheda = function (r) {
-      return '<article class="razza' + (r.foto ? ' razza-foto' : '') + '">' +
-        (r.foto ? '<img src="' + testo(r.foto) + '" alt="' + testo(r.nome) + ' al banco del Macellaio" loading="lazy">' : '') +
+      var alt = r.banco ? r.nome + ' al banco del Macellaio' : r.nome + ' (foto indicativa della razza)';
+      var credito = r.credito
+        ? '<figcaption class="razza-credito"><a href="' + testo(r.credito.pagina) + '" target="_blank" rel="noopener">' + testo(r.credito.autore) + ' · ' + testo(r.credito.licenza) + '</a></figcaption>'
+        : '';
+      return '<article class="razza">' +
+        (r.foto ? '<figure class="razza-immagine"><img src="' + testo(r.foto) + '" alt="' + testo(alt) + '" loading="lazy">' + credito + '</figure>' : '') +
         '<div class="razza-corpo"><p class="razza-paese">' + testo(paesi[r.paese].nome) + (r.banco ? ' · <span>vista al banco</span>' : '') + '</p>' +
         '<h3>' + testo(r.nome) + '</h3><p>' + testo(r.testo) + '</p>' +
         '<ul class="razza-segni">' + r.segni.map(function (x) { return '<li>' + testo(x) + '</li>'; }).join('') + '</ul></div></article>';

@@ -106,6 +106,7 @@ window.MENU = [
   {
     id: 'vini',
     titolo: 'Vini',
+    sottotitolo: 'Prezzo a bottiglia',
     piatti: [
       { nome: 'Aglianico', prezzo: 20 },
       { nome: 'Barbera', prezzo: 25 },

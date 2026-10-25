@@ -214,7 +214,7 @@
     $('[data-fornitore]').textContent = CARNI.fornitore.testo;
     var paesi = {};
     CARNI.paesi.forEach(function (p) { paesi[p.id] = p; });
-    var EUROPA = ['italia', 'spagna', 'portogallo', 'francia', 'irlanda', 'olanda', 'germania', 'danimarca', 'svezia', 'polonia', 'est'];
+    var EUROPA = ['italia', 'spagna', 'portogallo', 'francia', 'irlanda', 'olanda', 'germania', 'danimarca', 'svezia', 'polonia', 'est', 'svizzera', 'scozia'];
     // Sul telefono la mappa è più alta (4:3): stesse viste, inquadrate per quella forma.
     var alta = window.matchMedia('(max-width: 720px)').matches;
     var VISTE = alta
@@ -316,6 +316,10 @@
       g.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); vai(); } });
     });
     scegli('banco', false);
+    if (CARNI.tutteLeRazze && CARNI.tutteLeRazze.length) {
+      $('#razze-catalogo-elenco').innerHTML = CARNI.tutteLeRazze.map(function (r) { return '<li>' + testo(r) + '</li>'; }).join('');
+      $('#razze-catalogo').hidden = false;
+    }
 
     // Le rotte si disegnano quando la mappa entra sullo schermo.
     new IntersectionObserver(function (voci, o) {

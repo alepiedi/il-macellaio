@@ -581,6 +581,10 @@ em { font-style: italic; }
 .razza-segni { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .razza-segni li { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(232, 176, 74, .12); color: var(--burro); }
 .carni-nota { margin: 28px 0 0; color: var(--osso-2); }
+.razze-catalogo { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--linea); }
+.razze-catalogo p { margin: 0 0 14px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--osso-3); font-weight: 700; }
+.razze-catalogo ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.razze-catalogo li { padding: 6px 14px; border-radius: 999px; border: 1px solid var(--linea); font-family: var(--serif); font-size: 17px; color: var(--osso-2); }
 .carni-nota b { color: var(--osso); }
 
 /* ---------- Foto della macelleria ---------- */

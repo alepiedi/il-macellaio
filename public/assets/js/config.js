@@ -31,7 +31,7 @@ window.SITO = {
   // Voto e numero di recensioni della scheda Google. link: "Scrivi una recensione" o la scheda.
   google: {
     voto: 5.0,
-    recensioni: 45,
+    recensioni: 140,
     link: '',
   },
 

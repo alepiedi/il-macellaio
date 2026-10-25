@@ -4,12 +4,16 @@
  * Ogni sezione: id (per i link), titolo, sottotitolo, nota e foto facoltativi, piatti.
  * Ogni piatto: nome, descrizione facoltativa, prezzo (numero, in euro), unita facoltativa ('kg').
  * Le sezioni con frollatura: true mostrano i piatti come le tappe della frollatura (giorni: 30…).
+ * allergeni: quelli del Reg. UE 1169/2011 (glutine, crostacei, uova, pesce, arachidi, soia, latte, frutta a guscio,
+ * sedano, senape, sesamo, solfiti, lupini, molluschi) ricavati dagli ingredienti dichiarati ([] = nessuno dei 14).
+ * Se un piatto non ha il campo, gli ingredienti non sono noti e il menu non dice nulla: va chiesto al personale.
+ * DA FAR CONFERMARE AL LOCALE, che ne è responsabile per legge.
  */
 window.MENU_INFO = {
   coperto: 2,
   contorni: ['Insalata', 'Rucola', 'Pomodoro', 'Formaggio', 'Patatine', 'Verdure grigliate'],
   fuoriMenu: 'Sono disponibili anche carni fuori menù: chiedi al macellaio.',
-  allergeni: 'Per allergie e intolleranze chiedi al personale prima di ordinare.',
+  allergeni: 'Allergeni indicati in base agli ingredienti dei piatti. Possibili tracce per contaminazione (friggitrice, piastra, banco): per allergie e intolleranze chiedi sempre al personale prima di ordinare.',
   motto: 'Qualità, passione e sapori autentici.',
 };
 
@@ -20,23 +24,23 @@ window.MENU = [
     foto: 'assets/img/foto/tagliere-salumi-formaggi.jpg',
     piatti: [
       { nome: 'Antipasto di salumi "Il Macellaio"', prezzo: 20 },
-      { nome: 'Patatine fritte', descrizione: 'Patate fresche, tagliate al momento', prezzo: 4 },
+      { nome: 'Patatine fritte', descrizione: 'Patate fresche, tagliate al momento', prezzo: 4, allergeni: [] },
       { nome: 'Aggiunta di contorni', prezzo: 1 },
       { nome: 'Polpettine fritte di vitello', prezzo: 10 },
-      { nome: 'Mix di bruschette', descrizione: 'Pane e caciocavallo affumicato', prezzo: 6 },
+      { nome: 'Mix di bruschette', descrizione: 'Pane e caciocavallo affumicato', prezzo: 6, allergeni: ['glutine', 'latte'] },
     ],
   },
   {
     id: 'panini',
     titolo: 'Panini',
-    nota: 'Tutti i panini includono 3 contorni a scelta e le salse.',
+    nota: 'Tutti i panini includono 3 contorni a scelta e le salse. Il formaggio aggiunge latte; per le salse chiedi al personale.',
     contorni: true,
     piatti: [
-      { nome: 'Hamburger artigianale', descrizione: 'Carne, sale e pepe', prezzo: 8 },
-      { nome: 'Salsiccia artigianale', descrizione: 'Carne di suino, sale e pepe', prezzo: 7 },
-      { nome: 'Cotechino artigianale', descrizione: 'Carne di suino, cotenna, sale, pepe, paprika, peperoncino e aglio', prezzo: 7 },
+      { nome: 'Hamburger artigianale', descrizione: 'Carne, sale e pepe', prezzo: 8, allergeni: ['glutine'] },
+      { nome: 'Salsiccia artigianale', descrizione: 'Carne di suino, sale e pepe', prezzo: 7, allergeni: ['glutine'] },
+      { nome: 'Cotechino artigianale', descrizione: 'Carne di suino, cotenna, sale, pepe, paprika, peperoncino e aglio', prezzo: 7, allergeni: ['glutine'] },
       { nome: 'Fettina di vitello', prezzo: 8 },
-      { nome: 'Cotoletta di pollo', descrizione: 'Impanata: pollo, uova e pangrattato', prezzo: 8 },
+      { nome: 'Cotoletta di pollo', descrizione: 'Impanata: pollo, uova e pangrattato', prezzo: 8, allergeni: ['glutine', 'uova'] },
       { nome: 'Porchetta', prezzo: 8 },
     ],
   },
@@ -46,13 +50,13 @@ window.MENU = [
     foto: 'assets/img/foto/grigliata-mista-piatto.jpg',
     piatti: [
       { nome: 'Spiedini di carne', descrizione: '3 pezzi', prezzo: 6 },
-      { nome: 'Tartare di scottona', descrizione: 'Carne cruda, sale, pepe e olio extravergine d\'oliva', prezzo: 15 },
-      { nome: 'Straccetti al burro di scottona o marchigiana', descrizione: 'Burro, rucola, pomodorini e scaglie di Grana', prezzo: 20 },
-      { nome: 'Carpaccio di scottona o marchigiana', descrizione: 'Carne cruda, rucola, pomodorini e scaglie di Grana', prezzo: 15 },
-      { nome: 'Nuggets di pollo artigianali', descrizione: 'Impanati con uova e pangrattato', prezzo: 6 },
+      { nome: 'Tartare di scottona', descrizione: 'Carne cruda, sale, pepe e olio extravergine d\'oliva', prezzo: 15, allergeni: [] },
+      { nome: 'Straccetti al burro di scottona o marchigiana', descrizione: 'Burro, rucola, pomodorini e scaglie di Grana', prezzo: 20, allergeni: ['latte'] },
+      { nome: 'Carpaccio di scottona o marchigiana', descrizione: 'Carne cruda, rucola, pomodorini e scaglie di Grana', prezzo: 15, allergeni: ['latte'] },
+      { nome: 'Nuggets di pollo artigianali', descrizione: 'Impanati con uova e pangrattato', prezzo: 6, allergeni: ['glutine', 'uova'] },
       { nome: 'Alette di pollo', prezzo: 6 },
-      { nome: 'Salsiccia artigianale', descrizione: 'Carne di suino, sale e pepe. Con 3 contorni a scelta e le salse', prezzo: 8 },
-      { nome: 'Hamburger artigianale di scottona o marchigiana', descrizione: 'Carne, sale e pepe. 250 g, con 3 contorni a scelta', prezzo: 15 },
+      { nome: 'Salsiccia artigianale', descrizione: 'Carne di suino, sale e pepe. Con 3 contorni a scelta e le salse', prezzo: 8, allergeni: [] },
+      { nome: 'Hamburger artigianale di scottona o marchigiana', descrizione: 'Carne, sale e pepe. 250 g, con 3 contorni a scelta', prezzo: 15, allergeni: [] },
       { nome: 'Mix di carne', descrizione: 'Salsiccia e cotechino artigianali, vitello e pollo, con 1 contorno a scelta', prezzo: 30 },
       { nome: 'Arrosto di maiale', descrizione: '300 g, con 3 contorni a scelta', prezzo: 14 },
       { nome: 'Tagliata di vitello', descrizione: '300 g, con 1 contorno a scelta', prezzo: 20 },
@@ -77,30 +81,30 @@ window.MENU = [
     id: 'dolci',
     titolo: 'Dolci',
     piatti: [
-      { nome: 'Tiramisù', descrizione: 'Fatto al momento: mascarpone, caffè, savoiardi, uova e cacao', prezzo: 5 },
+      { nome: 'Tiramisù', descrizione: 'Fatto al momento: mascarpone, caffè, savoiardi, uova e cacao', prezzo: 5, allergeni: ['glutine', 'uova', 'latte'] },
     ],
   },
   {
     id: 'bevande',
     titolo: 'Bevande',
     piatti: [
-      { nome: 'Acqua naturale o frizzante', prezzo: 1 },
-      { nome: 'Acqua grande naturale o frizzante', prezzo: 2 },
-      { nome: 'Coca-Cola o Coca-Cola Zero', descrizione: 'In lattina', prezzo: 2.5 },
-      { nome: 'Coca-Cola in vetro', prezzo: 3.5 },
-      { nome: 'Fanta', prezzo: 2.5 },
-      { nome: 'Tè pesca o limone', prezzo: 2.5 },
+      { nome: 'Acqua naturale o frizzante', prezzo: 1, allergeni: [] },
+      { nome: 'Acqua grande naturale o frizzante', prezzo: 2, allergeni: [] },
+      { nome: 'Coca-Cola o Coca-Cola Zero', descrizione: 'In lattina', prezzo: 2.5, allergeni: [] },
+      { nome: 'Coca-Cola in vetro', prezzo: 3.5, allergeni: [] },
+      { nome: 'Fanta', prezzo: 2.5, allergeni: [] },
+      { nome: 'Tè pesca o limone', prezzo: 2.5, allergeni: [] },
     ],
   },
   {
     id: 'birre',
     titolo: 'Birre',
     piatti: [
-      { nome: 'Nastro Azzurro', prezzo: 2.5 },
-      { nome: 'Heineken', prezzo: 2.5 },
-      { nome: 'Tennent\'s', prezzo: 3.5 },
-      { nome: 'Bjørne', prezzo: 3 },
-      { nome: 'Corona', prezzo: 3.5 },
+      { nome: 'Nastro Azzurro', prezzo: 2.5, allergeni: ['glutine'] },
+      { nome: 'Heineken', prezzo: 2.5, allergeni: ['glutine'] },
+      { nome: 'Tennent\'s', prezzo: 3.5, allergeni: ['glutine'] },
+      { nome: 'Bjørne', prezzo: 3, allergeni: ['glutine'] },
+      { nome: 'Corona', prezzo: 3.5, allergeni: ['glutine'] },
     ],
   },
   {
@@ -108,18 +112,18 @@ window.MENU = [
     titolo: 'Vini',
     sottotitolo: 'Prezzo a bottiglia',
     piatti: [
-      { nome: 'Aglianico', prezzo: 20 },
-      { nome: 'Barbera', prezzo: 25 },
-      { nome: 'Falanghina', prezzo: 20 },
-      { nome: 'Primitivo', prezzo: 25 },
-      { nome: 'Aglianico Janare', prezzo: 25 },
+      { nome: 'Aglianico', prezzo: 20, allergeni: ['solfiti'] },
+      { nome: 'Barbera', prezzo: 25, allergeni: ['solfiti'] },
+      { nome: 'Falanghina', prezzo: 20, allergeni: ['solfiti'] },
+      { nome: 'Primitivo', prezzo: 25, allergeni: ['solfiti'] },
+      { nome: 'Aglianico Janare', prezzo: 25, allergeni: ['solfiti'] },
     ],
   },
   {
     id: 'caffe',
     titolo: 'Caffè e amari',
     piatti: [
-      { nome: 'Caffè', prezzo: 1 },
+      { nome: 'Caffè', prezzo: 1, allergeni: [] },
       { nome: 'Amari', prezzo: 2.5 },
     ],
   },

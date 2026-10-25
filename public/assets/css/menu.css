@@ -112,6 +112,9 @@ html { scroll-padding-top: 130px; }
 .voce h3 { font-family: var(--sans); font-size: 1.1em; font-weight: 700; line-height: 1.3; letter-spacing: -.005em; }
 .voce-puntini { flex: 1; min-width: 20px; border-bottom: 2px dotted rgba(241, 228, 208, .22); transform: translateY(-5px); }
 .voce-prezzo { font-family: var(--serif); font-size: 1.32em; color: var(--burro); white-space: nowrap; font-variant-numeric: tabular-nums; line-height: 1; }
+.voce-allergeni { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; }
+.voce-allergeni li { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(232, 176, 74, .45); color: var(--burro); }
+.voce .voce-allergeni-no { font-size: 12px; color: var(--osso-3); margin-top: 6px; }
 .voce p { margin: 5px 0 0; color: var(--osso-2); font-size: .95em; }
 
 .portata-foto { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px; margin: 18px 0 6px; display: block; }
@@ -181,6 +184,7 @@ html { scroll-padding-top: 130px; }
   .carta-pillole b, .voce h3, .tappa-giorni b { color: #111; }
   .voce p, .portata-nota, .carta-avviso, .tappa-giorni { color: #444; }
   .voce-prezzo, .tappa-prezzo { color: #111; }
+  .voce-allergeni li { color: #111; border-color: #999; }
   .portata { padding-top: 24px; break-inside: avoid; }
   .portata-frollati { background: none; border: 1px solid #ccc; }
   .tappa { background: none; border-color: #ccc; }

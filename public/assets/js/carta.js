@@ -17,7 +17,15 @@
       '<div class="voce-riga"><h3>' + testo(p.nome) + '</h3><span class="voce-puntini" aria-hidden="true"></span>' +
       '<span class="voce-prezzo">' + prezzo(p) + '</span></div>' +
       (p.descrizione ? '<p>' + testo(p.descrizione) + '</p>' : '') +
+      allergeni(p) +
       '</li>';
+  }
+
+  // Allergeni (Reg. UE 1169/2011): solo per i piatti di cui si conoscono gli ingredienti.
+  function allergeni(p) {
+    if (!p.allergeni) return '';
+    if (!p.allergeni.length) return '<p class="voce-allergeni voce-allergeni-no">Nessuno dei 14 allergeni</p>';
+    return '<ul class="voce-allergeni" aria-label="Allergeni">' + p.allergeni.map(function (a) { return '<li>' + testo(a) + '</li>'; }).join('') + '</ul>';
   }
 
   function frollatura(p, i) {

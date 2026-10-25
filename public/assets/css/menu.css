@@ -71,6 +71,9 @@
 .carta-apertura-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .38; filter: saturate(1.1); }
 .carta-apertura::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(12, 10, 9, .55), rgba(12, 10, 9, .35) 40%, var(--carbone)); }
 
+.carta-nota-allergeni { margin: 16px 0 0; font-size: 13px; }
+.carta-nota-allergeni a { color: var(--osso-2); text-decoration: underline; text-decoration-color: rgba(241, 228, 208, .3); text-underline-offset: 3px; }
+
 /* Schede delle sezioni */
 .carta-schede {
   position: sticky; top: calc(64px + env(safe-area-inset-top)); z-index: 20;
@@ -114,6 +117,7 @@ html { scroll-padding-top: 130px; }
 .voce-prezzo { font-family: var(--serif); font-size: 1.32em; color: var(--burro); white-space: nowrap; font-variant-numeric: tabular-nums; line-height: 1; }
 .voce-allergeni { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 5px; }
 .voce-allergeni li { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(232, 176, 74, .45); color: var(--burro); }
+.voce-allergeni li.voce-allergeni-titolo { border: 0; padding-left: 0; color: var(--osso-3); }
 .voce .voce-allergeni-no { font-size: 12px; color: var(--osso-3); margin-top: 6px; }
 .voce p { margin: 5px 0 0; color: var(--osso-2); font-size: .95em; }
 

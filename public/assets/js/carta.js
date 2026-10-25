@@ -24,8 +24,9 @@
   // Allergeni (Reg. UE 1169/2011): solo per i piatti di cui si conoscono gli ingredienti.
   function allergeni(p) {
     if (!p.allergeni) return '';
-    if (!p.allergeni.length) return '<p class="voce-allergeni voce-allergeni-no">Nessuno dei 14 allergeni</p>';
-    return '<ul class="voce-allergeni" aria-label="Allergeni">' + p.allergeni.map(function (a) { return '<li>' + testo(a) + '</li>'; }).join('') + '</ul>';
+    if (p.allergeni === 'contorni') return '<p class="voce-allergeni voce-allergeni-no">Allergeni: in base ai contorni scelti (il formaggio contiene latte)</p>';
+    if (!p.allergeni.length) return '<p class="voce-allergeni voce-allergeni-no">Nessun allergene · senza glutine e lattosio</p>';
+    return '<ul class="voce-allergeni" aria-label="Allergeni e intolleranze"><li class="voce-allergeni-titolo" aria-hidden="true">Allergeni</li>' + p.allergeni.map(function (a) { return '<li>' + testo(a) + '</li>'; }).join('') + '</ul>';
   }
 
   function frollatura(p, i) {
@@ -43,6 +44,7 @@
   $('#carta-contenuto').innerHTML = MENU.map(function (s, n) {
     var corpo = s.frollatura
       ? '<ol class="frollatura">' + s.piatti.map(frollatura).join('') + '</ol>' +
+        (s.piatti.every(function (p) { return p.allergeni && !p.allergeni.length; }) ? '<p class="voce-allergeni voce-allergeni-no">Solo carne: nessun allergene · senza glutine e lattosio</p>' : '') +
         (INFO.fuoriMenu ? '<p class="fuori-menu"><span aria-hidden="true">✦</span> ' + testo(INFO.fuoriMenu) + '</p>' : '')
       : '<ul class="voci">' + s.piatti.map(piatto).join('') + '</ul>';
     return '<section class="portata' + (s.frollatura ? ' portata-frollati' : '') + '" id="' + testo(s.id) + '" aria-labelledby="t-' + testo(s.id) + '">' +

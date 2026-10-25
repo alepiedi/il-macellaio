@@ -615,6 +615,7 @@ em { font-style: italic; }
   .passi::-webkit-scrollbar { display: none; }
   .passi li { scroll-snap-align: center; }
 }
+.menu-allergeni { margin: 16px 0 0; font-size: 14px; color: var(--osso-3); }
 .menu-invito { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(30px, 6vw, 90px); align-items: center; }
 .menu-invito-foto { width: 100%; max-width: 440px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 26px; justify-self: end; transform: rotate(2deg); box-shadow: 0 40px 100px -40px rgba(255, 106, 43, .5); }
 @media (max-width: 860px) { .menu-invito { grid-template-columns: 1fr; } .menu-invito-foto { justify-self: start; max-width: 320px; } }

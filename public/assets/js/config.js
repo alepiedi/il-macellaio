@@ -56,7 +56,7 @@ window.SITO = {
     { src: 'assets/img/foto/grigliata-mista-piatto.jpg', alt: 'Grigliata mista di tagli servita nel piatto' },
     { src: 'assets/img/foto/fiorentine-rubia-gallega.jpg', alt: 'Fiorentine di Rubia Gallega con il cartellino' },
     { src: 'assets/img/foto/tagliere-salumi-formaggi.jpg', alt: 'Tagliere di salumi, formaggi e pomodorini' },
-    { video: 'assets/video/flambe.mp4', poster: 'assets/video/flambe.jpg', alt: "L'arrosto flambé, poi tagliato e servito" },
+    { video: 'assets/video/flambe.mp4', poster: 'assets/video/flambe.jpg', alt: "L'arrosto appeso alla fiamma, bagnato di burro fuso e poi tagliato" },
     { src: 'assets/img/foto/involtini-pistacchio-piatto.jpg', alt: 'Involtini con granella di pistacchio su ardesia' },
     { src: 'assets/img/foto/bistecche-tagliere-legno.jpg', alt: 'Due bistecche crude su un tagliere di legno' },
     { src: 'assets/img/foto/mugliatelli-brace-patate.jpg', alt: 'Mugliatelli alla brace con patate croccanti' },

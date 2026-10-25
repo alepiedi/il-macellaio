@@ -32,7 +32,7 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 
 ### Foto delle razze
 
-Le razze viste al banco (Rubia Gallega, Simmental, Charolaise) e "Scottona e Marchigiana" usano foto del locale. Le altre sono **foto indicative della razza** con licenza libera (Wikimedia Commons e Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
+Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 24 razze della pagina "Le nostre razze". Le razze viste al banco (Rubia Gallega, Simmental, Charolaise) e "Scottona e Marchigiana" usano foto del locale. Le altre sono **foto indicative della razza** con licenza libera (Wikimedia Commons e Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
 
 | Razza | Autore | Licenza | Fonte |
 |---|---|---|---|
@@ -52,9 +52,23 @@ Le razze viste al banco (Rubia Gallega, Simmental, Charolaise) e "Scottona e Mar
 | Angus Australiano | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9306453732) |
 | Black Tasman | In Memoriam: PhillipC | CC BY 2.0 | [fonte](https://www.flickr.com/photos/42033648@N00/2494725635) |
 | UMI | sludgegulper | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/28179929@N08/4598614147) |
-| Wagyu giapponese | unkown | Pubblico dominio | [fonte](https://commons.wikimedia.org/wiki/File:%E6%94%B9%E8%89%AF%E5%92%8C%E7%A8%AE%E7%AC%AC%E4%B8%80%E5%8F%B7_(The_first_improved_Japanese_breed).jpg) |
+| Arita Wagyu | Autore sconosciuto | Pubblico dominio | [fonte](https://commons.wikimedia.org/wiki/File:%E6%94%B9%E8%89%AF%E5%92%8C%E7%A8%AE%E7%AC%AC%E4%B8%80%E5%8F%B7_(The_first_improved_Japanese_breed).jpg) |
 | Black Buffalo | Dr. Raju Kasambe | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/w/index.php?curid=49583649) |
 | Suino Nero Casertano | David de la Luz H. | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/42453902@N00/258778283) |
+| Angus de la Finca | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9303666227) |
+| Pezzata Rossa | twicepix | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/30713600@N00/8071544247) |
+| Swami Beef | grassrootsgroundswell | CC BY 2.0 | [fonte](https://www.flickr.com/photos/88920309@N05/20712247168) |
+| Le Moire | Jannis_V | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/52336371@N07/26386494930) |
+| Jacinto | P.Lameiro | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Vaca_cachena_Coles.jpg) |
+| Kobegal | Rui Ornelas | CC BY 2.0 | [fonte](https://www.flickr.com/photos/37777824@N00/285070273) |
+| Hereford irlandese | Just a Prairie Boy | CC BY 2.0 | [fonte](https://www.flickr.com/photos/89679291@N00/3645071936) |
+| Manzo scozzese | auspices | CC BY 2.0 | [fonte](https://www.flickr.com/photos/26432632@N08/10871219366) |
+| Frisona Italiana | UpSticksNGo | CC BY 2.0 | [fonte](https://www.flickr.com/photos/124476447@N02/20901799515) |
+| Suino italiano | David Masters | CC BY 2.0 | [fonte](https://www.flickr.com/photos/25652278@N03/2700385171) |
+| Grill Steakhouse | USDAgov | CC BY 2.0 | [fonte](https://www.flickr.com/photos/41284017@N08/8433750040) |
+| Manzo argentino | Wiki Chaves | CC BY 2.0 | [fonte](https://www.flickr.com/photos/77806245@N00/411679119) |
+| Vitello olandese | zayzayem | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/36061217@N04/5282795070) |
+| Agnello | A Roger Davies | CC BY 2.0 | [fonte](https://www.flickr.com/photos/33777459@N07/4670542941) |
 
 ## 🕒 Orari
 

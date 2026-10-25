@@ -80,6 +80,48 @@ window.MENU = [
       { nome: 'Tiramisù', descrizione: 'Fatto al momento: mascarpone, caffè, savoiardi, uova e cacao', prezzo: 5 },
     ],
   },
+  {
+    id: 'bevande',
+    titolo: 'Bevande',
+    piatti: [
+      { nome: 'Acqua naturale o frizzante', prezzo: 1 },
+      { nome: 'Acqua grande naturale o frizzante', prezzo: 2 },
+      { nome: 'Coca-Cola o Coca-Cola Zero', descrizione: 'In lattina', prezzo: 2.5 },
+      { nome: 'Coca-Cola in vetro', prezzo: 3.5 },
+      { nome: 'Fanta', prezzo: 2.5 },
+      { nome: 'Tè pesca o limone', prezzo: 2.5 },
+    ],
+  },
+  {
+    id: 'birre',
+    titolo: 'Birre',
+    piatti: [
+      { nome: 'Nastro Azzurro', prezzo: 2.5 },
+      { nome: 'Heineken', prezzo: 2.5 },
+      { nome: 'Tennent\'s', prezzo: 3.5 },
+      { nome: 'Bjørne', prezzo: 3 },
+      { nome: 'Corona', prezzo: 3.5 },
+    ],
+  },
+  {
+    id: 'vini',
+    titolo: 'Vini',
+    piatti: [
+      { nome: 'Aglianico', prezzo: 20 },
+      { nome: 'Barbera', prezzo: 25 },
+      { nome: 'Falanghina', prezzo: 20 },
+      { nome: 'Primitivo', prezzo: 25 },
+      { nome: 'Aglianico Janare', prezzo: 25 },
+    ],
+  },
+  {
+    id: 'caffe',
+    titolo: 'Caffè e amari',
+    piatti: [
+      { nome: 'Caffè', prezzo: 1 },
+      { nome: 'Amari', prezzo: 2.5 },
+    ],
+  },
 ];
 
 // Prezzo in formato italiano: 20 → "20 €", 49.99 → "49,99 €", con unità "49,99 €/kg".

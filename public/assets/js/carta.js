@@ -70,7 +70,7 @@
   /* ---------- Schede delle sezioni ---------- */
   var schede = $('#carta-schede');
   schede.innerHTML = '<div class="carta-schede-traccia">' + MENU.map(function (s) {
-    return '<a href="#' + testo(s.id) + '">' + testo(s.titolo.replace('Arrosti frollati', 'Frollati')) + '</a>';
+    return '<a href="#' + testo(s.id) + '">' + testo(s.titolo.replace('Arrosti frollati', 'Frollati').replace('Caffè e amari', 'Caffè')) + '</a>';
   }).join('') + '</div>';
   var link = $$('a', schede);
   // (la sezione delle carni non ha una scheda: si raggiunge scorrendo)

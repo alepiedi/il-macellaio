@@ -32,43 +32,38 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 
 ### Foto delle razze
 
-Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 24 razze della pagina "Le nostre razze". Le razze viste al banco (Rubia Gallega, Simmental, Charolaise) e "Scottona e Marchigiana" usano foto del locale. Le altre sono **foto indicative della razza** con licenza libera (Wikimedia Commons e Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
+Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 24 razze della pagina "Le nostre razze". Le razze viste al banco (Rubia Gallega, Simmental, Charolaise), "Scottona e Marchigiana" e alcune altre schede usano foto del locale. Le altre sono **foto indicative di tagli e arrosti** (niente animali al pascolo) con licenza libera (Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
 
 | Razza | Autore | Licenza | Fonte |
 |---|---|---|---|
-| Danese Rossa | Malene Thyssen | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:R%C3%B8d_dansk_malkerace_RDM.jpg) |
-| Frisona Baltica | Mikinisk | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/wiki/File:White_Holstein_Friesian_in_Bron%C3%B3w.jpg) |
-| Yūgena | USDAgov | CC0 | [fonte](https://commons.wikimedia.org/wiki/File:Livestock.jpg) |
-| Manzetta Slava | Kim Hansen | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Cow_(Fleckvieh_breed)_Oeschinensee_Slaunger_2009-07-07.jpg) |
-| Angus Iberico | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9306425400) |
-| Wadï Wagyu | SPERR1E5 | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/wiki/File:ItoRanch-Cows-2023.png) |
-| Cachena | el Buho nº30 from O Burgo, A Coruña, G… | CC BY-SA 2.0 | [fonte](https://commons.wikimedia.org/wiki/File:Vaca_cachena_(cropped).jpg) |
-| Umami Olive Fed Wagyu | Fernando Hartwig | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Full_Blood_Wagyu_Bull_in_Chile.jpg) |
-| Mooi Mooi | idleman | CC BY 2.0 | [fonte](https://www.flickr.com/photos/15169676@N00/3600803259) |
-| Celtic Legend | eye of einstein | CC BY 2.0 | [fonte](https://www.flickr.com/photos/35188692@N00/111735955) |
-| Swami Wagyu | whologwhy | CC BY 2.0 | [fonte](https://www.flickr.com/photos/60417477@N00/4778058143) |
-| Black Angus USA | Anne Worner | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/28652129@N06/16259506815) |
-| Wakan Wagyu | usdanrcstx | Pubblico dominio | [fonte](https://www.flickr.com/photos/140853039@N04/54515128364) |
-| Angus Australiano | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9306453732) |
-| Black Tasman | In Memoriam: PhillipC | CC BY 2.0 | [fonte](https://www.flickr.com/photos/42033648@N00/2494725635) |
-| UMI | sludgegulper | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/28179929@N08/4598614147) |
-| Arita Wagyu | Autore sconosciuto | Pubblico dominio | [fonte](https://commons.wikimedia.org/wiki/File:%E6%94%B9%E8%89%AF%E5%92%8C%E7%A8%AE%E7%AC%AC%E4%B8%80%E5%8F%B7_(The_first_improved_Japanese_breed).jpg) |
-| Black Buffalo | Dr. Raju Kasambe | CC BY-SA 4.0 | [fonte](https://commons.wikimedia.org/w/index.php?curid=49583649) |
-| Suino Nero Casertano | David de la Luz H. | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/42453902@N00/258778283) |
-| Angus de la Finca | USDAgov | Pubblico dominio | [fonte](https://www.flickr.com/photos/41284017@N08/9303666227) |
-| Pezzata Rossa | twicepix | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/30713600@N00/8071544247) |
-| Swami Beef | grassrootsgroundswell | CC BY 2.0 | [fonte](https://www.flickr.com/photos/88920309@N05/20712247168) |
-| Le Moire | Jannis_V | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/52336371@N07/26386494930) |
-| Jacinto | P.Lameiro | CC BY-SA 3.0 | [fonte](https://commons.wikimedia.org/wiki/File:Vaca_cachena_Coles.jpg) |
-| Kobegal | Rui Ornelas | CC BY 2.0 | [fonte](https://www.flickr.com/photos/37777824@N00/285070273) |
-| Hereford irlandese | Just a Prairie Boy | CC BY 2.0 | [fonte](https://www.flickr.com/photos/89679291@N00/3645071936) |
-| Manzo scozzese | auspices | CC BY 2.0 | [fonte](https://www.flickr.com/photos/26432632@N08/10871219366) |
-| Frisona Italiana | UpSticksNGo | CC BY 2.0 | [fonte](https://www.flickr.com/photos/124476447@N02/20901799515) |
-| Suino italiano | David Masters | CC BY 2.0 | [fonte](https://www.flickr.com/photos/25652278@N03/2700385171) |
-| Grill Steakhouse | USDAgov | CC BY 2.0 | [fonte](https://www.flickr.com/photos/41284017@N08/8433750040) |
-| Manzo argentino | Wiki Chaves | CC BY 2.0 | [fonte](https://www.flickr.com/photos/77806245@N00/411679119) |
-| Vitello olandese | zayzayem | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/36061217@N04/5282795070) |
-| Agnello | A Roger Davies | CC BY 2.0 | [fonte](https://www.flickr.com/photos/33777459@N07/4670542941) |
+| Manzetta Slava | stu_spivack | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/35034346243@N01/315486127) |
+| Angus Iberico | ccnull.de Bilddatenbank | CC BY 2.0 | [fonte](https://www.flickr.com/photos/115225894@N07/53655649994) |
+| Wadï Wagyu | avlxyz | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/10559879@N00/4734585163) |
+| Cachena | fortes | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/44124371264@N01/2941165667) |
+| Umami Olive Fed Wagyu | roland | CC BY 2.0 | [fonte](https://www.flickr.com/photos/35034347371@N01/2457565643) |
+| Mooi Mooi | fridaycafe | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/29298007@N00/239415961) |
+| Celtic Legend | debbietingzon | CC BY 2.0 | [fonte](https://www.flickr.com/photos/32031278@N03/34480385451) |
+| Swami Wagyu | C John Thompson | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/71266843@N03/6650434889) |
+| Black Angus USA | ccnull.de Bilddatenbank | CC BY 2.0 | [fonte](https://www.flickr.com/photos/115225894@N07/53504502845) |
+| Wakan Wagyu | agcaddesigns.com Architectural Renderings | CC BY 2.0 | [fonte](https://www.flickr.com/photos/50516423@N03/26269780187) |
+| Angus Australiano | ccnull.de Bilddatenbank | CC BY 2.0 | [fonte](https://www.flickr.com/photos/115225894@N07/53504503200) |
+| Black Tasman | tookthescenicroute | CC BY 2.0 | [fonte](https://www.flickr.com/photos/51035646419@N01/391648530) |
+| UMI | jlastras | CC BY 2.0 | [fonte](https://www.flickr.com/photos/22662305@N04/3476354151) |
+| Arita Wagyu | loustejskal.com | CC BY 2.0 | [fonte](https://www.flickr.com/photos/63311602@N08/41529486025) |
+| Black Buffalo | firsttubedotcom | CC BY 2.0 | [fonte](https://www.flickr.com/photos/14507113@N04/2561665090) |
+| Suino Nero Casertano | Oishi Kuranosuke | CC BY 2.0 | [fonte](https://www.flickr.com/photos/34349999@N00/47106224) |
+| Angus de la Finca | goodiesfirst | CC BY 2.0 | [fonte](https://www.flickr.com/photos/49215102@N00/9406298072) |
+| Pezzata Rossa | InfoMofo | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/40689227@N00/29011721760) |
+| Swami Beef | adactio | CC BY 2.0 | [fonte](https://www.flickr.com/photos/74105777@N00/6861698773) |
+| Le Moire | thepinkpeppercorn | CC BY 2.0 | [fonte](https://www.flickr.com/photos/33904751@N04/5171006652) |
+| Kobegal | Bo&Ko | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/78419861@N00/8524840959) |
+| Hereford irlandese | Chun's Pictures | CC BY 2.0 | [fonte](https://www.flickr.com/photos/23203692@N03/12003757485) |
+| Manzo scozzese | Steve A Johnson | CC BY 2.0 | [fonte](https://www.flickr.com/photos/14529257@N03/4667971258) |
+| Suino italiano | StuartWebster | CC BY 2.0 | [fonte](https://www.flickr.com/photos/34883952@N02/5829527553) |
+| Grill Steakhouse | L.A. Foodie | CC BY 2.0 | [fonte](https://www.flickr.com/photos/67839741@N06/12786405153) |
+| Manzo argentino | Claudia_midori | CC BY 2.0 | [fonte](https://www.flickr.com/photos/8220615@N05/3357745833) |
+| Vitello olandese | stu_spivack | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/35034346243@N01/2574517512) |
+| Agnello | StuartWebster | CC BY 2.0 | [fonte](https://www.flickr.com/photos/34883952@N02/4853535661) |
 
 ## 🕒 Orari
 

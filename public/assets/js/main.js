@@ -286,7 +286,7 @@
     filtri.innerHTML = '<button type="button" data-filtro="banco" aria-pressed="true"><span class="punto-vivo"></span> Viste al banco</button>' +
       conRazze.map(function (p) { return '<button type="button" data-filtro="' + p.id + '" aria-pressed="false">' + testo(p.nome) + '</button>'; }).join('');
     var scheda = function (r) {
-      var alt = r.banco ? r.nome + ' al banco del Macellaio' : r.nome + ' (foto indicativa della razza)';
+      var alt = r.banco ? r.nome + ' al banco del Macellaio' : r.nome + ': taglio di carne (foto indicativa)';
       var credito = r.credito
         ? '<figcaption class="razza-credito"><a href="' + testo(r.credito.pagina) + '" target="_blank" rel="noopener">' + testo(r.credito.autore) + ' · ' + testo(r.credito.licenza) + '</a></figcaption>'
         : '';

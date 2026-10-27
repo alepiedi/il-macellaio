@@ -2,7 +2,7 @@
 // Il Worker (worker/index.js) rimanda http e www a https://ilmacellaiobn.it e aggiunge header di sicurezza e cache.
 // run_worker_first: ogni richiesta passa dal Worker (serve per redirect e header; per un sito piccolo è nei limiti del piano gratis).
 {
-  "name": "il-macellaio-benevento",
+  "name": "il-macellaio",
   "main": "worker/index.js",
   "compatibility_date": "2026-09-01",
   // Dominio comprato su Aruba, con i DNS spostati su Cloudflare: si collega da solo a ogni pubblicazione.

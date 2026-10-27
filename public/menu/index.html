@@ -10,11 +10,23 @@
   <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Il Macellaio">
   <meta property="og:title" content="Il menu · Il Macellaio Benevento">
   <meta property="og:description" content="Antipasti, panini, piatti di carne e arrosti frollati fino a 120 giorni.">
   <link rel="canonical" href="https://ilmacellaiobn.it/menu/">
   <meta property="og:url" content="https://ilmacellaiobn.it/menu/">
   <meta property="og:image" content="https://ilmacellaiobn.it/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Il menu · Il Macellaio Benevento">
+  <meta name="twitter:description" content="Antipasti, panini, piatti di carne e arrosti frollati fino a 120 giorni.">
+  <meta name="twitter:image" content="https://ilmacellaiobn.it/assets/img/og-image.jpg">
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Il Macellaio", "item": "https://ilmacellaiobn.it/" },
+    { "@type": "ListItem", "position": 2, "name": "Menu", "item": "https://ilmacellaiobn.it/menu/" } ] }
+  </script>
   <link rel="preload" href="../assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/style.css">
@@ -38,7 +50,7 @@
   </header>
 
   <section class="carta-apertura" aria-labelledby="carta-titolo">
-    <img class="carta-apertura-foto" src="../assets/img/foto/bistecche-fiamme-brace.jpg" alt="" fetchpriority="high">
+    <img class="carta-apertura-foto" src="../assets/img/foto/bistecche-fiamme-brace.jpg" alt="" width="831" height="1100" fetchpriority="high">
     <div class="carta-braci" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <p class="carta-sopra">Macelleria &amp; Braceria · Benevento</p>
     <h1 id="carta-titolo">Il <em>menu</em></h1>
@@ -65,14 +77,14 @@
     </div>
     <img class="carta-piede-logo" src="../assets/img/logo-scuro.svg" alt="" width="3000" height="906" loading="lazy">
     <p class="carta-stato"><span class="stato-ora" data-stato hidden></span></p>
-    <p class="carta-indirizzo" data-indirizzo>Via Napoli, 149 · 82100 Benevento</p>
+    <p class="carta-indirizzo" data-indirizzo>Via Napoli 149 · 82100 Benevento</p>
     <p class="carta-sito"><a href="../">Scopri il nostro rito: tre cotture e il burro affumicato →</a></p>
   </footer>
 
-  <script src="../assets/js/config.js"></script>
-  <script src="../assets/js/menu.js"></script>
-  <script src="../assets/js/orari.js"></script>
-  <script src="../assets/js/carni.js"></script>
-  <script src="../assets/js/carta.js"></script>
+  <script defer src="../assets/js/config.js"></script>
+  <script defer src="../assets/js/menu.js"></script>
+  <script defer src="../assets/js/orari.js"></script>
+  <script defer src="../assets/js/carni.js"></script>
+  <script defer src="../assets/js/carta.js"></script>
 </body>
 </html>

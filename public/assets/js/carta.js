@@ -6,7 +6,7 @@
   var prezzo = window.prezzoMenu;
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
-  function testo(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+  function testo(t) { return (t == null ? '' : String(t)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 
   /* ---------- Il menu ---------- */
   var giorniMax = 0;
@@ -131,7 +131,7 @@
   $('[data-motto]').textContent = INFO.motto || '';
   var tel = (C.telefono || '').replace(/[^\d+]/g, '');
   if (tel) $$('[data-telefono]').forEach(function (a) { a.href = 'tel:' + tel; a.hidden = false; });
-  if (C.whatsapp) $$('[data-whatsapp]').forEach(function (a) { a.href = 'https://wa.me/' + C.whatsapp; a.hidden = false; });
+  if (C.whatsapp) $$('[data-whatsapp]').forEach(function (a) { a.href = 'https://wa.me/' + C.whatsapp + (C.whatsappTesto ? '?text=' + encodeURIComponent(C.whatsappTesto) : ''); a.hidden = false; });
   if (S.social && S.social.instagram) $$('[data-instagram]').forEach(function (a) { a.href = S.social.instagram; a.hidden = false; });
   var statoOra = window.Orari && window.Orari.stato();
   if (statoOra) $$('[data-stato]').forEach(function (el) {

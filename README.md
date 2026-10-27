@@ -18,7 +18,7 @@ Testi brevi apposta: chi visita non legge, guarda. Una frase per sezione, il res
 | 05 | **Le carni** | "Dal mondo, al banco": mappa a puntini con le rotte fino a Benevento (zoom Mondo/Europa) e schede brevi delle razze. Dati in `carni.js`, mappa in `mappa.js` |
 | 06 | **Menu** | Invito alla pagina del menu |
 | – | **Galleria** | "Dal banco al piatto": foto e video da Instagram |
-| 07 | **Macelleria** | La carne da portare a casa, con la foto dello staff |
+| 07 | **Macelleria** | La carne da portare a casa, con le foto di Milad con i calciatori del Benevento e con Jey Lillo |
 | 08 | **Prenota** | Modulo che apre WhatsApp con la prenotazione già scritta: nessun dato passa dal sito |
 | 09 | **Dove** | Indirizzo, orari della settimana, indicazioni, chiamata |
 
@@ -32,7 +32,7 @@ Presi dal profilo Instagram del locale (elenco e link dei post in `media/instagr
 
 ### Foto delle razze
 
-Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 24 razze della pagina "Le nostre razze". Le razze viste al banco (Rubia Gallega, Simmental, Charolaise), "Scottona e Marchigiana" e alcune altre schede usano foto del locale. Le altre sono **foto indicative di tagli e arrosti** (niente animali al pascolo) con licenza libera (Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
+Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 23 razze della pagina "Le nostre razze". Le razze viste al banco (Rubia Gallega, Simmental, Mooi Mooi), "Scottona e Marchigiana" e alcune altre schede usano foto del locale. Le altre sono **foto indicative di tagli e arrosti** (niente animali al pascolo) con licenza libera (Flickr tramite Openverse), in `public/assets/img/carni/` (800 × 600). Il credito (autore, licenza, link) compare sopra ogni foto ed è obbligatorio: se si cambia una foto, va aggiornato `credito` in `carni.js`.
 
 | Razza | Autore | Licenza | Fonte |
 |---|---|---|---|
@@ -41,7 +41,6 @@ Ci sono tutte le selezioni del catalogo MFC 2025 (37 schede) e, in fondo, le 24 
 | Wadï Wagyu | avlxyz | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/10559879@N00/4734585163) |
 | Cachena | fortes | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/44124371264@N01/2941165667) |
 | Umami Olive Fed Wagyu | roland | CC BY 2.0 | [fonte](https://www.flickr.com/photos/35034347371@N01/2457565643) |
-| Mooi Mooi | fridaycafe | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/29298007@N00/239415961) |
 | Celtic Legend | debbietingzon | CC BY 2.0 | [fonte](https://www.flickr.com/photos/32031278@N03/34480385451) |
 | Swami Wagyu | C John Thompson | CC BY-SA 2.0 | [fonte](https://www.flickr.com/photos/71266843@N03/6650434889) |
 | Black Angus USA | ccnull.de Bilddatenbank | CC BY 2.0 | [fonte](https://www.flickr.com/photos/115225894@N07/53504502845) |

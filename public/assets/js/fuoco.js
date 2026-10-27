@@ -7,6 +7,7 @@
 
   var fermo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var telefono = window.matchMedia('(max-width: 720px)').matches;
+  var pausa = false, aggiornaTutti = [];
 
   // Fa girare disegna(t) solo mentre l'elemento è visibile e la scheda è aperta.
   function ciclo(el, disegna) {
@@ -17,13 +18,14 @@
     }
     function aggiorna() {
       cancelAnimationFrame(id);
-      if (visibile && !document.hidden && !fermo) id = requestAnimationFrame(passo);
+      if (visibile && !document.hidden && !fermo && !pausa) id = requestAnimationFrame(passo);
     }
     new IntersectionObserver(function (voci) {
       visibile = voci[0].isIntersecting;
       aggiorna();
     }, { rootMargin: '100px' }).observe(el);
     document.addEventListener('visibilitychange', aggiorna);
+    aggiornaTutti.push(aggiorna);
     disegna(fermo ? 2.5 : 0);
   }
 
@@ -266,5 +268,7 @@
     });
   }
 
-  window.Fuoco = { hero: hero, scintille: scintille, braci: braci, fumo: fumo, fermo: fermo, telefono: telefono };
+  // Pausa scelta dal visitatore: ferma o riavvia tutti i cicli di disegno (canvas).
+  function impostaPausa(p) { pausa = !!p; aggiornaTutti.forEach(function (a) { a(); }); }
+  window.Fuoco = { impostaPausa: impostaPausa, inPausa: function () { return pausa; }, hero: hero, scintille: scintille, braci: braci, fumo: fumo, fermo: fermo, telefono: telefono };
 })();

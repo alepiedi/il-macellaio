@@ -3,6 +3,7 @@
  * sceglie a rotazione, secondo la disponibilità. Testi riscritti dal catalogo MFC 2025.
  *
  * paesi: dove stanno sulla mappa (lon, lat). razze: paese, nome, testo, segni (etichette brevi).
+ * riquadro/posizione (facoltativi): per le foto verticali, rapporto e punto di taglio nella scheda (di default 4 / 3, centro).
  * banco: true = vista di recente al banco (foto del locale). Le altre foto mostrano tagli e arrosti indicativi,
  * con licenza libera (Flickr via Openverse): credito obbligatorio in `credito`.
  */
@@ -36,12 +37,10 @@ window.CARNI = {
   ],
 
   razze: [
-    { paese: 'spagna', nome: 'Rubia Gallega', banco: true, foto: 'assets/img/foto/rubia-gallega-banco.jpg', segni: ['Autoctona', 'Grasso dorato'],
+    { paese: 'spagna', nome: 'Rubia Gallega', banco: true, foto: 'assets/img/foto/rubia-gallega-banco.jpg', riquadro: '4 / 3', posizione: '50% 0%', segni: ['Autoctona', 'Grasso dorato'],
       testo: 'La bionda di Galizia: grasso dorato, sapore intenso.' },
     { paese: 'germania', nome: 'Simmental Bavarese', banco: true, foto: 'assets/img/foto/costate-simmental-frollate.jpg', segni: ['Marezzatura 5–10', 'Lunghe frollature'],
       testo: 'Dalla Baviera, nutrita a mais. Nata per le frollature lunghe.' },
-    { paese: 'francia', nome: 'Charolaise', banco: true, foto: 'assets/img/foto/costate-charolaise-banco.jpg', segni: ['Razza francese', 'Filiera'],
-      testo: 'Grande razza francese: carne piena e tenera.' },
     { paese: 'danimarca', nome: 'Danese Rossa', foto: 'assets/img/foto/costata-appesa-sala-griglia.jpg', segni: ['Grasso rossastro', 'Da braceria'],
       testo: 'Grasso rossastro e gusto deciso. Da grigliata.' },
     { paese: 'polonia', nome: 'Frisona Baltica', foto: 'assets/img/foto/fette-costata-marezzata.jpg', segni: ['Clima freddo', 'Sapore selvaggio'],
@@ -58,8 +57,8 @@ window.CARNI = {
       testo: 'La vacca più piccola del mondo. Rara.' },
     { paese: 'olanda', nome: 'Umami Olive Fed Wagyu', foto: 'assets/img/carni/umami-olive-fed-wagyu.jpg', credito: { autore: 'roland', licenza: 'CC BY 2.0', pagina: 'https://www.flickr.com/photos/35034347371@N01/2457565643' }, segni: ['Wagyu', 'Nutrito a olive'],
       testo: 'Wagyu olandese nutrito con olive greche.' },
-    { paese: 'olanda', nome: 'Mooi Mooi', foto: 'assets/img/carni/mooi-mooi.jpg', credito: { autore: 'fridaycafe', licenza: 'CC BY-SA 2.0', pagina: 'https://www.flickr.com/photos/29298007@N00/239415961' }, segni: ['Frisona olandese', 'Semilibertà'],
-      testo: 'Frisona olandese in semilibertà: succosa e tenera.' },
+    { paese: 'olanda', nome: 'Mooi Mooi', banco: true, foto: 'assets/img/foto/mooi-mooi-beef-banco.jpg', riquadro: '1 / 1', posizione: '50% 25%', segni: ['Frisona olandese', 'A cereali'],
+      testo: 'Holstein-Frisona olandese nutrita a cereali: succosa e tenera.' },
     { paese: 'irlanda', nome: 'Celtic Legend', foto: 'assets/img/carni/celtic-legend.jpg', credito: { autore: 'debbietingzon', licenza: 'CC BY 2.0', pagina: 'https://www.flickr.com/photos/32031278@N03/34480385451' }, segni: ['Black Angus', 'Marezzatura 7+'],
       testo: 'Black Angus irlandese, marezzatura 7+.' },
     { paese: 'svezia', nome: 'Swami Wagyu', foto: 'assets/img/carni/swami-wagyu.jpg', credito: { autore: 'C John Thompson', licenza: 'CC BY-SA 2.0', pagina: 'https://www.flickr.com/photos/71266843@N03/6650434889' }, segni: ['Wagyu Tajima', 'Grass-fed'],
@@ -113,7 +112,7 @@ window.CARNI = {
   ],
 
   // Tutte le razze del catalogo MFC ("Le nostre razze"): compaiono in fondo alla sezione.
-  tutteLeRazze: ['Charolaise', 'Pezzata Rossa', 'Simmental', 'Frisona', 'Black Angus', 'Wagyu', 'Chianina', 'Romagnola',
+  tutteLeRazze: ['Pezzata Rossa', 'Simmental', 'Frisona', 'Black Angus', 'Wagyu', 'Chianina', 'Romagnola',
     'Marchigiana', 'Zebù', 'Maronesa', 'Cachena', 'Blonde d\'Aquitaine', 'Aubrac', 'Limousine', 'Rubia', 'Minhota',
     'Hereford', 'Danese Rossa', 'Normanna', 'Highland', 'Shorthorn', 'Grigia Alpina', 'Podolica'],
 };

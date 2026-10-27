@@ -8,7 +8,7 @@ window.SITO = {
   titolare: 'Milad',
 
   indirizzo: {
-    via: 'Via Napoli, 149',
+    via: 'Via Napoli 149',
     cap: '82100',
     citta: 'Benevento',
     // Link "Indicazioni": va bene anche quello copiato dalla scheda Google del locale.
@@ -19,6 +19,8 @@ window.SITO = {
     telefono: '+39 340 829 0489',
     // Solo cifre, con il prefisso 39: serve per aprire WhatsApp con la prenotazione già scritta.
     whatsapp: '393408290489',
+    // Testo già scritto nel messaggio WhatsApp (pulsanti "WhatsApp" e pulsante fisso). Nessun dato passa dal sito.
+    whatsappTesto: 'Ciao Milad! Vorrei prenotare un tavolo al Macellaio.',
     email: '',
   },
 

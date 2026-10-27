@@ -5,17 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Il Macellaio · Macelleria e Braceria a Benevento</title>
   <meta name="description" content="Il Macellaio, Benevento: nato come macelleria, oggi braceria. Carni mondiali certificate. Scegli il taglio al banco e lo vedi cuocere davanti a te: brace, affumicatura dal vivo e pietra lavica, con il burro affumicato. Via Napoli 149.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0c0a09">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <meta property="og:type" content="restaurant">
   <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Il Macellaio">
   <meta property="og:title" content="Il Macellaio · Benevento">
   <meta property="og:description" content="La carne, davanti a te. Tre cotture e il burro affumicato. Via Napoli 149, Benevento.">
   <link rel="canonical" href="https://ilmacellaiobn.it/">
   <meta property="og:url" content="https://ilmacellaiobn.it/">
   <meta property="og:image" content="https://ilmacellaiobn.it/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Il Macellaio, Benevento: carne alla brace">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Il Macellaio · Macelleria e Braceria a Benevento">
+  <meta name="twitter:description" content="La carne, davanti a te. Tre cotture e il burro affumicato. Via Napoli 149, Benevento.">
+  <meta name="twitter:image" content="https://ilmacellaiobn.it/assets/img/og-image.jpg">
   <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
@@ -24,6 +32,7 @@
   {
     "@context": "https://schema.org",
     "@type": ["Restaurant", "ButcherShop"],
+    "@id": "https://ilmacellaiobn.it/#locale",
     "name": "Il Macellaio",
     "description": "Macelleria e braceria: carne frollata cotta davanti al cliente sulla brace, con l'affumicatura dal vivo e sulla pietra lavica.",
     "servesCuisine": ["Carne alla brace", "Steakhouse"],
@@ -33,12 +42,16 @@
     "telephone": "+39 340 829 0489",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Via Napoli, 149",
+      "streetAddress": "Via Napoli 149",
       "postalCode": "82100",
       "addressLocality": "Benevento",
       "addressRegion": "BN",
       "addressCountry": "IT"
     },
+    "sameAs": [
+      "https://www.instagram.com/ilmacellaiobenevento/",
+      "https://www.facebook.com/profile.php?id=100069883992315"
+    ],
     "acceptsReservations": true,
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Wednesday", "Friday"], "opens": "08:30", "closes": "13:00" },
@@ -84,6 +97,10 @@
       <a href="#dove">Dove</a>
     </nav>
     <a class="btn btn-brace testata-cta" href="#prenota">Prenota</a>
+    <button class="pausa-animazioni" id="pausa-animazioni" type="button" aria-pressed="false" aria-label="Metti in pausa le animazioni" hidden>
+      <svg class="ic-pausa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10-6.5a1 1 0 0 0 0-1.8l-10-6.5A1 1 0 0 0 8 5.5Z"/></svg>
+    </button>
     <button class="hamburger" id="hamburger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu-nav"><span></span><span></span></button>
   </header>
 
@@ -125,7 +142,7 @@
       <canvas class="hero-scintille" id="hero-scintille" aria-hidden="true"></canvas>
       <div class="hero-velo" aria-hidden="true"></div>
       <figure class="hero-video" aria-hidden="true">
-        <video data-video src="assets/video/brace.mp4" poster="assets/video/brace.jpg" muted loop playsinline preload="auto"></video>
+        <video data-video src="assets/video/brace.mp4" poster="assets/video/brace.jpg" muted loop playsinline preload="metadata"></video>
         <figcaption>La brace del Macellaio</figcaption>
       </figure>
 
@@ -207,7 +224,7 @@
         <p class="numero-sezione rivela">03 — Le cotture</p>
         <h2 class="titolo-grande rivela" id="cotture-titolo">Tre fuochi.</h2>
         <div class="cotture-griglia">
-          <article class="cottura cottura-brace rivela" tabindex="0">
+          <article class="cottura cottura-brace rivela" tabindex="0" role="group" aria-label="Brace">
             <div class="cottura-visivo" aria-hidden="true">
               <canvas class="braci" data-braci></canvas>
             </div>
@@ -218,7 +235,7 @@
             </div>
           </article>
 
-          <article class="cottura cottura-fumo rivela" tabindex="0">
+          <article class="cottura cottura-fumo rivela" tabindex="0" role="group" aria-label="Affumicatura dal vivo">
             <div class="cottura-visivo" aria-hidden="true">
               <canvas class="fumo-tela" data-fumo="grigio"></canvas>
               <svg class="campana" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax meet">
@@ -235,7 +252,7 @@
             </div>
           </article>
 
-          <article class="cottura cottura-pietra rivela" tabindex="0">
+          <article class="cottura cottura-pietra rivela" tabindex="0" role="group" aria-label="Pietra lavica">
             <div class="cottura-visivo" aria-hidden="true">
               <svg class="pietra" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
                 <defs>
@@ -302,7 +319,7 @@
       </div>
     </section>
 
-    <!-- ============ 07 LE CARNI ============ -->
+    <!-- ============ 05 LE CARNI ============ -->
     <section class="sezione carni" id="carni" aria-labelledby="carni-titolo">
       <div class="contenitore">
         <p class="numero-sezione rivela">05 — Le carni</p>
@@ -366,7 +383,7 @@
       </div>
     </section>
 
-    <!-- ============ 08 MACELLERIA ============ -->
+    <!-- ============ 07 MACELLERIA ============ -->
     <section class="sezione bottega" id="bottega" aria-labelledby="bottega-titolo">
       <div class="contenitore bottega-griglia">
         <div>
@@ -374,14 +391,20 @@
           <h2 class="titolo-grande rivela" id="bottega-titolo">E se vuoi,<br><em>la porti a casa.</em></h2>
           <p class="frase rivela">Gli stessi tagli della brace, pronti per la tua griglia. Anche su ordinazione.</p>
         </div>
-        <figure class="bottega-foto rivela">
-          <img src="assets/img/foto/staff-banco-macelleria.jpg" alt="Lo staff del Macellaio dietro il banco della macelleria" width="1200" height="1600" loading="lazy">
-          <figcaption>Lo staff, dietro il banco</figcaption>
-        </figure>
+        <div class="bottega-foto-coppia rivela">
+          <figure class="bottega-foto">
+            <img src="assets/img/foto/calciatori-benevento-macellaio.jpg" alt="Milad, con il grembiule, davanti all'insegna della macelleria insieme a tre calciatori del Benevento; uno di loro tiene in mano il coltello" width="900" height="1200" loading="lazy">
+            <figcaption>I calciatori del Benevento in macelleria</figcaption>
+          </figure>
+          <figure class="bottega-foto">
+            <img src="assets/img/foto/jey-lillo-macellaio.jpg" alt="Jey Lillo, tiktoker, in posa con Milad davanti alla vetrina della macelleria, di sera" width="900" height="1200" loading="lazy">
+            <figcaption>Jey Lillo, da noi</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- ============ 09 PRENOTA ============ -->
+    <!-- ============ 08 PRENOTA ============ -->
     <section class="sezione prenota" id="prenota" aria-labelledby="prenota-titolo">
       <div class="prenota-bagliore" aria-hidden="true"></div>
       <div class="contenitore prenota-griglia">
@@ -431,7 +454,7 @@
       </div>
     </section>
 
-    <!-- ============ 10 DOVE ============ -->
+    <!-- ============ 09 DOVE ============ -->
     <section class="sezione dove" id="dove" aria-labelledby="dove-titolo">
       <div class="contenitore dove-griglia">
         <div class="dove-mappa rivela" aria-hidden="true">
@@ -453,8 +476,8 @@
         </div>
         <div class="dove-testo">
           <p class="numero-sezione rivela">09 — Dove siamo</p>
-          <h2 class="titolo-grande rivela" id="dove-titolo">Via Napoli,<br><em>149.</em></h2>
-          <p class="dove-indirizzo rivela" data-indirizzo>Via Napoli, 149 · 82100 Benevento</p>
+          <h2 class="titolo-grande rivela" id="dove-titolo">Via Napoli <br><em>149.</em></h2>
+          <p class="dove-indirizzo rivela" data-indirizzo>Via Napoli 149 · 82100 Benevento</p>
           <div class="orari rivela" id="orari" hidden>
             <h3>Orari <span class="stato-ora" data-stato hidden></span></h3>
             <dl id="orari-elenco"></dl>
@@ -477,7 +500,7 @@
       <div class="piede-griglia">
         <div>
           <p><b>Il Macellaio</b> · Macelleria &amp; Braceria</p>
-          <p data-indirizzo>Via Napoli, 149 · 82100 Benevento</p>
+          <p data-indirizzo>Via Napoli 149 · 82100 Benevento</p>
           <p data-piva hidden></p>
         </div>
         <div class="piede-social" id="piede-social"></div>
@@ -494,13 +517,16 @@
     <button type="button" aria-label="Chiudi l'avviso di anteprima">×</button>
   </aside>
 
-  <a class="prenota-flottante" href="#prenota" id="prenota-flottante" aria-label="Prenota un tavolo">Prenota</a>
+  <a class="prenota-flottante" id="prenota-flottante" data-whatsapp-fisso target="_blank" rel="noopener" aria-label="Prenota su WhatsApp con Milad" hidden>
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5Zm5.5 13.3c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.5.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.8-.1 1.5Z"/></svg>
+    <span>Prenota</span>
+  </a>
 
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/orari.js"></script>
-  <script src="assets/js/carni.js"></script>
-  <script src="assets/js/mappa.js"></script>
-  <script src="assets/js/fuoco.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script defer src="assets/js/config.js"></script>
+  <script defer src="assets/js/orari.js"></script>
+  <script defer src="assets/js/carni.js"></script>
+  <script defer src="assets/js/mappa.js"></script>
+  <script defer src="assets/js/fuoco.js"></script>
+  <script defer src="assets/js/main.js"></script>
 </body>
 </html>

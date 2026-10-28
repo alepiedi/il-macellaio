@@ -618,7 +618,8 @@ html.animazioni-ferme *, html.animazioni-ferme *::before, html.animazioni-ferme 
 .bottega-foto { margin: 0; min-width: 0; }
 /* Le foto della macelleria si vedono sempre intere: niente ritagli, su ogni schermo. */
 .bottega-foto img { width: 100%; height: auto; border-radius: 20px; display: block; box-shadow: 0 40px 100px -40px rgba(255, 106, 43, .45); }
-@media (max-width: 860px) { .bottega-foto-coppia { justify-self: stretch; max-width: none; } }
+.bottega-foto-banco { grid-column: 1 / -1; width: 60%; justify-self: center; }
+@media (max-width: 860px) { .bottega-foto-coppia { justify-self: stretch; max-width: none; } .bottega-foto-banco { width: 80%; } }
 .bottega-foto figcaption { margin-top: 12px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--osso-3); font-weight: 600; }
 
 /* ---------- Galleria ---------- */

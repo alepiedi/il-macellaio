@@ -78,6 +78,16 @@ In `config.js` (`orari`), giorno per giorno con le fasce. Il sito li mostra nell
 
 Se il menu cambia indirizzo, il QR va rigenerato e ristampato: `/menu/` non va mai spostato.
 
+### Targa 3D da tavolo (`stampa/qr-3d/`)
+
+Targa da stampare in 3D con lo stesso QR (punta a `https://ilmacellaiobn.it/menu/`), il logo e "Inquadra il codice e sfoglia il nostro menu". Targa 90 × 136 × 3 mm, rilievi da 0,6 mm, supporto inclinato di 12° stampato a parte.
+
+- `targa-qr-menu.3mf`: da aprire in Bambu Studio / OrcaSlicer / PrusaSlicer. La targa è un oggetto in 4 parti (targa, qr, logo, testo): si assegna un filamento a ogni parte (es. crema per la targa, nero per QR e testo, rosso per il logo). Il supporto è un oggetto a sé.
+- `targa.stl`, `qr.stl`, `logo.stl`, `testo.stl`, `supporto.stl`: le stesse parti separate.
+- Con una stampante a un solo colore: stampare la targa intera e cambiare filamento a quota 3,0 mm (pausa al layer), così QR, logo e testi escono neri.
+- Stampa consigliata: layer 0,2 mm, targa distesa faccia in su, nessun supporto. Prima di stampare tutte le copie, provare che il QR si legga dal telefono.
+- `targa-qr-menu.scad`: il modello parametrico (OpenSCAD) da cui escono gli STL: misure, testi, inclinazione e fessura si cambiano in cima al file. Il QR sta in `qr-dati.scad`, rigenerabile con `python3 genera.py [url]`; `crea-3mf.py` rifà il 3MF. Font: Manrope del sito (`manrope-tavolo.ttf`, licenza OFL).
+
 ## 📋 Pagina del menu (`/menu/`)
 
 La pagina da aprire con il QR code sui tavoli: leggera (niente WebGL), pensata per il telefono. Schede delle sezioni che restano in alto, contorni a scelta, la frollatura da 30 a 120 giorni con le barre che si riempiono, avviso per gli allergeni, pulsanti per chiamare, WhatsApp e prenotare. Il pulsante "Aa" ingrandisce il testo (se lo ricorda il telefono). Si stampa anche pulita, su fondo bianco.

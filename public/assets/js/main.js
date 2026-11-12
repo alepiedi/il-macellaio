@@ -8,7 +8,7 @@
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
-  function testo(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : String(t); return d.innerHTML; }
+  function testo(t) { return (t == null ? '' : String(t)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 
   /* ---------- Dati da config.js ---------- */
   var tel = (C.telefono || '').replace(/[^\d+]/g, '');
@@ -20,7 +20,7 @@
   $$('[data-telefono-testo]').forEach(function (el) { el.textContent = C.telefono || ''; });
   $$('[data-whatsapp]').forEach(function (a) {
     if (!C.whatsapp) return;
-    a.href = 'https://wa.me/' + C.whatsapp;
+    a.href = 'https://wa.me/' + C.whatsapp + (C.whatsappTesto ? '?text=' + encodeURIComponent(C.whatsappTesto) : '');
     a.hidden = false;
   });
   if (S.indirizzo) {
@@ -98,11 +98,57 @@
   function suScroll() {
     var y = window.scrollY;
     testata.classList.toggle('scorsa', y > 40);
-    var prenota = $('#prenota').getBoundingClientRect();
-    flottante.classList.toggle('visibile', y > window.innerHeight * .8 && prenota.top > window.innerHeight);
   }
   window.addEventListener('scroll', suScroll, { passive: true });
   suScroll();
+
+  /* ---------- Pulsante fisso "Prenota": scrive a Milad su WhatsApp ---------- */
+  // Si nasconde scorrendo giù, nelle sezioni Prenota e Dove e nel piede; riappare scorrendo su o fermandosi.
+  if (flottante) {
+    if (!C.whatsapp) flottante.remove();
+    else {
+      flottante.href = 'https://wa.me/' + C.whatsapp + (C.whatsappTesto ? '?text=' + encodeURIComponent(C.whatsappTesto) : '');
+      flottante.hidden = false;
+      var ultimoY = window.scrollY, fermoTimer = 0, scendendo = false;
+      var zoneSenza = $$('#prenota, #dove, .piede');
+      var inZonaSenza = function () {
+        return zoneSenza.some(function (z) { var r = z.getBoundingClientRect(); return r.top < window.innerHeight && r.bottom > 0; });
+      };
+      var aggiornaFlottante = function () {
+        flottante.classList.toggle('visibile', window.scrollY > window.innerHeight * .8 && !scendendo && !inZonaSenza());
+      };
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (Math.abs(y - ultimoY) > 6) { scendendo = y > ultimoY; ultimoY = y; }
+        clearTimeout(fermoTimer);
+        fermoTimer = setTimeout(function () { scendendo = false; aggiornaFlottante(); }, 1200);
+        aggiornaFlottante();
+      }, { passive: true });
+      aggiornaFlottante();
+    }
+  }
+
+  /* ---------- Pausa delle animazioni (scelta ricordata solo per la sessione: sessionStorage, nessun cookie) ---------- */
+  var bottonePausa = $('#pausa-animazioni');
+  if (bottonePausa && !(F && F.fermo)) {
+    var inPausa = false;
+    try { inPausa = sessionStorage.getItem('macellaio-pausa') === '1'; } catch (e) {}
+    var applicaPausa = function (p) {
+      inPausa = p;
+      document.documentElement.classList.toggle('animazioni-ferme', p);
+      bottonePausa.setAttribute('aria-pressed', String(p));
+      if (F && F.impostaPausa) F.impostaPausa(p);
+      $$('video[data-video]').forEach(function (v) {
+        if (p) v.pause();
+        else { var r = v.getBoundingClientRect(); if (r.bottom > 0 && r.top < window.innerHeight) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } }
+      });
+      try { sessionStorage.setItem('macellaio-pausa', p ? '1' : '0'); } catch (e) {}
+    };
+    bottonePausa.hidden = false;
+    bottonePausa.addEventListener('click', function () { applicaPausa(!inPausa); });
+    if (inPausa) applicaPausa(true);
+    window.macellaioInPausa = function () { return inPausa; };
+  }
 
   var hamburger = $('#hamburger');
   function chiudiMenu() { document.body.classList.remove('menu-aperto'); hamburger.setAttribute('aria-expanded', 'false'); hamburger.setAttribute('aria-label', 'Apri il menu'); }
@@ -142,7 +188,7 @@
     var heroVisibile = true, ultimo = 0;
     new IntersectionObserver(function (v) { heroVisibile = v[0].isIntersecting; }).observe($('.hero'));
     (function trema(ora) {
-      if (heroVisibile && ora - ultimo > 50) {
+      if (heroVisibile && !(F.inPausa && F.inPausa()) && ora - ultimo > 50) {
         ultimo = ora;
         var t = ora / 1000;
         rumore.setAttribute('baseFrequency', (0.006 + Math.sin(t * .7) * .0015).toFixed(4) + ' ' + (0.022 + Math.sin(t * 1.3) * .006).toFixed(4));
@@ -174,7 +220,7 @@
         return '<figure class="galleria-video"' + (copia ? ' aria-hidden="true"' : '') + '><video data-video src="' + testo(f.video) + '" poster="' + testo(f.poster || '') + '" muted loop playsinline preload="none"' +
           (copia ? '' : ' aria-label="' + testo(f.alt || '') + '"') + '></video></figure>';
       }
-      return '<img src="' + testo(f.src) + '" ' + alt + ' loading="lazy">';
+      return '<img src="' + testo(f.src) + '" ' + alt + ' width="825" height="1100" loading="lazy" decoding="async">';
     };
     $('#galleria-traccia').innerHTML = foto.map(function (f) { return voce(f); }).join('') + foto.map(function (f) { return voce(f, true); }).join('');
     $('#galleria').hidden = false;
@@ -186,7 +232,7 @@
       var video = v.target;
       if (v.isIntersecting) {
         if (video.preload === 'none') video.preload = 'auto';
-        if (!(F && F.fermo)) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+        if (!(F && F.fermo) && !(window.macellaioInPausa && window.macellaioInPausa())) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
       } else video.pause();
     });
   }, { rootMargin: '120px 0px' });
@@ -291,7 +337,7 @@
         ? '<figcaption class="razza-credito"><a href="' + testo(r.credito.pagina) + '" target="_blank" rel="noopener">' + testo(r.credito.autore) + ' · ' + testo(r.credito.licenza) + '</a></figcaption>'
         : '';
       return '<article class="razza">' +
-        (r.foto ? '<figure class="razza-immagine"><img src="' + testo(r.foto) + '" alt="' + testo(alt) + '" loading="lazy">' + credito + '</figure>' : '') +
+        (r.foto ? '<figure class="razza-immagine"><img src="' + testo(r.foto) + '" alt="' + testo(alt) + '" width="800" height="600" loading="lazy" decoding="async"' + (r.riquadro ? ' style="aspect-ratio:' + testo(r.riquadro) + ';object-position:' + testo(r.posizione || 'center') + '"' : '') + '>' + credito + '</figure>' : '') +
         '<div class="razza-corpo"><p class="razza-paese">' + testo(paesi[r.paese].nome) + (r.banco ? ' · <span>vista al banco</span>' : '') + '</p>' +
         '<h3>' + testo(r.nome) + '</h3><p>' + testo(r.testo) + '</p>' +
         '<ul class="razza-segni">' + r.segni.map(function (x) { return '<li>' + testo(x) + '</li>'; }).join('') + '</ul></div></article>';

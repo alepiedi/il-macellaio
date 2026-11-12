@@ -1,6 +1,6 @@
 # Il Macellaio Benevento – media selezionati da Instagram
 
-## Foto (15)
+## Foto (16)
 
 | File | Descrizione | Post |
 |---|---|---|
@@ -10,10 +10,11 @@
 | tagliere-salumi-formaggi.jpg | Tagliere di salumi, formaggi e pomodorini | https://www.instagram.com/p/DW4qvA5jRnu/ |
 | involtini-pistacchio-piatto.jpg | Involtini con granella di pistacchio su ardesia | https://www.instagram.com/p/DWpNgErjY9A/ |
 | mugliatelli-brace-patate.jpg | Mugliatelli alla brace con patate croccanti | https://www.instagram.com/p/DdL8io7ts8x/ |
-| staff-banco-macelleria.jpg | Lo staff dietro il banco della macelleria | https://www.instagram.com/p/DeVXCewKFLy/ |
+| calciatori-benevento-macellaio.jpg | Milad con i calciatori del Benevento in macelleria (foto fornita dal titolare, non da Instagram) | – |
+| jey-lillo-macellaio.jpg | Jey Lillo con Milad davanti alla macelleria (foto fornita dal titolare) | – |
 | costata-appesa-sala-griglia.jpg | Costata appesa in sala sopra la griglia (locale) | https://www.instagram.com/p/DYT5t-Ft3n4/ |
 | costate-simmental-frollate.jpg | Costate di Simmental bavarese frollata 60 giorni | https://www.instagram.com/p/DV_A01wjVin/ |
-| costate-charolaise-banco.jpg | Costate di Charolaise esposte al banco | https://www.instagram.com/p/DdV3QX5NVUG/ |
+| mooi-mooi-beef-banco.jpg | Taglio di Mooi Mooi Beef (Paesi Bassi, Holstein-Frisona, a cereali) con cartellino (foto fornita dal titolare) | – |
 | rubia-gallega-banco.jpg | Costate di Rubia Gallega al banco con cartello | https://www.instagram.com/p/DdzHGvHtREK/ |
 | fette-costata-marezzata.jpg | Fette di costata marezzata allineate | https://www.instagram.com/p/Ddi13Setmp0/ |
 | costata-dry-aged-primo-piano.jpg | Costata frollata, primo piano della marezzatura | https://www.instagram.com/p/DXHF6Z2je26/ |
